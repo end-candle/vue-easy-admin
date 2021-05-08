@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "baseUrl": "./",
+        "paths": {
+            "@services/*": ["src/services/*"],
+            "@assets/*": ["src/assets/*"],
+            "@images/*": ["src/assets/images/*"],
+            "@stylesheets/*": ["src/assets/stylesheets/*"],
+            "@components/*": ["src/components/*"],
+            "@constants/*": ["src/constants/*"],
+            "@directives/*": ["src/directives/*"],
+            "@filters/*": ["src/filters/*"],
+            "@helpers/*": ["src/helpers/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@mixins/*": ["src/mixins/*"],
+            "@plugins/*": ["src/plugins/*"],
+            "@router/*": ["src/router/*"],
+            "@store/*": ["src/store/*"],
+            "@views/*": ["src/views/*"],
+            "@/*": ["src/*"]
+        }
+    },
+    "exclude": ["node_modules"]
+}
