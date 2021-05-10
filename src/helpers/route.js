@@ -12,5 +12,5 @@ export function normalizeRoutes(routes = []) {
             normalizedRoutes.push(normalizedRoute);
         }
     });
-    return normalizedRoutes.sort((a, b) => a.meta?.sort - (b.meta?.sort ?? 9999));
+    return normalizedRoutes.sort((a, b) => (a.meta?.sort ?? 9998) - (b.meta?.sort ?? 9999));
 }

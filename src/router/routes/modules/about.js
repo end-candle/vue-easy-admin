@@ -1,7 +1,7 @@
 import Dashboard from '@views/Dashboard';
 import { MAIN_LAYOUT } from '@router/routes/basic';
 
-const dashboard = {
+const about = {
     path: '/',
     redirect: '/about',
     component: MAIN_LAYOUT,
@@ -22,4 +22,4 @@ const dashboard = {
     ]
 };
 
-export default dashboard;
+export default about;

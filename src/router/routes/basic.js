@@ -1,4 +1,5 @@
 import Exception from '@views/Exception';
+import Redirect from '@views/Redirect';
 
 /**
  * 空白布局
@@ -23,5 +24,17 @@ export const EXCEPTION_ROUTE = {
     component: Exception,
     meta: {
         title: '404'
+    }
+};
+
+/**
+ * 刷新路由
+ */
+export const REFRESH_ROUTE = {
+    path: '/redirect',
+    name: 'Refresh',
+    component: Redirect,
+    meta: {
+        title: '刷新'
     }
 };

@@ -1,4 +1,4 @@
-import { EXCEPTION_ROUTE } from '@router/routes/basic';
+import { EXCEPTION_ROUTE, REFRESH_ROUTE } from '@router/routes/basic';
 
 export const asyncRoutes = [];
 
@@ -8,6 +8,6 @@ requireContext.keys().forEach((key) => {
     asyncRoutes.push(requireContext(key).default);
 });
 
-const routes = [...asyncRoutes, EXCEPTION_ROUTE];
+const routes = [...asyncRoutes, REFRESH_ROUTE, EXCEPTION_ROUTE];
 
 export default routes;
