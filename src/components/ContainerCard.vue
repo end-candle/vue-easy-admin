@@ -18,6 +18,7 @@ export default {
 <style lang="scss">
 .container-card {
     background-color: $--color-white;
+    border-radius: $--border-radius-base;
     & + & {
         margin-top: $--main-padding;
     }

@@ -53,7 +53,7 @@
                     </el-radio-group>
                 </el-form-item>
                 <el-form-item label="活动形式" prop="desc">
-                    <el-input v-model="ruleForm.desc" type="textarea"></el-input>
+                    <el-input v-model="ruleForm.desc" type="textarea" :rows="5"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
