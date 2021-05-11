@@ -14,7 +14,7 @@ export default {
 .layout-header {
     margin: -$--main-padding;
     margin-bottom: $--main-padding;
-    padding: 16px $--main-padding;
+    padding: 12px $--main-padding 16px;
     background-color: $--color-white;
 }
 </style>

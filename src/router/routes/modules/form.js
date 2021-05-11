@@ -1,4 +1,4 @@
-import FormPage from '@views/FormPage';
+import BasicForm from '@views/form/BasicForm';
 import { MAIN_LAYOUT } from '@router/routes/basic';
 
 const form = {
@@ -6,17 +6,24 @@ const form = {
     redirect: '/form',
     component: MAIN_LAYOUT,
     meta: {
-        hideChildrenInMenu: true,
         title: '表单页',
         icon: 'el-icon-edit-outline'
     },
     children: [
         {
             path: '/form',
-            name: 'Form',
-            component: FormPage,
+            name: 'BasicForm',
+            component: BasicForm,
             meta: {
-                title: '表单页'
+                title: '基础表单'
+            }
+        },
+        {
+            path: '/steps/form',
+            name: 'StepForm',
+            component: BasicForm,
+            meta: {
+                title: '分步表单'
             }
         }
     ]
