@@ -149,3 +149,40 @@ button:focus {
 .w100 {
     width: 100% !important;
 }
+
+// 修改el-menu在vertical折叠模式下样式
+.el-menu.el-menu--popup{
+    padding: 0;
+    background-color: #001529 !important;
+    .el-menu-item {
+        height: 40px;
+        line-height: 40px;
+        margin-bottom: 8px;
+        &:hover {
+            color: $--color-white !important;
+            background-color: transparent !important;
+            i {
+                color: $--color-white !important;
+            }
+        }
+        &.is-active {
+            background-color: $--color-primary !important;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .el-submenu__title {
+        height: 40px;
+        line-height: 40px;
+        margin-bottom: 8px;
+        &:hover {
+            background-color: transparent !important;
+            color: $--color-white !important;
+
+            i {
+                color: $--color-white !important;
+            }
+        }
+    }
+}
