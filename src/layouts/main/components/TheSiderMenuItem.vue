@@ -1,5 +1,5 @@
 <template>
-    <el-submenu v-if="menu.children" :index="menu.path + '__parent'">
+    <el-submenu v-if="menu.children" :index="menu.path + '__parent'" :popper-append-to-body="false">
         <template v-slot:title>
             <i v-if="menu.meta && menu.meta.icon" :class="menu.meta.icon"></i>
             <span>{{ menu.meta && menu.meta.title }}</span>
