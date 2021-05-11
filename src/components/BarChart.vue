@@ -1,5 +1,5 @@
 <template>
-    <div ref="chart" class="pv12"></div>
+    <div ref="chart"></div>
 </template>
 
 <script>

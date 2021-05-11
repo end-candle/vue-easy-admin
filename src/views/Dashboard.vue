@@ -58,7 +58,7 @@
         </el-row>
         <el-row :gutter="24" class="mt24 align-stretch" type="flex">
             <el-col :span="12">
-                <container-card>
+                <container-card body-class="pt12">
                     <the-table></the-table>
                 </container-card>
             </el-col>

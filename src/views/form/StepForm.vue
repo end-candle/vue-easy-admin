@@ -2,18 +2,31 @@
     <div>
         <layout-header>
             <nav-breadcrumb :breadcrumbs="breadcrumbs"></nav-breadcrumb>
-            <typography tag="h1" size="big-title">基础表单</typography>
+            <typography tag="h1" size="big-title">分步表单</typography>
             <typography class="mt12">
-                表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。</typography
+                将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。</typography
             >
         </layout-header>
         <container-card>
+            <div class="step-form__header">
+                <el-steps
+                    :space="200"
+                    :active="1"
+                    process-status="finish"
+                    finish-status="success"
+                    :align-center="true"
+                >
+                    <el-step title="步骤 1"></el-step>
+                    <el-step title="步骤 2"></el-step>
+                    <el-step title="步骤 3"></el-step>
+                </el-steps>
+            </div>
             <el-form
                 ref="ruleForm"
                 :model="ruleForm"
                 :rules="rules"
                 label-width="25%"
-                class="basic-form pv12"
+                class="basic-form mt24"
             >
                 <el-form-item label="活动名称" prop="name">
                     <el-input v-model="ruleForm.name"></el-input>
@@ -71,11 +84,11 @@ import NavBreadcrumb from '@components/NavBreadcrumb';
 import ContainerCard from '@components/ContainerCard';
 
 export default {
-    name: 'BasicForm',
+    name: 'StepForm',
     components: { ContainerCard, NavBreadcrumb, Typography, LayoutHeader },
     data() {
         return {
-            breadcrumbs: [{ path: '/', title: '首页' }, { title: '表单页' }, { title: '基础表单' }],
+            breadcrumbs: [{ path: '/', title: '首页' }, { title: '表单页' }, { title: '分步表单' }],
             ruleForm: {
                 name: '',
                 region: '',
@@ -126,6 +139,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.step-form__header {
+    width: 800px;
+    margin: 0 auto;
+}
 .basic-form {
     &::v-deep {
         .el-form-item__content {

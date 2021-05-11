@@ -3,7 +3,7 @@
         <div v-if="$slots.header" class="container-card__header flex align-center">
             <slot name="header"></slot>
         </div>
-        <div class="container-card__body">
+        <div :class="['container-card__body', bodyClass]">
             <slot></slot>
         </div>
     </div>
@@ -11,7 +11,12 @@
 
 <script>
 export default {
-    name: 'ContainerCard'
+    name: 'ContainerCard',
+    props: {
+        bodyClass: {
+            type: String
+        }
+    }
 };
 </script>
 
@@ -31,6 +36,6 @@ export default {
 }
 
 .container-card__body {
-    padding: 12px $--main-padding;
+    padding: $--main-padding;
 }
 </style>

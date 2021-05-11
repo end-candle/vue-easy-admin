@@ -1,5 +1,6 @@
 import BasicForm from '@views/form/BasicForm';
 import { MAIN_LAYOUT } from '@router/routes/basic';
+import StepForm from '@views/form/StepForm';
 
 const form = {
     path: '/',
@@ -21,7 +22,7 @@ const form = {
         {
             path: '/steps/form',
             name: 'StepForm',
-            component: BasicForm,
+            component: StepForm,
             meta: {
                 title: '分步表单'
             }
