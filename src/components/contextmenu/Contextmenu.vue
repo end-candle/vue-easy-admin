@@ -1,5 +1,5 @@
 <template>
-    <ul v-show="showPopper" class="contextmenu-dropdown-menu el-popper">
+    <ul v-if="showPopper" class="contextmenu-dropdown-menu el-popper" :style="dropdown.position">
         <slot></slot>
     </ul>
 </template>
@@ -10,9 +10,7 @@ export default {
     inject: ['dropdown'],
     data() {
         return {
-            size: this.dropdown.dropdownSize,
-            showPopper: false,
-            referenceElm: {}
+            showPopper: false
         };
     },
     created() {
@@ -24,8 +22,7 @@ export default {
         document.body.removeChild(this.$el);
     },
     mounted() {
-        this.dropdown.popperElm = this.popperElm = this.$el;
-        this.referenceElm = this.dropdown.$el;
+        this.dropdown.popperElm = this.$el;
         // compatible with 2.6 new v-slot syntax
         // issue link https://github.com/ElemeFE/element/issues/14345
         this.dropdown.initDomOperation();

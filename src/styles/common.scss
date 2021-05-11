@@ -4,6 +4,12 @@ html,
 body {
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
         '微软雅黑', Arial, sans-serif;
+    line-height: 1.5715;
+}
+
+::selection {
+    color: $--color-white;
+    background-color: $--color-primary;
 }
 
 button:focus {

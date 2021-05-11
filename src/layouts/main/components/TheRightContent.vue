@@ -2,7 +2,10 @@
     <div class="right-content">
         <el-dropdown>
             <div class="right-content-user flex align-center">
-                <el-avatar icon="el-icon-user-solid" :size="24"></el-avatar>
+                <el-avatar
+                    src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                    :size="24"
+                ></el-avatar>
                 <span class="right-content-user__nick">管理员</span>
             </div>
             <template #dropdown>
