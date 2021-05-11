@@ -7,7 +7,7 @@ const dashboard = {
     component: MAIN_LAYOUT,
     meta: {
         hideChildrenInMenu: true,
-        title: '首页',
+        title: '工作台',
         icon: 'el-icon-odometer',
         sort: 1
     },
@@ -17,7 +17,7 @@ const dashboard = {
             name: 'Dashboard',
             component: Dashboard,
             meta: {
-                title: '首页'
+                title: '工作台'
             }
         }
     ]

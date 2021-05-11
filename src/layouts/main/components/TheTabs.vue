@@ -3,19 +3,25 @@
         <el-tabs
             v-model="routeTabsValue"
             type="card"
-            :closable="routeTabs.length > 1"
+            :closable="tabList.length > 1"
             @edit="handleTabsEdit"
             @tab-click="handleTabClick"
         >
-            <el-tab-pane v-for="item in routeTabs" :key="item.fullPath" :name="item.fullPath">
+            <el-tab-pane v-for="(item, index) in tabList" :key="item.key" :name="item.key">
                 <template #label>
                     <contextmenu-dropdown @menu-item-click="handleMenuClick($event, item)">
-                        <div class="tab-route">{{ item.meta && item.meta.title }}</div>
+                        <div class="tab-route">{{ item.title }}</div>
                         <template #dropdown>
                             <contextmenu>
                                 <contextmenu-item command="closeOther">关闭其他</contextmenu-item>
-                                <contextmenu-item command="closeLeft">关闭左侧</contextmenu-item>
-                                <contextmenu-item command="closeRight">关闭右侧</contextmenu-item>
+                                <contextmenu-item command="closeLeft" :disabled="index === 0"
+                                    >关闭左侧</contextmenu-item
+                                >
+                                <contextmenu-item
+                                    command="closeRight"
+                                    :disabled="index === tabList.length - 1"
+                                    >关闭右侧</contextmenu-item
+                                >
                                 <contextmenu-item command="refreshCurrent"
                                     >刷新当前页</contextmenu-item
                                 >
@@ -45,21 +51,24 @@
 import ContextmenuDropdown from '@components/contextmenu/ContextmenuDropdown';
 import Contextmenu from '@components/contextmenu/Contextmenu';
 import ContextmenuItem from '@components/contextmenu/ContextmenuItem';
+import { mapMutations, mapState } from 'vuex';
 export default {
     name: 'TheTabs',
     components: { ContextmenuItem, Contextmenu, ContextmenuDropdown },
     data() {
         return {
             routeTabsValue: '',
-            routeTabs: [],
             tabIndex: 2
         };
+    },
+    computed: {
+        ...mapState('tab', ['tabList'])
     },
     watch: {
         $route: {
             handler(val) {
                 if (val) {
-                    this.addRoute(val);
+                    this.addTab(val);
                     this.routeTabsValue = val.fullPath;
                 }
             },
@@ -67,31 +76,26 @@ export default {
         }
     },
     methods: {
-        addRoute(route) {
-            const { routeTabs } = this;
-            if (!routeTabs.some((tab) => tab.fullPath === route.fullPath)) {
-                routeTabs.push(route);
-            }
-        },
+        ...mapMutations('tab', ['addTab', 'updateTabList']),
         /**
          * 移除指定标签
          * @param targetName
          */
         handleTabRemove(targetName) {
-            const tabs = this.routeTabs;
+            const tabs = this.tabList;
             let activeName = this.routeTabsValue;
             if (activeName === targetName) {
-                const index = tabs.findIndex((tab) => tab.fullPath === targetName);
+                const index = tabs.findIndex((tab) => tab.key === targetName);
                 if (index !== -1) {
                     let nextTab = tabs[index + 1] || tabs[index - 1];
                     if (nextTab) {
-                        activeName = nextTab.fullPath;
+                        activeName = nextTab.key;
                         this.$router.push(activeName);
                     }
                 }
             }
             this.routeTabsValue = activeName;
-            this.routeTabs = tabs.filter((tab) => tab.fullPath !== targetName);
+            this.updateTabList(tabs.filter((tab) => tab.key !== targetName));
         },
         /**
          * 标签页点击
@@ -131,45 +135,45 @@ export default {
          */
         closeOther(target) {
             const activeName = this.routeTabsValue;
-            const path = target?.fullPath ?? activeName;
+            const path = target?.key ?? activeName;
             if (activeName !== path) {
                 this.$router.push(path);
             }
-            this.routeTabs = this.routeTabs.filter((item) => item.fullPath !== path);
+            this.updateTabList(this.tabList.filter((tab) => tab.key !== path));
         },
         /**
          * 关闭左侧tab
          */
         closeLeft(target) {
-            const tabs = this.routeTabs;
+            const tabs = this.tabList;
             const activeName = this.routeTabsValue;
             // 当前激活页位置
-            const currentIndex = tabs.findIndex((item) => item.fullPath === activeName);
+            const currentIndex = tabs.findIndex((item) => item.key === activeName);
 
-            const path = target?.fullPath ?? activeName;
+            const path = target?.key ?? activeName;
             // 鼠标指向页面位置
-            const index = tabs.findIndex((item) => item.fullPath === path);
+            const index = tabs.findIndex((item) => item.key === path);
             if (currentIndex < index) {
                 this.$router.push(path);
             }
-            this.routeTabs = tabs.slice(index, tabs.length);
+            this.updateTabList(tabs.slice(index, tabs.length));
         },
         /**
          * 关闭右侧tab
          */
         closeRight(target) {
-            const tabs = this.routeTabs;
+            const tabs = this.tabList;
             const activeName = this.routeTabsValue;
             // 当前激活页位置
-            const currentIndex = tabs.findIndex((item) => item.fullPath === activeName);
+            const currentIndex = tabs.findIndex((item) => item.key === activeName);
 
-            const path = target?.fullPath ?? activeName;
+            const path = target?.key ?? activeName;
             // 鼠标指向页面位置
-            const index = tabs.findIndex((item) => item.fullPath === path);
+            const index = tabs.findIndex((item) => item.key === path);
             if (currentIndex > index) {
                 this.$router.push(path);
             }
-            this.routeTabs = tabs.slice(0, index + 1);
+            this.updateTabList(tabs.slice(0, index + 1));
         },
         /**
          * 刷新当前页
@@ -178,7 +182,7 @@ export default {
             this.$router.push({
                 name: 'Refresh',
                 query: {
-                    path: target?.fullPath ?? this.routeTabsValue
+                    path: target?.key ?? this.routeTabsValue
                 }
             });
         }
