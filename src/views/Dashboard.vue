@@ -30,16 +30,71 @@
                 </div>
             </div>
         </layout-header>
-        <el-button>测试</el-button>
+        <el-row :gutter="24">
+            <el-col :span="8">
+                <container-card>
+                    <template #header>
+                        <typography size="title"> 雷达图示例 </typography>
+                    </template>
+                    <radar></radar>
+                </container-card>
+            </el-col>
+            <el-col :span="8">
+                <container-card>
+                    <template #header>
+                        <typography size="title"> 柱状图示例 </typography>
+                    </template>
+                    <bar-chart></bar-chart>
+                </container-card>
+            </el-col>
+            <el-col :span="8">
+                <container-card>
+                    <template #header>
+                        <typography size="title"> 饼图示例 </typography>
+                    </template>
+                    <pie-chart></pie-chart>
+                </container-card>
+            </el-col>
+        </el-row>
+        <el-row :gutter="24" class="mt24 align-stretch" type="flex">
+            <el-col :span="12">
+                <container-card>
+                    <the-table></the-table>
+                </container-card>
+            </el-col>
+            <el-col :span="12">
+                <container-card class="h100">
+                    <template #header>
+                        <typography size="title"> 手风琴示例 </typography>
+                    </template>
+                    <the-list></the-list>
+                </container-card>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 <script>
 import LayoutHeader from '@components/LayoutHeader';
 import Typography from '@components/Typography';
+import ContainerCard from '@components/ContainerCard';
+import Radar from '@components/Radar';
+import BarChart from '@components/BarChart';
+import PieChart from '@components/PieChart';
+import TheTable from '@components/TheTable';
+import TheList from '@components/TheList';
 export default {
     name: 'Dashboard',
-    components: { Typography, LayoutHeader },
+    components: {
+        TheList,
+        TheTable,
+        PieChart,
+        BarChart,
+        Radar,
+        ContainerCard,
+        Typography,
+        LayoutHeader
+    },
     data() {
         return {};
     }
@@ -61,9 +116,5 @@ export default {
 
 .home__header-divider {
     height: 40px;
-}
-
-.mt12 {
-    margin-top: 12px;
 }
 </style>

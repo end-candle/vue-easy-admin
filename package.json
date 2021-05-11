@@ -9,6 +9,8 @@
 		"analyzer": "cross-env use_analyzer=true vue-cli-service build"
 	},
 	"dependencies": {
+		"@antv/data-set": "^0.11.8",
+		"@antv/g2": "^4.1.16",
 		"axios": "^0.21.1",
 		"core-js": "^3.9.1",
 		"element-ui": "^2.15.1",

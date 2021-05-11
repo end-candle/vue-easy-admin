@@ -14,7 +14,9 @@
             <el-main>
                 <router-view />
             </el-main>
-            <el-footer>Footer</el-footer>
+            <el-footer>
+                <the-footer></the-footer>
+            </el-footer>
         </el-container>
     </el-container>
 </template>
@@ -24,9 +26,10 @@ import TheLogo from '@layouts/main/components/TheLogo';
 import TheSiderMenu from '@layouts/main/components/TheSiderMenu';
 import TheHeader from '@layouts/main/components/TheHeader';
 import TheTabs from '@layouts/main/components/TheTabs';
+import TheFooter from '@components/TheFooter';
 export default {
     name: 'MainLayout',
-    components: { TheTabs, TheHeader, TheSiderMenu, TheLogo },
+    components: { TheFooter, TheTabs, TheHeader, TheSiderMenu, TheLogo },
     data() {
         return {
             fold: false
