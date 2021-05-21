@@ -85,7 +85,10 @@ export default {
             height: 40px;
             line-height: 40px;
             margin-bottom: 8px;
-            &:hover {
+
+            &:hover,
+            &:focus,
+            &:active {
                 background-color: transparent !important;
                 color: $--color-white !important;
 
