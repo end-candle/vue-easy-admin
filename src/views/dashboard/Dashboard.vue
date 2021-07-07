@@ -59,7 +59,7 @@
         <el-row :gutter="24" class="mt24 align-stretch" type="flex">
             <el-col :span="12">
                 <container-card body-class="pt12">
-                    <the-table></the-table>
+                    <custom-table></custom-table>
                 </container-card>
             </el-col>
             <el-col :span="12">
@@ -78,16 +78,16 @@
 import LayoutHeader from '@components/LayoutHeader';
 import Typography from '@components/Typography';
 import ContainerCard from '@components/ContainerCard';
-import Radar from '@components/Radar';
-import BarChart from '@components/BarChart';
-import PieChart from '@components/PieChart';
-import TheTable from '@components/TheTable';
-import TheList from '@components/TheList';
+import Radar from '@views/dashboard/components/Radar';
+import BarChart from '@views/dashboard/components/BarChart';
+import PieChart from '@views/dashboard/components/PieChart';
+import CustomTable from '@views/dashboard/components/CustomTable';
+import TheList from '@views/dashboard/components/TheList';
 export default {
     name: 'Dashboard',
     components: {
         TheList,
-        TheTable,
+        CustomTable,
         PieChart,
         BarChart,
         Radar,

@@ -20,7 +20,8 @@ export default {
                     'disabled',
                     'link',
                     'regular',
-                    'placeholder'
+                    'placeholder',
+                    'tip'
                 ].includes(val)
         },
         size: {
@@ -68,6 +69,9 @@ export default {
     }
     &.regular {
         color: $--color-text-regular;
+    }
+    &.tip {
+        color: rgba($--color-text-regular, 0.73);
     }
     &.placeholder {
         color: $--color-text-placeholder;

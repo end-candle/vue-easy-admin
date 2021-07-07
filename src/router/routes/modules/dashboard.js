@@ -1,4 +1,4 @@
-import Dashboard from '@views/Dashboard';
+import Dashboard from '@views/dashboard/Dashboard';
 import { MAIN_LAYOUT } from '@router/routes/basic';
 
 const dashboard = {

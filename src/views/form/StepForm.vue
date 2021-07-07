@@ -9,24 +9,18 @@
         </layout-header>
         <container-card>
             <div class="step-form__header">
-                <el-steps
-                    :space="200"
-                    :active="1"
-                    process-status="finish"
-                    finish-status="success"
-                    :align-center="true"
-                >
-                    <el-step title="步骤 1"></el-step>
-                    <el-step title="步骤 2"></el-step>
-                    <el-step title="步骤 3"></el-step>
-                </el-steps>
+                <the-steps :active="1">
+                    <the-step title="填写转账信息"></the-step>
+                    <the-step title="确认转账信息"></the-step>
+                    <the-step title="完成"></the-step>
+                </the-steps>
             </div>
             <el-form
                 ref="ruleForm"
                 :model="ruleForm"
                 :rules="rules"
-                label-width="25%"
-                class="basic-form mt24"
+                label-width="80px"
+                class="basic-form"
             >
                 <el-form-item label="活动名称" prop="name">
                     <el-input v-model="ruleForm.name"></el-input>
@@ -37,42 +31,26 @@
                         <el-option label="区域二" value="beijing"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="活动时间" required>
-                    <el-date-picker
-                        v-model="ruleForm.date1"
-                        type="daterange"
-                        range-separator="至"
-                        start-placeholder="开始日期"
-                        end-placeholder="结束日期"
-                        class="w100"
-                    >
-                    </el-date-picker>
-                </el-form-item>
-                <el-form-item label="即时配送" prop="delivery">
-                    <el-switch v-model="ruleForm.delivery"></el-switch>
-                </el-form-item>
-                <el-form-item label="活动性质" prop="type">
-                    <el-checkbox-group v-model="ruleForm.type">
-                        <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-                        <el-checkbox label="地推活动" name="type"></el-checkbox>
-                        <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-                        <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
-                    </el-checkbox-group>
-                </el-form-item>
-                <el-form-item label="特殊资源" prop="resource">
-                    <el-radio-group v-model="ruleForm.resource">
-                        <el-radio label="线上品牌商赞助"></el-radio>
-                        <el-radio label="线下场地免费"></el-radio>
-                    </el-radio-group>
-                </el-form-item>
-                <el-form-item label="活动形式" prop="desc">
-                    <el-input v-model="ruleForm.desc" type="textarea" :rows="5"></el-input>
-                </el-form-item>
-                <el-form-item>
-                    <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-                    <el-button @click="resetForm('ruleForm')">重置</el-button>
+                <el-form-item label="活动名称" prop="name">
+                    <el-input v-model="ruleForm.name"></el-input>
                 </el-form-item>
             </el-form>
+            <el-divider />
+            <div class="basic-form-desc">
+                <typography tag="h3" class="text-normal" size="title" type="tip">说明</typography>
+                <typography tag="h4" class="text-normal" size="title" type="tip"
+                    >转账到支付宝账户</typography
+                >
+                <typography tag="p" size="normal" type="tip"
+                    >如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。</typography
+                >
+                <typography tag="h4" class="text-normal" size="title" type="tip"
+                    >转账到银行卡</typography
+                >
+                <typography tag="p" size="normal" type="tip"
+                    >如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。</typography
+                >
+            </div>
         </container-card>
     </div>
 </template>
@@ -82,10 +60,12 @@ import LayoutHeader from '@components/LayoutHeader';
 import Typography from '@components/Typography';
 import NavBreadcrumb from '@components/NavBreadcrumb';
 import ContainerCard from '@components/ContainerCard';
+import TheStep from '@components/steps/TheStep';
+import TheSteps from '@components/steps/TheSteps';
 
 export default {
     name: 'StepForm',
-    components: { ContainerCard, NavBreadcrumb, Typography, LayoutHeader },
+    components: { TheSteps, TheStep, ContainerCard, NavBreadcrumb, Typography, LayoutHeader },
     data() {
         return {
             breadcrumbs: [{ path: '/', title: '首页' }, { title: '表单页' }, { title: '分步表单' }],
@@ -144,11 +124,10 @@ export default {
     margin: 0 auto;
 }
 .basic-form {
-    &::v-deep {
-        .el-form-item__content {
-            width: 40%;
-            min-width: 280px;
-        }
-    }
+    width: 500px;
+    margin: 40px auto 0;
+}
+.basic-form-desc {
+    padding: 0 56px;
 }
 </style>

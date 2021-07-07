@@ -139,7 +139,7 @@ export default {
             if (activeName !== path) {
                 this.$router.push(path);
             }
-            this.updateTabList(this.tabList.filter((tab) => tab.key !== path));
+            this.updateTabList(this.tabList.filter((tab) => tab.key === path));
         },
         /**
          * 关闭左侧tab
