@@ -9,7 +9,7 @@
         </layout-header>
         <container-card>
             <div class="step-form__header">
-                <the-steps :active="1">
+                <the-steps :active="step">
                     <the-step title="填写转账信息"></the-step>
                     <the-step title="确认转账信息"></the-step>
                     <the-step title="完成"></the-step>
@@ -69,6 +69,7 @@ export default {
     data() {
         return {
             breadcrumbs: [{ path: '/', title: '首页' }, { title: '表单页' }, { title: '分步表单' }],
+            step: 0,
             ruleForm: {
                 name: '',
                 region: '',
