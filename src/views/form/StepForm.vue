@@ -19,20 +19,47 @@
                 ref="ruleForm"
                 :model="ruleForm"
                 :rules="rules"
-                label-width="80px"
+                hide-required-asterisk
+                label-width="100px"
                 class="basic-form"
             >
-                <el-form-item label="活动名称" prop="name">
-                    <el-input v-model="ruleForm.name"></el-input>
-                </el-form-item>
-                <el-form-item label="活动区域" prop="region">
-                    <el-select v-model="ruleForm.region" placeholder="请选择活动区域" class="w100">
-                        <el-option label="区域一" value="shanghai"></el-option>
-                        <el-option label="区域二" value="beijing"></el-option>
+                <el-form-item class="mb24" label="付款账户" prop="name">
+                    <el-select v-model="ruleForm.name" placeholder="请选择付款账户" class="w100">
+                        <el-option label="付款账户一" value="shanghai"></el-option>
+                        <el-option label="付款账户二" value="beijing"></el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="活动名称" prop="name">
-                    <el-input v-model="ruleForm.name"></el-input>
+                <el-form-item class="mb24" label="收款账户" prop="account">
+                    <el-input
+                        v-model="ruleForm.account"
+                        placeholder="请输入收款账户"
+                        class="input-with-select"
+                    >
+                        <template #prepend>
+                            <el-select
+                                v-model="ruleForm.type"
+                                class="input-select"
+                                placeholder="请选择"
+                            >
+                                <el-option label="支付宝" :value="1"></el-option>
+                                <el-option label="银行卡" :value="2"></el-option>
+                            </el-select>
+                        </template>
+                    </el-input>
+                </el-form-item>
+                <el-form-item class="mb24" label="收款人姓名" prop="desc">
+                    <el-input v-model="ruleForm.name" placeholder="请输入收款人姓名"> </el-input>
+                </el-form-item>
+                <el-form-item class="mb24" label="转账金额" prop="desc">
+                    <el-input
+                        v-model="ruleForm.name"
+                        prefix-icon="el-icon-monitor"
+                        placeholder="请输入转账金额"
+                    >
+                    </el-input>
+                </el-form-item>
+                <el-form-item class="mb24">
+                    <el-button type="primary">下一步</el-button>
                 </el-form-item>
             </el-form>
             <el-divider />
@@ -72,32 +99,26 @@ export default {
             step: 0,
             ruleForm: {
                 name: '',
-                region: '',
+                type: 1,
                 date1: '',
                 date2: '',
                 delivery: false,
-                type: [],
                 resource: '',
-                desc: ''
+                account: ''
             },
             rules: {
-                name: [
-                    { required: true, message: '请输入活动名称', trigger: 'blur' },
-                    { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-                ],
-                region: [{ required: true, message: '请选择活动区域', trigger: 'change' }],
+                name: [{ required: true, message: '请选择付款账号', trigger: 'change' }],
                 date1: [{ type: 'date', required: true, message: '请选择日期', trigger: 'change' }],
                 date2: [{ type: 'date', required: true, message: '请选择时间', trigger: 'change' }],
                 type: [
                     {
-                        type: 'array',
                         required: true,
-                        message: '请至少选择一个活动性质',
+                        message: '请选择收款账户类型',
                         trigger: 'change'
                     }
                 ],
                 resource: [{ required: true, message: '请选择活动资源', trigger: 'change' }],
-                desc: [{ required: true, message: '请填写活动形式', trigger: 'blur' }]
+                account: [{ required: true, message: '请输入收款账号', trigger: 'blur' }]
             }
         };
     },
@@ -130,5 +151,13 @@ export default {
 }
 .basic-form-desc {
     padding: 0 56px;
+}
+::v-deep {
+    .input-select .el-input {
+        width: 100px;
+    }
+    .input-with-select .el-input-group__prepend {
+        background-color: #fff;
+    }
 }
 </style>
