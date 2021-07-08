@@ -1,7 +1,9 @@
-# Vuex目录
+# Vuex 目录
 
 ## 说明
-存放Vuex文件。
+
+存放 Vuex 文件。
 
 ## 别名
+
 @store

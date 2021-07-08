@@ -13,7 +13,8 @@ body {
     background-color: $--color-primary;
 }
 
-body, .better-scroller {
+body,
+.better-scroller {
     overflow-y: auto;
     scrollbar-color: $--color-primary mix($--color-primary, #ffffff, 0.2);
     scrollbar-width: thin;
