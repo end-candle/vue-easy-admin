@@ -155,7 +155,6 @@
                         <el-form-item label="提醒时间:" prop="awakeDate">
                             <el-time-picker
                                 v-model="formData.awakeDate"
-                                arrow-control
                                 class="w100"
                                 placeholder="请选择时间"
                             >
