@@ -11,7 +11,7 @@
                     <typography size="title"> 仓库管理 </typography>
                 </template>
                 <el-row :gutter="24">
-                    <el-col :span="8" :sm="24" :md="12" :lg="6">
+                    <el-col :sm="24" :md="12" :lg="6">
                         <el-form-item label="仓库名:" prop="name">
                             <el-input
                                 v-model="formData.name"
@@ -19,7 +19,7 @@
                             ></el-input>
                         </el-form-item>
                     </el-col>
-                    <el-col :span="8" :sm="24" :md="12" :lg="8" :xl="{ span: 7, offset: 1 }">
+                    <el-col :sm="24" :md="12" :lg="8" :xl="{ span: 7, offset: 1 }">
                         <el-form-item label="仓库域名:" prop="domain">
                             <el-input v-model="formData.domain" placeholder="请输入">
                                 <template #prepend>http://</template>
@@ -27,7 +27,7 @@
                             </el-input>
                         </el-form-item>
                     </el-col>
-                    <el-col :span="8" :sm="24" :md="24" :lg="10" :xl="{ span: 9, offset: 1 }">
+                    <el-col :sm="24" :md="24" :lg="10" :xl="{ span: 9, offset: 1 }">
                         <el-form-item label="仓库管理员:" prop="admin">
                             <el-select
                                 v-model="formData.admin"
@@ -46,7 +46,7 @@
                     </el-col>
                 </el-row>
                 <el-row :gutter="24">
-                    <el-col :span="8" :sm="24" :md="12" :lg="6">
+                    <el-col :sm="24" :md="12" :lg="6">
                         <el-form-item label="审批人:" prop="leader">
                             <el-select
                                 v-model="formData.leader"
@@ -63,7 +63,7 @@
                             </el-select>
                         </el-form-item>
                     </el-col>
-                    <el-col :span="8" :sm="24" :md="12" :lg="8" :xl="{ span: 7, offset: 1 }">
+                    <el-col :sm="24" :md="12" :lg="8" :xl="{ span: 7, offset: 1 }">
                         <el-form-item label="生效日期:" prop="workDate">
                             <el-date-picker
                                 v-model="formData.workDate"
@@ -77,7 +77,7 @@
                             </el-date-picker>
                         </el-form-item>
                     </el-col>
-                    <el-col :span="8" :sm="24" :md="24" :lg="10" :xl="{ span: 9, offset: 1 }">
+                    <el-col :sm="24" :md="24" :lg="10" :xl="{ span: 9, offset: 1 }">
                         <el-form-item label="仓库类型:" prop="type">
                             <el-select
                                 v-model="formData.type"
@@ -101,7 +101,7 @@
                     <typography size="title"> 任务管理 </typography>
                 </template>
                 <el-row :gutter="24">
-                    <el-col :span="8" :sm="24" :md="12" :lg="6">
+                    <el-col :sm="24" :md="12" :lg="6">
                         <el-form-item label="任务名:" prop="workName">
                             <el-input
                                 v-model="formData.workName"
@@ -109,13 +109,13 @@
                             ></el-input>
                         </el-form-item>
                     </el-col>
-                    <el-col :span="8" :sm="24" :md="12" :lg="8" :xl="{ span: 7, offset: 1 }">
+                    <el-col :sm="24" :md="12" :lg="8" :xl="{ span: 7, offset: 1 }">
                         <el-form-item label="任务描述:" prop="workDesc">
                             <el-input v-model="formData.workDesc" placeholder="请输入任务描述">
                             </el-input>
                         </el-form-item>
                     </el-col>
-                    <el-col :span="8" :sm="24" :md="24" :lg="10" :xl="{ span: 9, offset: 1 }">
+                    <el-col :sm="24" :md="24" :lg="10" :xl="{ span: 9, offset: 1 }">
                         <el-form-item label="执行人:" prop="executor">
                             <el-select
                                 v-model="formData.executor"
@@ -134,7 +134,7 @@
                     </el-col>
                 </el-row>
                 <el-row :gutter="24">
-                    <el-col :span="8" :sm="24" :md="12" :lg="6">
+                    <el-col :sm="24" :md="12" :lg="6">
                         <el-form-item label="责任人:" prop="charger">
                             <el-select
                                 v-model="formData.charger"
@@ -151,7 +151,7 @@
                             </el-select>
                         </el-form-item>
                     </el-col>
-                    <el-col :span="8" :sm="24" :md="12" :lg="8" :xl="{ span: 7, offset: 1 }">
+                    <el-col :sm="24" :md="12" :lg="8" :xl="{ span: 7, offset: 1 }">
                         <el-form-item label="提醒时间:" prop="awakeDate">
                             <el-time-picker
                                 v-model="formData.awakeDate"
@@ -162,7 +162,7 @@
                             </el-time-picker>
                         </el-form-item>
                     </el-col>
-                    <el-col :span="8" :sm="24" :md="24" :lg="10" :xl="{ span: 9, offset: 1 }">
+                    <el-col :sm="24" :md="24" :lg="10" :xl="{ span: 9, offset: 1 }">
                         <el-form-item label="任务类型:" prop="workType">
                             <el-select
                                 v-model="formData.workType"
