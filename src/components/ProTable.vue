@@ -3,6 +3,7 @@
         <div class="custom-table__body">
             <el-table
                 :data="records"
+                :header-cell-style="{ background: '#fafafa', color: '#333333', 'font-weight': 500 }"
                 v-bind="$attrs"
                 v-on="$listeners"
                 @sort-change="handleSortChange"
@@ -35,7 +36,7 @@
                     :current-page.sync="current"
                     :page-size.sync="size"
                     :total="dataSource.length === 0 ? total : dataSource.length"
-                    background
+                    v-bind="paginationProps"
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
                 >
@@ -68,6 +69,10 @@ export default {
         paginationVisible: {
             type: Boolean,
             default: true
+        },
+        paginationProps: {
+            type: Object,
+            default: () => {}
         }
     },
     data() {
@@ -188,5 +193,14 @@ export default {
     margin-top: 20px;
     line-height: 40px;
     text-align: right;
+    &::v-deep {
+        .el-pager .number {
+            min-width: 30px;
+            &.active {
+                border: 1px solid $--color-primary;
+                border-radius: $--border-radius-base;
+            }
+        }
+    }
 }
 </style>
