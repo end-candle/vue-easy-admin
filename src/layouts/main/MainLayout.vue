@@ -7,7 +7,7 @@
         <el-aside class="main-layout__aside-placeholder" :width="asideWidth"></el-aside>
         <el-container>
             <el-header height="108px" class="main-layout__header" :style="{ left: asideWidth }">
-                <the-header :fold="fold" @changeFold="handleToggleFold"></the-header>
+                <the-header :fold="fold" @change-fold="handleToggleFold"></the-header>
                 <the-tabs></the-tabs>
             </el-header>
             <div class="main-layout__header-placeholder"></div>

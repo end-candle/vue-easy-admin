@@ -22,9 +22,10 @@ export default {
             default: false
         }
     },
+    emits: ['change-fold'],
     methods: {
         handleToggleFold() {
-            this.$emit('changeFold', !this.fold);
+            this.$emit('change-fold', !this.fold);
         }
     }
 };

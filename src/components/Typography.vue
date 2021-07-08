@@ -60,6 +60,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1.typography {
+    margin: 0 0 0.5em;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 1.23;
+}
+h2.typography,
+h3.typography,
+h4.typography,
+h5.typography {
+    margin: 1.2em 0 0.5em;
+    font-weight: 600;
+    line-height: 1.35;
+}
+h2.typography {
+    font-size: 30px;
+}
+h3.typography {
+    font-size: 24px;
+}
+h4.typography {
+    font-size: 20px;
+}
+h5.typography {
+    font-size: 16px;
+}
 .typography {
     color: $--color-text-primary;
     font-size: $--font-size-base;
@@ -111,31 +137,5 @@ export default {
     &.typography--big-title {
         font-size: $--font-size-extra-large;
     }
-}
-h1.typography {
-    margin: 0 0 0.5em;
-    font-weight: 600;
-    font-size: 38px;
-    line-height: 1.23;
-}
-h2.typography,
-h3.typography,
-h4.typography,
-h5.typography {
-    margin: 1.2em 0 0.5em;
-    font-weight: 600;
-    line-height: 1.35;
-}
-h2.typography {
-    font-size: 30px;
-}
-h3.typography {
-    font-size: 24px;
-}
-h4.typography {
-    font-size: 20px;
-}
-h5.typography {
-    font-size: 16px;
 }
 </style>

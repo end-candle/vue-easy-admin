@@ -19,6 +19,7 @@ export default {
             default: 'process'
         }
     },
+    emits: ['change'],
 
     data() {
         return {

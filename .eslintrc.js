@@ -16,6 +16,9 @@ module.exports = {
             {
                 order: ['template', 'script', 'style']
             }
-        ]
+        ],
+        'vue/no-deprecated-destroyed-lifecycle': 'off',
+        'vue/no-deprecated-dollar-listeners-api': 'off',
+        'vue/no-deprecated-v-bind-sync': 'off'
     }
 };

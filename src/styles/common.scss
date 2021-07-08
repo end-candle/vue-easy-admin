@@ -5,6 +5,7 @@ body {
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
         '微软雅黑', Arial, sans-serif;
     line-height: 1.5715;
+    font-size: 14px;
 }
 
 ::selection {
@@ -153,6 +154,14 @@ button:focus {
     margin-top: 24px;
 }
 
+.mb8 {
+    margin-bottom: 8px !important;
+}
+
+.mb12 {
+    margin-bottom: 12px !important;
+}
+
 .mb24 {
     margin-bottom: 24px !important;
 }
@@ -180,4 +189,17 @@ button:focus {
 // 字体相关
 .text-normal {
     font-weight: normal !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+// icon
+.icon-money {
+    display: inline-block;
+    &::before {
+        content: '￥';
+        font-style: normal;
+    }
 }

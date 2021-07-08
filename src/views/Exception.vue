@@ -7,5 +7,3 @@ export default {
     name: 'Exception'
 };
 </script>
-
-<style lang="scss" scoped></style>
