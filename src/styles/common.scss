@@ -161,6 +161,10 @@ button:focus {
     margin-top: 24px !important;
 }
 
+.mb0 {
+    margin-bottom: 0 !important;
+}
+
 .mb8 {
     margin-bottom: 8px !important;
 }
@@ -206,6 +210,10 @@ button:focus {
     text-align: center;
 }
 
+.text-right {
+    text-align: right;
+}
+
 // icon
 .icon-money {
     display: inline-block;
@@ -213,4 +221,9 @@ button:focus {
         content: '￥';
         font-style: normal;
     }
+}
+
+// 定位相关
+.fixed {
+    position: fixed;
 }

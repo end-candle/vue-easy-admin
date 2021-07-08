@@ -1,17 +1,17 @@
 <template>
-    <div class="layout-header">
+    <div class="layout-container">
         <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'LayoutHeader'
+    name: 'LayoutContainer'
 };
 </script>
 
 <style lang="scss">
-.layout-header {
+.layout-container {
     margin: -$--main-padding;
     margin-bottom: $--main-padding;
     padding: 12px $--main-padding 16px;

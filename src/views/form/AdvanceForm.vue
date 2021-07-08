@@ -1,10 +1,10 @@
 <template>
     <div>
-        <layout-header>
+        <layout-container>
             <nav-breadcrumb :breadcrumbs="breadcrumbs"></nav-breadcrumb>
             <typography tag="h1" size="big-title">高级表单</typography>
             <typography class="mt12"> 高级表单常见于一次性输入和提交大批量数据的场景。</typography>
-        </layout-header>
+        </layout-container>
         <el-form ref="advanceForm" :model="formData" :rules="rules">
             <container-card>
                 <template #header>
@@ -203,6 +203,9 @@
                 <el-button icon="el-icon-plus" :plain="true" class="w100 mt24">添加成员</el-button>
             </container-card>
         </el-form>
+        <layout-container class="text-right mb0 fixed advance-form__footer">
+            <el-button type="primary">提交</el-button>
+        </layout-container>
     </div>
 </template>
 
@@ -210,11 +213,11 @@
 import ContainerCard from '@components/ContainerCard';
 import Typography from '@components/Typography';
 import ProTable from '@components/ProTable';
-import LayoutHeader from '@components/LayoutHeader';
+import layoutContainer from '@components/LayoutContainer';
 import NavBreadcrumb from '@components/NavBreadcrumb';
 export default {
     name: 'AdvanceForm',
-    components: { NavBreadcrumb, LayoutHeader, ProTable, Typography, ContainerCard },
+    components: { NavBreadcrumb, layoutContainer, ProTable, Typography, ContainerCard },
     data() {
         return {
             breadcrumbs: [{ path: '/', title: '首页' }, { title: '表单页' }, { title: '高级表单' }],
@@ -342,4 +345,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.advance-form__footer {
+    width: 100%;
+    right: $--main-padding;
+    bottom: 0;
+    box-shadow: $--box-shadow-base;
+}
+</style>

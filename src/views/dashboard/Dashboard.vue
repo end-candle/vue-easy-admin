@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <layout-header>
+        <layout-container>
             <typography tag="h1" size="big-title">工作台</typography>
             <div class="flex justify-between home__header">
                 <div class="flex align-center">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
             </div>
-        </layout-header>
+        </layout-container>
         <el-row :gutter="24">
             <el-col :span="8">
                 <container-card>
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import LayoutHeader from '@components/LayoutHeader';
+import layoutContainer from '@components/LayoutContainer';
 import Typography from '@components/Typography';
 import ContainerCard from '@components/ContainerCard';
 import Radar from '@views/dashboard/components/Radar';
@@ -93,7 +93,7 @@ export default {
         Radar,
         ContainerCard,
         Typography,
-        LayoutHeader
+        layoutContainer
     },
     data() {
         return {};

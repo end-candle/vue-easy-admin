@@ -1,12 +1,12 @@
 <template>
     <div>
-        <layout-header>
+        <layout-container>
             <nav-breadcrumb :breadcrumbs="breadcrumbs"></nav-breadcrumb>
             <typography tag="h1" size="big-title">基础表单</typography>
             <typography class="mt12">
                 表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。</typography
             >
-        </layout-header>
+        </layout-container>
         <container-card>
             <el-form
                 ref="ruleForm"
@@ -65,14 +65,14 @@
 </template>
 
 <script>
-import LayoutHeader from '@components/LayoutHeader';
+import layoutContainer from '@components/LayoutContainer';
 import Typography from '@components/Typography';
 import NavBreadcrumb from '@components/NavBreadcrumb';
 import ContainerCard from '@components/ContainerCard';
 
 export default {
     name: 'BasicForm',
-    components: { ContainerCard, NavBreadcrumb, Typography, LayoutHeader },
+    components: { ContainerCard, NavBreadcrumb, Typography, layoutContainer },
     data() {
         return {
             breadcrumbs: [{ path: '/', title: '首页' }, { title: '表单页' }, { title: '基础表单' }],

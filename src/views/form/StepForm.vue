@@ -1,12 +1,12 @@
 <template>
     <div>
-        <layout-header>
+        <layout-container>
             <nav-breadcrumb :breadcrumbs="breadcrumbs"></nav-breadcrumb>
             <typography tag="h1" size="big-title">分步表单</typography>
             <typography class="mt12">
                 将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。</typography
             >
-        </layout-header>
+        </layout-container>
         <container-card>
             <div class="step-form__header">
                 <the-steps :active="step">
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import LayoutHeader from '@components/LayoutHeader';
+import layoutContainer from '@components/LayoutContainer';
 import Typography from '@components/Typography';
 import NavBreadcrumb from '@components/NavBreadcrumb';
 import ContainerCard from '@components/ContainerCard';
@@ -44,7 +44,7 @@ export default {
         ContainerCard,
         NavBreadcrumb,
         Typography,
-        LayoutHeader
+        layoutContainer
     },
     data() {
         return {
