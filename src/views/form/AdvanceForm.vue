@@ -204,7 +204,7 @@
             </container-card>
         </el-form>
         <layout-container class="text-right mb0 fixed advance-form__footer">
-            <el-button type="primary">提交</el-button>
+            <el-button type="primary" @click="submitForm('advanceForm')">提交</el-button>
         </layout-container>
     </div>
 </template>
@@ -340,6 +340,18 @@ export default {
             return this.memberList
                 .filter((item) => !!item.no)
                 .map(({ name, no }) => ({ label: name, value: no }));
+        }
+    },
+    methods: {
+        submitForm(formName) {
+            this.$refs[formName].validate((valid) => {
+                if (valid) {
+                    alert('submit!');
+                } else {
+                    console.log('error submit!!');
+                    return false;
+                }
+            });
         }
     }
 };
