@@ -56,15 +56,18 @@ export default {
                 {
                     name: 'date',
                     title: '日期',
+                    align: 'center',
                     width: 180
                 },
                 {
                     name: 'name',
                     title: '姓名',
+                    align: 'center',
                     width: 180
                 },
                 {
                     name: 'address',
+                    align: 'center',
                     title: '地址'
                 }
             ]
