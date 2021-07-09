@@ -18,7 +18,7 @@
     - [打包](#打包)
     - [格式化](#格式化)
     - [其他](#其他)
-- [Git 提交规范](#git-提交规范)
+- [Git 提交规范](#Git-Commit-Message-Convention-提交消息约定)
 - [已完成功能](#已完成功能)
 - [正在开发的功能](#正在开发的功能)
 - [浏览器支持](#浏览器支持)
@@ -108,8 +108,6 @@ npm build # 打包
 ### 格式化
 
 ```bash
-npm lint:stylelint # 样式格式化
-
 npm lint # 代码格式化
 ```
 
@@ -117,28 +115,88 @@ npm lint # 代码格式化
 
 暂无
 
-## Git 提交规范
+## Git Commit Message Convention 提交消息约定
 
-- 参考 [vue](https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md) 规范 ([Angular](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular))
+> 改编自[Angular 的提交约定](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular)。
 
-    - `feat` 增加新功能
-    - `fix` 修复问题/BUG
-    - `style` 代码风格相关无影响运行结果的
-    - `perf` 优化/性能提升
-    - `refactor` 重构
-    - `revert` 撤销修改
-    - `test` 测试相关
-    - `docs` 文档/注释
-    - `chore` 依赖更新/脚手架配置修改等
-    - `ci` 持续集成
+#### TL;DR:
 
-<!-- ## 代码贡献
+消息必须匹配以下正则表达式:
 
-1. Fork 代码!
-2. 创建自己的分支: `git checkout -b feat/xxxx`
-3. 提交你的修改: `git commit -am 'feat(function): add xxxxx'`
-4. 推送您的分支: `git push origin feat/xxxx`
-5. 提交`pull request` -->
+```js
+/^(revert: )?(feat|fix|polish|docs|style|refactor|perf|test|workflow|ci|chore|types)(\(.+\))?: .{1,50}/;
+```
+
+#### 例子
+
+出现在“Features”标题下，“compiler”子标题:
+
+```
+feat(compiler): add 'comments' option
+```
+
+出现在“性能改进”标题下，在“中断更改”下有中断更改的解释:
+
+```
+perf(core): improve vdom diffing by removing 'foo' option
+
+BREAKING CHANGE: The 'foo' option has been removed.
+```
+
+如果下面的 commit 和 commit ' 667ecc1 '是在同一个版本下，那么它们不会出现在变更日志中。如果没有，恢复提交将出现在“revert”标题下。
+
+```
+revert: feat(compiler): add 'comments' option
+
+This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
+```
+
+### 完整的消息格式
+
+一个提交消息由**页眉**、**正文**和**页脚**组成。标题有**类型**，**范围**和**主题**:
+
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+**header**是强制性的，**scope**是可选的。
+
+### 恢复
+
+如果提交恢复了前一个提交，它应该以' revert: '开头，然后是被恢复的提交的头文件。在 body 中，它应该说:' This revert commit <hash>. ''，其中哈希是正在被恢复的提交的 SHA。
+
+### 类型
+
+如果前缀是' feat '， ' fix '或' perf '，它将出现在更新日志中。然而，如果有任何[BREAKING CHANGE](#footer)，提交将始终出现在变更日志中。
+其他前缀则由您自行决定。对于与变更日志无关的任务，建议使用' docs '， ' chore '， ' style '， ' refactor '和' test '前缀。
+
+### 范围
+
+范围可以是任何指定提交更改位置的内容。例如' core '， ' compiler '， ' ssr '， ' v-model '， ' transition '等…
+
+### 主题
+
+主题包含对更改的简要描述:
+
+-   使用祈使句，现在时:“change”而不是“changed”或“changes”
+-   第一个字母不要大写
+-   结尾没有点(.)
+
+### 主体
+
+就像在**主语**中一样，使用祈使句，现在时态:“change”而不是“changed”或“changes”。
+主体应该包括改变的动机，并与以前的行为进行对比。
+
+### 页脚
+
+页脚应该包含任何关于Breaking Changes的信息，也是这个提交关闭的GitHub问题的地方。
+
+**Breaking CHANGE **应该以单词“Breaking CHANGE:”开头，并加一个空格或两个换行符。然后使用提交消息的其余部分。
+
 
 ## 已完成功能
 
@@ -151,7 +209,7 @@ npm lint # 代码格式化
 - [ ] 国际化
 - [ ] 登录和注销
 - [ ] 菜单（可以搜索及拖拽以及菜单布局）
-- [ ] 多标签页/面包屑
+- [*] 多标签页/面包屑
 - [ ] 基于角色的权限管理
 - [ ] 基于后台的权限管理
 - [ ] 分离的路由和菜单设置
@@ -179,7 +237,7 @@ npm lint # 代码格式化
 - [ ] 首屏加载等待动画
 - [ ] 数据导入导出
 - [ ] 全局错误处理
-- [ ] 富文本组件
+- [*] 富文本组件
 - [ ] 上传组件
 - [ ] 打包 Gzip
 - [ ] 打包 CDN
