@@ -62,6 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 h1.typography {
+    margin: 0 0 0.5rem;
     font-weight: 600;
     font-size: 38px;
     line-height: 1.23;
@@ -71,6 +72,7 @@ h3.typography,
 h4.typography,
 h5.typography,
 h6.typography {
+    margin: 0 0 0.5rem;
     font-weight: 600;
     line-height: 1.35;
 }
