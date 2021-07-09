@@ -2,34 +2,34 @@
 
 [更新日志](CHANGELOG.zh_CN.md)
 
-- [介绍](#介绍)
-- [git地址](#git地址)
-- [预览地址](#预览地址)
-- [文档](#文档)
-- [预安装](#预安装)
-    - [环境要求](#环境要求)
-    - [UI框架](#ui-框架)
-    - [图标](#图标)
-    - [插件](#插件)
-    - [建议开发环境](#建议开发环境)
-- [安装](#安装)
-- [使用](#使用)
-    - [开发环境](#开发环境)
-    - [打包](#打包)
-    - [格式化](#格式化)
-    - [其他](#其他)
-- [Git 提交规范](#Git-Commit-Message-Convention-提交消息约定)
-- [已完成功能](#已完成功能)
-- [正在开发的功能](#正在开发的功能)
-- [浏览器支持](#浏览器支持)
+-   [介绍](#介绍)
+-   [git 地址](#git地址)
+-   [预览地址](#预览地址)
+-   [文档](#文档)
+-   [预安装](#预安装)
+    -   [环境要求](#环境要求)
+    -   [UI 框架](#ui-框架)
+    -   [图标](#图标)
+    -   [插件](#插件)
+    -   [建议开发环境](#建议开发环境)
+-   [安装](#安装)
+-   [使用](#使用)
+    -   [开发环境](#开发环境)
+    -   [打包](#打包)
+    -   [格式化](#格式化)
+    -   [其他](#其他)
+-   [Git 提交规范](#Git-Commit-Message-Convention-提交消息约定)
+-   [已完成功能](#已完成功能)
+-   [正在开发的功能](#正在开发的功能)
+-   [浏览器支持](#浏览器支持)
 
 ## 介绍
 
 项目基于`element-plus`,`typescript`,`vue3.0`实现的 vue3 风格的后台管理系统。
 
-## git地址
+## git 地址
 
-[vue-easy-admin](https://gitee.com/Flee.Lethe.net/vue-easy-admin.git) - master分支
+[vue-easy-admin](https://gitee.com/Flee.Lethe.net/vue-easy-admin.git) - master 分支
 
 ## 预览地址
 
@@ -43,12 +43,12 @@
 
 ### 环境要求
 
-- `Node.js`: - 版本最好大于 `12.0.0`
-- `npm` : - 包管理工具.
+-   `Node.js`: - 版本最好大于 `12.0.0`
+-   `npm` : - 包管理工具.
 
 ### UI 框架
 
-- [Element-plus](https://element-plus.gitee.io/)
+-   [Element-plus](https://element-plus.gitee.io/)
 
 ### 图标
 
@@ -56,22 +56,22 @@
 
 ### 插件
 
-- [Vue Router](https://github.com/vuejs/vue-router-next)
-- [Vuex](https://github.com/vuejs/vuex)
-- [vue-i18n](https://github.com/intlify/vue-i18n-next) - 国际化
-- [lodash](https://github.com/lodash/lodash) - JavaScript 实用程序库
-- [axios](https://github.com/axios/axios) - Http 数据交互
-- [TypeScript](https://www.typescriptlang.org/)
+-   [Vue Router](https://github.com/vuejs/vue-router-next)
+-   [Vuex](https://github.com/vuejs/vuex)
+-   [vue-i18n](https://github.com/intlify/vue-i18n-next) - 国际化
+-   [lodash](https://github.com/lodash/lodash) - JavaScript 实用程序库
+-   [axios](https://github.com/axios/axios) - Http 数据交互
+-   [TypeScript](https://www.typescriptlang.org/)
 
 ### 建议开发环境
 
-- `Git`: - 版本管理工具
-- `Visual Studio Code` - (VSCode): 最新版本
-    - [VS Code Extensions](./.vscode/extensions.json)
-        - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - vue 开发必备
-        - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - 脚本代码检查
-        - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 代码格式化
-        - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - css 格式化
+-   `Git`: - 版本管理工具
+-   `Visual Studio Code` - (VSCode): 最新版本
+    -   [VS Code Extensions](./.vscode/extensions.json)
+        -   [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - vue 开发必备
+        -   [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - 脚本代码检查
+        -   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 代码格式化
+        -   [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - css 格式化
 
 ## 安装
 
@@ -193,54 +193,53 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 ### 页脚
 
-页脚应该包含任何关于Breaking Changes的信息，也是这个提交关闭的GitHub问题的地方。
+页脚应该包含任何关于 Breaking Changes 的信息，也是这个提交关闭的 GitHub 问题的地方。
 
 **Breaking CHANGE **应该以单词“Breaking CHANGE:”开头，并加一个空格或两个换行符。然后使用提交消息的其余部分。
 
-
 ## 已完成功能
 
-- [x] 项目搭建
+-   [x] 项目搭建
 
 ## 正在开发的功能
 
-- [ ] 主题配置
-- [ ] 黑暗主题
-- [ ] 国际化
-- [ ] 登录和注销
-- [ ] 菜单（可以搜索及拖拽以及菜单布局）
-- [*] 多标签页/面包屑
-- [ ] 基于角色的权限管理
-- [ ] 基于后台的权限管理
-- [ ] 分离的路由和菜单设置
-- [ ] 可折叠侧边栏
-- [ ] 可拖拽侧边栏
-- [ ] 多标签页模式/全局控制
-- [ ] 菜单搜索
-- [ ] 页面加载 loading
-- [ ] 滚动条组件
-- [ ] 弹窗扩展（可拖拽,全屏,自适应高度）
-- [ ] 模拟数据
-- [ ] hook 封装
-- [ ] 表单组件
-- [ ] 右键菜单
-- [ ] 水印插件
-- [ ] 动画组件
-- [ ] 二维码插件
-- [ ] 详情组件
-- [ ] 验证组件
-- [ ] 树组件
-- [ ] 图片预览组件
-- [ ] 表格组件
-- [ ] 图表库
-- [ ] 数字动画
-- [ ] 首屏加载等待动画
-- [ ] 数据导入导出
-- [ ] 全局错误处理
-- [*] 富文本组件
-- [ ] 上传组件
-- [ ] 打包 Gzip
-- [ ] 打包 CDN
+-   [ ] 主题配置
+-   [ ] 黑暗主题
+-   [ ] 国际化
+-   [ ] 登录和注销
+-   [ ] 菜单（可以搜索及拖拽以及菜单布局）
+-   [x] 多标签页/面包屑
+-   [ ] 基于角色的权限管理
+-   [ ] 基于后台的权限管理
+-   [ ] 分离的路由和菜单设置
+-   [ ] 可折叠侧边栏
+-   [ ] 可拖拽侧边栏
+-   [ ] 多标签页模式/全局控制
+-   [ ] 菜单搜索
+-   [ ] 页面加载 loading
+-   [ ] 滚动条组件
+-   [ ] 弹窗扩展（可拖拽,全屏,自适应高度）
+-   [ ] 模拟数据
+-   [ ] hook 封装
+-   [ ] 表单组件
+-   [ ] 右键菜单
+-   [ ] 水印插件
+-   [ ] 动画组件
+-   [ ] 二维码插件
+-   [ ] 详情组件
+-   [ ] 验证组件
+-   [ ] 树组件
+-   [ ] 图片预览组件
+-   [ ] 表格组件
+-   [ ] 图表库
+-   [ ] 数字动画
+-   [ ] 首屏加载等待动画
+-   [ ] 数据导入导出
+-   [ ] 全局错误处理
+-   [x] 富文本组件
+-   [ ] 上传组件
+-   [ ] 打包 Gzip
+-   [ ] 打包 CDN
 
 更多组件/功能/建议/bug/欢迎提交 pr 或者 issue
 
@@ -250,8 +249,8 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 支持现代浏览器, IE 暂不支持，后续考虑支持 ie11
 
-| IE | Edge | Firefox | Chrome | Safari |
-| :-: | :-: | :-: | :-: | :-: |
+|     IE      |      Edge       |     Firefox     |     Chrome      |     Safari      |
+| :---------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | not support | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ES%20Module)
