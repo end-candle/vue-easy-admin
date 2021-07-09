@@ -5,7 +5,8 @@ export default {
         tag: {
             type: String,
             default: 'div',
-            validator: (val) => ['h1', 'h2', 'h3', 'h4', 'h5', 'span', 'div', 'p'].includes(val)
+            validator: (val) =>
+                ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'div', 'p'].includes(val)
         },
         type: {
             type: String,
@@ -61,7 +62,6 @@ export default {
 
 <style lang="scss" scoped>
 h1.typography {
-    margin: 0 0 0.5em;
     font-weight: 600;
     font-size: 38px;
     line-height: 1.23;
@@ -69,8 +69,8 @@ h1.typography {
 h2.typography,
 h3.typography,
 h4.typography,
-h5.typography {
-    margin: 1.2em 0 0.5em;
+h5.typography,
+h6.typography {
     font-weight: 600;
     line-height: 1.35;
 }
