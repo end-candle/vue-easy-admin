@@ -7,6 +7,7 @@ import Filters from '@filters';
 import Directives from '@directives';
 import '@helpers/nprogress';
 import '@/styles/common.scss';
+import '@/assets/fonts/iconfont.css';
 
 Vue.use(Plugins);
 Vue.use(Filters);
