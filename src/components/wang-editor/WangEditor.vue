@@ -115,10 +115,10 @@ export default {
             for (let key in setup) {
                 if (Object.prototype.hasOwnProperty.call(setup, key)) {
                     let funcs = setup[key];
-                    if (FUNC_TYPES.includes(toString.call(funcs))) {
-                        funcs = [funcs];
-                    } else if (Array.isArray(funcs)) {
+                    if (Array.isArray(funcs)) {
                         funcs = funcs.filter((func) => FUNC_TYPES.includes(toString.call(func)));
+                    } else if (FUNC_TYPES.includes(toString.call(funcs))) {
+                        funcs = [funcs];
                     } else {
                         break;
                     }

@@ -50,7 +50,7 @@
             <typography tag="div" size="small">正文（小） (small)</typography>
             <typography tag="div" size="auxiliary">辅助文字 (auxiliary)</typography>
         </container-card>
-        <container-card class="h100 mt24">
+        <container-card class="mt24">
             <template #header>
                 <typography size="title"> Typography组件属性 </typography>
             </template>

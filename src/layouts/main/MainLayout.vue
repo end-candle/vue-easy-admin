@@ -1,6 +1,6 @@
 <template>
     <el-container class="main-layout">
-        <el-aside :width="asideWidth" class="main-layout__aside">
+        <el-aside :width="asideWidth" class="main-layout__aside better-scroller">
             <the-logo></the-logo>
             <the-sider-menu :collapsed="fold"></the-sider-menu>
         </el-aside>
