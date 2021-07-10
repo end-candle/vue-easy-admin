@@ -59,9 +59,12 @@
 -   [Vue Router](https://github.com/vuejs/vue-router-next)
 -   [Vuex](https://github.com/vuejs/vuex)
 -   [vue-i18n](https://github.com/intlify/vue-i18n-next) - 国际化
--   [lodash](https://github.com/lodash/lodash) - JavaScript 实用程序库
+-   [lodash-es](https://github.com/lodash/lodash) - JavaScript 实用程序库
 -   [axios](https://github.com/axios/axios) - Http 数据交互
--   [TypeScript](https://www.typescriptlang.org/)
+-   [wangeditor](http://www.wangeditor.com/) - 富文本编辑器
+-   [reseter.css](https://krishdevdb.github.io/reseter.css/) - 浏览器通用重置央视
+-   [element-ui](https://element.eleme.cn/#/zh-CN) - UI组件库
+-   [@antv/g2](https://g2.antv.vision/zh) - 图表组件库
 
 ### 建议开发环境
 
@@ -200,6 +203,8 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 ## 已完成功能
 
 -   [x] 项目搭建
+-   [x] 多标签页/面包屑
+-   [x] 富文本组件
 
 ## 正在开发的功能
 
@@ -208,7 +213,6 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 -   [ ] 国际化
 -   [ ] 登录和注销
 -   [ ] 菜单（可以搜索及拖拽以及菜单布局）
--   [x] 多标签页/面包屑
 -   [ ] 基于角色的权限管理
 -   [ ] 基于后台的权限管理
 -   [ ] 分离的路由和菜单设置
@@ -236,7 +240,6 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 -   [ ] 首屏加载等待动画
 -   [ ] 数据导入导出
 -   [ ] 全局错误处理
--   [x] 富文本组件
 -   [ ] 上传组件
 -   [ ] 打包 Gzip
 -   [ ] 打包 CDN

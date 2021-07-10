@@ -7,7 +7,7 @@
 		"test": "vue-cli-service build --mode test",
 		"lint": "vue-cli-service lint",
 		"analyzer": "cross-env use_analyzer=true vue-cli-service build",
-        "commit": "git-cz"
+		"commit": "git-cz"
 	},
 	"dependencies": {
 		"@antv/data-set": "^0.11.8",
@@ -50,7 +50,7 @@
 	},
 	"gitHooks": {
 		"pre-commit": "lint-staged",
-        "commit-msg": "node scripts/verify-commit-msg.js"
+		"commit-msg": "node scripts/verify-commit-msg.js"
 	},
 	"lint-staged": {
 		"*.{js,jsx,vue}": [
