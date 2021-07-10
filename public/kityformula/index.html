@@ -33,11 +33,11 @@
                 $('.quick-dialog-confirm-btn').on('click', function () {
                     var $textArea = $('#quick-latex-textarea');
                     var latex = $textArea.val();
-                    if (!latex) {
-                        kfe.execCommand('render', latex);
-                        $textArea.val('');
-                    }
+                    $textArea.val('');
                     $('.quick-dialog').hide();
+                    if (latex) {
+                        window.kfe.execCommand('render', latex);
+                    }
                 });
 
                 $('.quick-dialog-cancel-btn').on('click', function () {
@@ -63,6 +63,7 @@
                 bottom: 0;
                 z-index: 9999;
                 display: none;
+                /*display: flex;*/
                 justify-content: center;
                 align-items: center;
                 background: rgba(0, 0, 0, 0.3);
