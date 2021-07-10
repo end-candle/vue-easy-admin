@@ -21,7 +21,9 @@ export default {
         },
         config: {
             type: Object,
-            default: () => ({})
+            default: () => ({
+                zIndex: 3
+            })
         },
         setup: {
             type: Object,
