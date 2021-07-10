@@ -15,10 +15,6 @@ class Latex {
     insert(src, latexCode = '') {
         const editor = this.editor;
         const config = editor.config;
-        const i18nPrefix = 'validate.';
-        const t = (text, prefix = i18nPrefix) => {
-            return editor.i18next.t(prefix + text);
-        };
 
         // 设置图片alt
         const latex = latexCode ? `data-latex="${latexCode}" ` : '';
@@ -29,26 +25,6 @@ class Latex {
         );
         // 执行回调函数
         config.linkImgCallback(src);
-
-        // 加载图片
-        let img = document.createElement('img');
-        img.onload = () => {
-            img = null;
-        };
-        img.onerror = () => {
-            config.customAlert(
-                t('插入数学公式错误'),
-                'error',
-                `wangEditor: ${t('插入数学公式错误')}，${t('图片链接')} "${src}"，${t(
-                    '下载链接失败'
-                )}`
-            );
-            img = null;
-        };
-        img.onabort = () => {
-            img = null;
-        };
-        img.src = src;
     }
 }
 
