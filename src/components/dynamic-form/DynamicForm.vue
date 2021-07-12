@@ -1,13 +1,9 @@
-<template>
-    <el-form> </el-form>
-</template>
-
 <script>
-import Ajv from 'ajv';
+import FormSchema from '@components/dynamic-form/form-schema';
 
 export default {
     name: 'DynamicForm',
-    created() {
+    render(h, context) {
         const schema = {
             definitions: {
                 largeEnum: {
@@ -123,44 +119,23 @@ export default {
                     type: 'string',
                     title: 'Some string'
                 },
-                choice1: {
-                    $ref: '#/definitions/largeEnum'
+                color: {
+                    type: 'string',
+                    'ui:widget': 'color'
                 },
-                choice2: {
-                    $ref: '#/definitions/largeEnum'
-                },
-                choice3: {
-                    $ref: '#/definitions/largeEnum'
-                },
-                choice4: {
-                    $ref: '#/definitions/largeEnum'
-                },
-                choice5: {
-                    $ref: '#/definitions/largeEnum'
-                },
-                choice6: {
-                    $ref: '#/definitions/largeEnum'
-                },
-                choice7: {
-                    $ref: '#/definitions/largeEnum'
-                },
-                choice8: {
-                    $ref: '#/definitions/largeEnum'
-                },
-                choice9: {
-                    $ref: '#/definitions/largeEnum'
-                },
-                choice10: {
+                select: {
                     $ref: '#/definitions/largeEnum'
                 }
             }
         };
-        const ajv = new Ajv();
-        ajv.addSchema(schema, 'dynamic-form');
-        const schemaEnv = ajv.getSchema('dynamic-form').schemaEnv;
-        console.log(schemaEnv);
+        const formSchema = new FormSchema({ jsonSchema: schema });
+        return formSchema.render(h);
     }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.dynamic-form-item {
+    margin-bottom: 24px;
+}
+</style>
