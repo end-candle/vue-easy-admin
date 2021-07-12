@@ -1,4 +1,5 @@
 import Ajv from 'ajv';
+import addFormats from 'ajv-formats';
 import { cloneDeep } from 'lodash-es';
 import formComponentConfig, {
     COL,
@@ -13,6 +14,7 @@ import formComponentConfig, {
     ROW,
     SELECT,
     STRING,
+    SWITCH,
     TIME
 } from './form-component-config';
 
@@ -23,7 +25,7 @@ class FormSchema {
         jsonSchema,
         uiSchema = {},
         errSchema = {},
-        formData = {},
+        formModel = {},
         formComponents = formComponentConfig
     }) {
         if (!jsonSchema) {
@@ -32,17 +34,17 @@ class FormSchema {
         this.jsonSchema = jsonSchema;
         this.uiSchema = uiSchema;
         this.errSchema = errSchema;
-        this.formData = formData;
+        this.formModel = formModel;
         this.formComponents = formComponents;
     }
 
     /**
      * 注册组件
      * @param name
-     * @param componentName
+     * @param component
      */
-    registerComponent(name, componentName) {
-        this.formComponents[name] = componentName;
+    registerComponent(name, component) {
+        this.formComponents[name] = component;
     }
 
     _getProp(obj, field, schemaEnv) {
@@ -71,114 +73,7 @@ class FormSchema {
                         h
                     });
                 } else {
-                    const { formComponents } = this;
-                    const grid = this._getWidgetGrid(prop, [...newDeeps]);
-                    const labelChildrenVDom = [];
-                    const title = this._getTitle(prop, [...newDeeps], key);
-                    if (title) {
-                        labelChildrenVDom.push(
-                            h(
-                                'span',
-                                {
-                                    class: 'dynamic-form-item__title'
-                                },
-                                title
-                            )
-                        );
-                    }
-                    const desc = this._getDesc(prop, [...newDeeps]);
-                    if (desc) {
-                        labelChildrenVDom.push(
-                            h(
-                                'span',
-                                {
-                                    class: 'dynamic-form-item__desc'
-                                },
-                                desc
-                            )
-                        );
-                    }
-                    const valueChildrenVDom = [];
-                    const widget = this._getWidget(prop, [...newDeeps]);
-                    if (widget !== formComponents[SELECT]) {
-                        valueChildrenVDom.push(
-                            h(
-                                widget,
-                                this._getVDomAttrs({
-                                    prop,
-                                    deeps: [...newDeeps],
-                                    extraProps: {
-                                        value: this.formData[key]
-                                    }
-                                })
-                            )
-                        );
-                    } else {
-                        const options = this._getOptions(prop, [...newDeeps]);
-                        const useOption =
-                            this._getDisplayProp({
-                                obj: prop,
-                                field: 'useOption',
-                                deeps: [...newDeeps],
-                                ui: true
-                            }) ?? true;
-                        if (useOption) {
-                            valueChildrenVDom.push(
-                                h(
-                                    widget,
-                                    this._getVDomAttrs({ prop, deeps: [...newDeeps] }),
-                                    options.map((item) => {
-                                        return h(
-                                            formComponents[OPTION],
-                                            {
-                                                props: {
-                                                    value: item.value || item
-                                                }
-                                            },
-                                            [item.label || item]
-                                        );
-                                    })
-                                )
-                            );
-                        } else {
-                            valueChildrenVDom.push(
-                                h(
-                                    widget,
-                                    this._getVDomAttrs({
-                                        prop,
-                                        deeps: [...newDeeps],
-                                        extraProps: {
-                                            options
-                                        }
-                                    })
-                                )
-                            );
-                        }
-                    }
-                    vdom = h(
-                        formComponents[ROW],
-                        {
-                            class: 'dynamic-form-item'
-                        },
-                        [
-                            h(
-                                formComponents[COL],
-                                {
-                                    class: 'dynamic-form-item__label',
-                                    props: grid?.labelCol ?? {}
-                                },
-                                labelChildrenVDom
-                            ),
-                            h(
-                                formComponents[COL],
-                                {
-                                    class: 'dynamic-form-item__value',
-                                    props: grid?.wrapperCol ?? {}
-                                },
-                                valueChildrenVDom
-                            )
-                        ]
-                    );
+                    vdom = this._renderChild({ prop, deeps: newDeeps, field: key, h });
                 }
                 result.push(vdom);
             }
@@ -187,30 +82,227 @@ class FormSchema {
     }
 
     /**
+     * 渲染子节点
+     * @param prop 字段对象
+     * @param deeps 层级嵌套对象
+     * @param field 字段名
+     * @param h 渲染函数
+     * @returns {*}
+     * @private
+     */
+    _renderChild({ prop, deeps, field, h }) {
+        const grid = this._getWidgetGrid(prop, [...deeps]);
+        const labelChildrenVDom = [];
+        const title = this._getTitle(prop, [...deeps], field);
+        if (title) {
+            labelChildrenVDom.push(
+                h(
+                    'span',
+                    {
+                        class: 'dynamic-form-item__title'
+                    },
+                    title
+                )
+            );
+        }
+        const desc = this._getDesc(prop, [...deeps]);
+        if (desc) {
+            labelChildrenVDom.push(
+                h(
+                    'span',
+                    {
+                        class: 'dynamic-form-item__desc'
+                    },
+                    desc
+                )
+            );
+        }
+        const valueChildrenVDom = [];
+        const widgetName = this._getWidgetName(prop, [...deeps]);
+        const widget = this._getWidget(widgetName);
+        if (widgetName === SELECT) {
+            valueChildrenVDom.push(
+                this._renderSelectWidget({
+                    prop,
+                    deeps,
+                    widget,
+                    h
+                })
+            );
+        } else {
+            valueChildrenVDom.push(
+                h(
+                    widget.widget,
+                    this._getVDomAttrs({
+                        prop,
+                        deeps: [...deeps],
+                        widget
+                    }),
+                    [widget.renderSlot && widget.renderSlot(h)]
+                )
+            );
+        }
+        return h(
+            this._getWidget(ROW).widget,
+            {
+                class: 'dynamic-form-item'
+            },
+            [
+                h(
+                    this._getWidget(COL).widget,
+                    {
+                        class: 'dynamic-form-item__label',
+                        props: grid?.labelCol ?? {}
+                    },
+                    labelChildrenVDom
+                ),
+                h(
+                    this._getWidget(COL).widget,
+                    {
+                        class: 'dynamic-form-item__value',
+                        props: grid?.wrapperCol ?? {}
+                    },
+                    valueChildrenVDom
+                )
+            ]
+        );
+    }
+
+    _renderSelectWidget({ prop, deeps, widget, h }) {
+        const options = this._getOptions(prop, [...deeps]);
+        const useOption =
+            this._getDisplayProp({
+                obj: prop,
+                field: 'useOption',
+                deeps: [...deeps],
+                ui: true
+            }) ?? true;
+        if (useOption) {
+            return h(
+                widget.widget,
+                this._getVDomAttrs({
+                    prop,
+                    deeps: [...deeps],
+                    widget
+                }),
+                options.map((item) => {
+                    return h(
+                        this._getWidget(OPTION).widget,
+                        {
+                            props: {
+                                value: item.value || item
+                            }
+                        },
+                        [item.label || item]
+                    );
+                })
+            );
+        }
+        return h(
+            widget.widget,
+            this._getVDomAttrs({
+                prop,
+                deeps: [...deeps],
+                extraProps: {
+                    options
+                },
+                widget
+            })
+        );
+    }
+
+    /**
      * 获取组件vdom属性
      * @param prop 属性
      * @param deeps 层级嵌套对象
      * @param extraProps 额外的属性
      * @param extraVDomAttrs 额外的虚拟Dom属性
+     * @param widget 注册的组件
      * @private
      */
-    _getVDomAttrs({ prop, deeps = [], extraProps = {}, extraVDomAttrs = {} }) {
-        return {
+    _getVDomAttrs({ prop, deeps = [], extraProps = {}, extraVDomAttrs = {}, widget }) {
+        const result = {
             ...extraVDomAttrs,
             class: this._getWidgetClass(prop, deeps),
             style: this._getWidgetStyle(prop, deeps),
             attrs: this._getWidgetAttrs(prop, deeps),
             props: { ...extraProps, ...this._getWidgetProps(prop, deeps) }
         };
+        if (deeps.length) {
+            this._bindVModel(result, widget, [...deeps]);
+        }
+        return result;
     }
 
     /**
-     * 获取属性组件
+     * 绑定组件v-model
+     * @param props 属性
+     * @param widget 组件
+     * @param deeps 层级嵌套对象
+     * @private
+     */
+    _bindVModel(props, widget, deeps) {
+        let modelBind = 'props';
+        let eventBind = 'on';
+        if (widget.native) {
+            modelBind = 'domProps';
+            eventBind = 'nativeOn';
+        }
+        if (!props[modelBind]) {
+            props[modelBind] = {};
+        }
+        if (!props[eventBind]) {
+            props[eventBind] = {};
+        }
+        props[modelBind][widget.model] = this._getModel(deeps);
+        props[eventBind][widget.event] = (val) => {
+            const newDeeps = [...deeps];
+            const field = newDeeps.pop();
+            const model = this._getModel(newDeeps);
+            model[field] = widget.formatter(val);
+        };
+    }
+
+    /**
+     * 获取model
+     * @param deeps 层级嵌套对象
+     * @private
+     */
+    _getModel(deeps = []) {
+        if (!deeps.length) {
+            return this.formModel;
+        }
+        return deeps.reduce((prev, current) => {
+            return prev[current] ?? {};
+        }, this.formModel);
+    }
+
+    /**
+     * 获取组件
+     * @param name 组件名
+     * @returns {{widget: string, event: string}}
+     * @private
+     */
+    _getWidget(name) {
+        const widget = this.formComponents[name];
+        if (typeof widget === 'string') {
+            return {
+                widget,
+                event: 'input',
+                native: false,
+                formatter: (val) => val
+            };
+        }
+        return widget;
+    }
+
+    /**
+     * 获取属性组件名
      * @param prop 属性
      * @param deeps 层级嵌套对象
      * @private
      */
-    _getWidget(prop, deeps = []) {
+    _getWidgetName(prop, deeps = []) {
         const widget = this._getDisplayProp({
             obj: prop,
             field: 'widget',
@@ -218,25 +310,31 @@ class FormSchema {
             ui: true
         });
         if (widget) {
-            return this.formComponents[widget];
+            return widget;
         }
 
         const enums = this._getProp(prop, 'enum') ?? [];
         if (enums.length) {
-            return this.formComponents[SELECT];
+            return SELECT;
         }
 
         const format = this._getProp(prop, 'format');
         if ([PASSWORD, DATE, TIME, DATETIME, COLOR].includes(format)) {
-            return this.formComponents[format];
+            return format;
+        }
+        if (format === 'boolean') {
+            return SWITCH;
         }
 
         const type = this._getProp(prop, 'type');
         if ([STRING, Number].includes(type)) {
-            return this.formComponents[type];
+            return type;
+        }
+        if (type === 'array') {
+            return SELECT;
         }
 
-        return this.formComponents[STRING];
+        return STRING;
     }
 
     /**
@@ -379,7 +477,7 @@ class FormSchema {
     _parseFormVDom(schemaEnv, h) {
         const schema = schemaEnv.schema;
         const properties = this._getProp(schema, 'properties', schemaEnv);
-        const { formComponents, formData } = this;
+        const { formComponents, formModel } = this;
         const formTitle = this._getDisplayProp({
             obj: schema,
             field: 'title',
@@ -396,7 +494,7 @@ class FormSchema {
             formComponents[FORM],
             {
                 props: {
-                    model: formData
+                    model: formModel
                 }
             },
             [
@@ -447,6 +545,7 @@ class FormSchema {
         this.ajv.addKeyword('ui:class');
         this.ajv.addKeyword('ui:style');
         this.ajv.addKeyword('ui:grid');
+        addFormats(this.ajv);
         this.ajv.addSchema(this.jsonSchema, SCHEMA_NAME);
         return this._parseFormVDom(cloneDeep(this.ajv.getSchema(SCHEMA_NAME).schemaEnv), h);
     }

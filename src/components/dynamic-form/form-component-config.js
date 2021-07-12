@@ -27,23 +27,120 @@ export default {
     [FORM_TITLE]: 'div',
     [FORM_DESC]: 'div',
     [FORM_GROUP]: 'div',
-    [STRING]: 'el-input',
-    [PASSWORD]: 'el-input',
-    [DATE]: 'el-date-picker',
-    [TIME]: 'el-time-picker',
-    [DATETIME]: 'el-date-picker',
-    [SWITCH]: 'el-switch',
-    [SELECT]: 'el-select',
+    [STRING]: {
+        widget: 'el-input',
+        model: 'value',
+        event: 'input',
+        native: false,
+        formatter: (val) => val
+    },
+    [PASSWORD]: {
+        widget: 'el-input',
+        event: 'input',
+        model: 'value',
+        native: false,
+        formatter: (val) => val
+    },
+    [DATE]: {
+        widget: 'el-date-picker',
+        event: 'input',
+        model: 'value',
+        native: false,
+        formatter: (val) => val
+    },
+    [TIME]: {
+        widget: 'el-time-picker',
+        event: 'input',
+        model: 'value',
+        native: false,
+        formatter: (val) => val
+    },
+    [DATETIME]: {
+        widget: 'el-date-picker',
+        event: 'change',
+        model: 'value',
+        native: false,
+        formatter: (val) => val
+    },
+    [SWITCH]: {
+        widget: 'el-switch',
+        event: 'change',
+        model: 'value',
+        native: false,
+        formatter: (val) => val
+    },
+    [SELECT]: {
+        widget: 'el-select',
+        event: 'change',
+        model: 'value',
+        native: false,
+        formatter: (val) => val
+    },
     [OPTION]: 'el-option',
-    [CASCADER]: 'el-cascader',
-    [NUMBER]: 'el-input-number',
-    [SLIDER]: 'el-slider',
-    [CHECKBOX]: 'el-checkbox',
-    [RADIO]: 'el-radio',
-    [UPLOAD]: 'el-upload',
-    [RATE]: 'el-rate',
-    [COLOR]: 'el-color-picker',
-    [TRANSFER]: 'el-transfer',
+    [CASCADER]: {
+        widget: 'el-cascader',
+        event: 'change',
+        model: 'value',
+        native: false,
+        formatter: (val) => val
+    },
+    [NUMBER]: {
+        widget: 'el-input-number',
+        event: 'input',
+        model: 'value',
+        native: false,
+        formatter: (val) => val
+    },
+    [SLIDER]: {
+        widget: 'el-slider',
+        model: 'value',
+        event: 'change',
+        native: false,
+        formatter: (val) => val
+    },
+    [CHECKBOX]: {
+        widget: 'el-checkbox',
+        model: 'value',
+        event: 'change',
+        native: false,
+        formatter: (val) => val
+    },
+    [RADIO]: {
+        widget: 'el-radio',
+        model: 'value',
+        event: 'change',
+        native: false,
+        formatter: (val) => val
+    },
+    [UPLOAD]: {
+        widget: 'el-upload',
+        model: 'value',
+        event: 'change',
+        native: false,
+        formatter: (val) => val,
+        renderSlot: (h) => h('i', { class: 'el-icon-plus' })
+    },
+    [RATE]: {
+        widget: 'el-rate',
+        model: 'value',
+        event: 'change',
+        native: false,
+        formatter: (val) => val
+    },
+    [COLOR]: {
+        widget: 'el-color-picker',
+        model: 'value',
+        event: 'change',
+        native: false,
+        formatter: (val) => val
+    },
+    [TRANSFER]: {
+        widget: 'el-transfer',
+        model: 'value',
+        event: 'change',
+        native: false,
+        formatter: (val) => val
+    },
     [ROW]: 'el-row',
     [COL]: 'el-col'
 };

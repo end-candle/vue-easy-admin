@@ -3,7 +3,24 @@ import FormSchema from '@components/dynamic-form/form-schema';
 
 export default {
     name: 'DynamicForm',
-    render(h, context) {
+    data() {
+        return {
+            formData: {
+                string: '水水水水水',
+                color: '',
+                select: '',
+                date: '',
+                time: '',
+                password: '',
+                switch: '',
+                cascader: '',
+                upload: '',
+                rate: '',
+                transfer: ''
+            }
+        };
+    },
+    render(h) {
         const schema = {
             definitions: {
                 largeEnum: {
@@ -15,100 +32,7 @@ export default {
                         'option #3',
                         'option #4',
                         'option #5',
-                        'option #6',
-                        'option #7',
-                        'option #8',
-                        'option #9',
-                        'option #10',
-                        'option #11',
-                        'option #12',
-                        'option #13',
-                        'option #14',
-                        'option #15',
-                        'option #16',
-                        'option #17',
-                        'option #18',
-                        'option #19',
-                        'option #20',
-                        'option #21',
-                        'option #22',
-                        'option #23',
-                        'option #24',
-                        'option #25',
-                        'option #26',
-                        'option #27',
-                        'option #28',
-                        'option #29',
-                        'option #30',
-                        'option #31',
-                        'option #32',
-                        'option #33',
-                        'option #34',
-                        'option #35',
-                        'option #36',
-                        'option #37',
-                        'option #38',
-                        'option #39',
-                        'option #40',
-                        'option #41',
-                        'option #42',
-                        'option #43',
-                        'option #44',
-                        'option #45',
-                        'option #46',
-                        'option #47',
-                        'option #48',
-                        'option #49',
-                        'option #50',
-                        'option #51',
-                        'option #52',
-                        'option #53',
-                        'option #54',
-                        'option #55',
-                        'option #56',
-                        'option #57',
-                        'option #58',
-                        'option #59',
-                        'option #60',
-                        'option #61',
-                        'option #62',
-                        'option #63',
-                        'option #64',
-                        'option #65',
-                        'option #66',
-                        'option #67',
-                        'option #68',
-                        'option #69',
-                        'option #70',
-                        'option #71',
-                        'option #72',
-                        'option #73',
-                        'option #74',
-                        'option #75',
-                        'option #76',
-                        'option #77',
-                        'option #78',
-                        'option #79',
-                        'option #80',
-                        'option #81',
-                        'option #82',
-                        'option #83',
-                        'option #84',
-                        'option #85',
-                        'option #86',
-                        'option #87',
-                        'option #88',
-                        'option #89',
-                        'option #90',
-                        'option #91',
-                        'option #92',
-                        'option #93',
-                        'option #94',
-                        'option #95',
-                        'option #96',
-                        'option #97',
-                        'option #98',
-                        'option #99'
+                        'option #6'
                     ]
                 }
             },
@@ -124,11 +48,339 @@ export default {
                     'ui:widget': 'color'
                 },
                 select: {
-                    $ref: '#/definitions/largeEnum'
+                    $ref: '#/definitions/largeEnum',
+                    'ui:class': {
+                        w100: true
+                    }
+                },
+                date: {
+                    type: 'string',
+                    format: 'date',
+                    'ui:class': {
+                        w100: true
+                    }
+                },
+                time: {
+                    type: 'string',
+                    format: 'time',
+                    'ui:style': {
+                        width: '100%'
+                    }
+                },
+                password: {
+                    type: 'string',
+                    format: 'password',
+                    'ui:props': {
+                        'show-password': true
+                    },
+                    'ui:attrs': {
+                        placeholder: '请输入密码'
+                    }
+                },
+                switch: {
+                    type: 'boolean',
+                    'ui:class': {
+                        w100: true
+                    }
+                },
+                cascader: {
+                    type: 'string',
+                    'ui:widget': 'cascader',
+                    'ui:class': {
+                        w100: true
+                    },
+                    'ui:props': {
+                        options: [
+                            {
+                                value: 'zhinan',
+                                label: '指南',
+                                children: [
+                                    {
+                                        value: 'shejiyuanze',
+                                        label: '设计原则',
+                                        children: [
+                                            {
+                                                value: 'yizhi',
+                                                label: '一致'
+                                            },
+                                            {
+                                                value: 'fankui',
+                                                label: '反馈'
+                                            },
+                                            {
+                                                value: 'xiaolv',
+                                                label: '效率'
+                                            },
+                                            {
+                                                value: 'kekong',
+                                                label: '可控'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        value: 'daohang',
+                                        label: '导航',
+                                        children: [
+                                            {
+                                                value: 'cexiangdaohang',
+                                                label: '侧向导航'
+                                            },
+                                            {
+                                                value: 'dingbudaohang',
+                                                label: '顶部导航'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                value: 'zujian',
+                                label: '组件',
+                                children: [
+                                    {
+                                        value: 'basic',
+                                        label: 'Basic',
+                                        children: [
+                                            {
+                                                value: 'layout',
+                                                label: 'Layout 布局'
+                                            },
+                                            {
+                                                value: 'color',
+                                                label: 'Color 色彩'
+                                            },
+                                            {
+                                                value: 'typography',
+                                                label: 'Typography 字体'
+                                            },
+                                            {
+                                                value: 'icon',
+                                                label: 'Icon 图标'
+                                            },
+                                            {
+                                                value: 'button',
+                                                label: 'Button 按钮'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        value: 'form',
+                                        label: 'Form',
+                                        children: [
+                                            {
+                                                value: 'radio',
+                                                label: 'Radio 单选框'
+                                            },
+                                            {
+                                                value: 'checkbox',
+                                                label: 'Checkbox 多选框'
+                                            },
+                                            {
+                                                value: 'input',
+                                                label: 'Input 输入框'
+                                            },
+                                            {
+                                                value: 'input-number',
+                                                label: 'InputNumber 计数器'
+                                            },
+                                            {
+                                                value: 'select',
+                                                label: 'Select 选择器'
+                                            },
+                                            {
+                                                value: 'cascader',
+                                                label: 'Cascader 级联选择器'
+                                            },
+                                            {
+                                                value: 'switch',
+                                                label: 'Switch 开关'
+                                            },
+                                            {
+                                                value: 'slider',
+                                                label: 'Slider 滑块'
+                                            },
+                                            {
+                                                value: 'time-picker',
+                                                label: 'TimePicker 时间选择器'
+                                            },
+                                            {
+                                                value: 'date-picker',
+                                                label: 'DatePicker 日期选择器'
+                                            },
+                                            {
+                                                value: 'datetime-picker',
+                                                label: 'DateTimePicker 日期时间选择器'
+                                            },
+                                            {
+                                                value: 'upload',
+                                                label: 'Upload 上传'
+                                            },
+                                            {
+                                                value: 'rate',
+                                                label: 'Rate 评分'
+                                            },
+                                            {
+                                                value: 'form',
+                                                label: 'Form 表单'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        value: 'data',
+                                        label: 'Data',
+                                        children: [
+                                            {
+                                                value: 'table',
+                                                label: 'Table 表格'
+                                            },
+                                            {
+                                                value: 'tag',
+                                                label: 'Tag 标签'
+                                            },
+                                            {
+                                                value: 'progress',
+                                                label: 'Progress 进度条'
+                                            },
+                                            {
+                                                value: 'tree',
+                                                label: 'Tree 树形控件'
+                                            },
+                                            {
+                                                value: 'pagination',
+                                                label: 'Pagination 分页'
+                                            },
+                                            {
+                                                value: 'badge',
+                                                label: 'Badge 标记'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        value: 'notice',
+                                        label: 'Notice',
+                                        children: [
+                                            {
+                                                value: 'alert',
+                                                label: 'Alert 警告'
+                                            },
+                                            {
+                                                value: 'loading',
+                                                label: 'Loading 加载'
+                                            },
+                                            {
+                                                value: 'message',
+                                                label: 'Message 消息提示'
+                                            },
+                                            {
+                                                value: 'message-box',
+                                                label: 'MessageBox 弹框'
+                                            },
+                                            {
+                                                value: 'notification',
+                                                label: 'Notification 通知'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        value: 'navigation',
+                                        label: 'Navigation',
+                                        children: [
+                                            {
+                                                value: 'menu',
+                                                label: 'NavMenu 导航菜单'
+                                            },
+                                            {
+                                                value: 'tabs',
+                                                label: 'Tabs 标签页'
+                                            },
+                                            {
+                                                value: 'breadcrumb',
+                                                label: 'Breadcrumb 面包屑'
+                                            },
+                                            {
+                                                value: 'dropdown',
+                                                label: 'Dropdown 下拉菜单'
+                                            },
+                                            {
+                                                value: 'steps',
+                                                label: 'Steps 步骤条'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        value: 'others',
+                                        label: 'Others',
+                                        children: [
+                                            {
+                                                value: 'dialog',
+                                                label: 'Dialog 对话框'
+                                            },
+                                            {
+                                                value: 'tooltip',
+                                                label: 'Tooltip 文字提示'
+                                            },
+                                            {
+                                                value: 'popover',
+                                                label: 'Popover 弹出框'
+                                            },
+                                            {
+                                                value: 'card',
+                                                label: 'Card 卡片'
+                                            },
+                                            {
+                                                value: 'carousel',
+                                                label: 'Carousel 走马灯'
+                                            },
+                                            {
+                                                value: 'collapse',
+                                                label: 'Collapse 折叠面板'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                value: 'ziyuan',
+                                label: '资源',
+                                children: [
+                                    {
+                                        value: 'axure',
+                                        label: 'Axure Components'
+                                    },
+                                    {
+                                        value: 'sketch',
+                                        label: 'Sketch Templates'
+                                    },
+                                    {
+                                        value: 'jiaohu',
+                                        label: '组件交互文档'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                upload: {
+                    type: 'string',
+                    'ui:widget': 'upload',
+                    'ui:class': {
+                        w100: true
+                    },
+                    'ui:props': {
+                        action: 'https://jsonplaceholder.typicode.com/posts/'
+                    }
+                },
+                rate: {
+                    type: 'string',
+                    'ui:widget': 'rate'
+                },
+                transfer: {
+                    type: 'string',
+                    'ui:widget': 'transfer'
                 }
             }
         };
-        const formSchema = new FormSchema({ jsonSchema: schema });
+        const formSchema = new FormSchema({ jsonSchema: schema, formModel: this.formData });
         return formSchema.render(h);
     }
 };
@@ -137,5 +389,6 @@ export default {
 <style lang="scss" scoped>
 .dynamic-form-item {
     margin-bottom: 24px;
+    line-height: 40px;
 }
 </style>
