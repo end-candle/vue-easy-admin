@@ -15,8 +15,8 @@ export default {
                 switch: '',
                 cascader: '',
                 upload: '',
-                rate: '',
-                transfer: ''
+                rate: 0,
+                transfer: []
             }
         };
     },
@@ -40,8 +40,7 @@ export default {
             type: 'object',
             properties: {
                 string: {
-                    type: 'string',
-                    title: 'Some string'
+                    type: 'string'
                 },
                 color: {
                     type: 'string',
@@ -375,12 +374,37 @@ export default {
                     'ui:widget': 'rate'
                 },
                 transfer: {
-                    type: 'string',
+                    type: 'array',
                     'ui:widget': 'transfer'
                 }
             }
         };
-        const formSchema = new FormSchema({ jsonSchema: schema, formModel: this.formData });
+        const formSchema = new FormSchema({
+            jsonSchema: schema,
+            formModel: this.formData,
+            uiSchema: {
+                'ui:grid': {
+                    row: {
+                        type: 'flex'
+                    },
+                    labelCol: {
+                        style: {
+                            width: '100px',
+                            'text-align': 'right'
+                        }
+                    },
+                    wrapperCol: {
+                        span: 20
+                    }
+                },
+                select: {
+                    'ui:title': '选择器'
+                },
+                upload: {
+                    'ui:title': '文件上传'
+                }
+            }
+        });
         return formSchema.render(h);
     }
 };
@@ -390,5 +414,19 @@ export default {
 .dynamic-form-item {
     margin-bottom: 24px;
     line-height: 40px;
+    &__desc {
+        font-size: 13px;
+        padding-left: 8px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    &__label {
+        padding: 0 16px;
+    }
+    &__value {
+        min-height: 40px;
+        line-height: 40px;
+        display: flex;
+        align-items: center;
+    }
 }
 </style>

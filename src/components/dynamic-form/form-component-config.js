@@ -2,6 +2,8 @@ export const FORM = 'form';
 export const FORM_TITLE = 'form-title';
 export const FORM_DESC = 'form-desc';
 export const FORM_GROUP = 'form-group';
+export const FORM_GROUP_TITLE = 'form-group-title';
+export const FORM_GROUP_DESC = 'form-group-desc';
 export const STRING = 'string';
 export const PASSWORD = 'password';
 export const DATE = 'date';
@@ -27,6 +29,8 @@ export default {
     [FORM_TITLE]: 'div',
     [FORM_DESC]: 'div',
     [FORM_GROUP]: 'div',
+    [FORM_GROUP_TITLE]: 'div',
+    [FORM_GROUP_DESC]: 'div',
     [STRING]: {
         widget: 'el-input',
         model: 'value',
