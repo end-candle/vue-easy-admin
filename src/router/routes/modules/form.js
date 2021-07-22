@@ -2,7 +2,7 @@ import BasicForm from '@views/form/BasicForm';
 import { MAIN_LAYOUT } from '@router/routes/basic';
 import StepForm from '@views/form/StepForm';
 import AdvanceForm from '@views/form/AdvanceForm';
-import DForm from '@views/form/DForm';
+// import DForm from '@views/form/DForm';
 
 const form = {
     path: '/',
@@ -36,15 +36,15 @@ const form = {
             meta: {
                 title: '高级表单'
             }
-        },
-        {
-            path: '/dynamic/form',
-            name: 'DForm',
-            component: DForm,
-            meta: {
-                title: '动态表单'
-            }
         }
+        // {
+        //     path: '/dynamic/form',
+        //     name: 'DForm',
+        //     component: DForm,
+        //     meta: {
+        //         title: '动态表单'
+        //     }
+        // }
     ]
 };
 
