@@ -1,5 +1,5 @@
 import { MAIN_LAYOUT } from '@router/routes/basic';
-import TablePage from '@views/TablePage';
+import TablePage from '@views/table/TablePage';
 
 const table = {
     path: '/',

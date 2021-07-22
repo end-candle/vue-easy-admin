@@ -8,9 +8,9 @@
                 @sort-change="handleSortChange"
             >
                 <el-table-column v-for="(field, index) in fields" :key="index" v-bind="field">
-                    <template v-if="field.slot" #default="scope">
+                    <template v-if="field.scopedSlot" #default="scope">
                         <slot
-                            :name="field.slot"
+                            :name="field.scopedSlot"
                             :row="scope.row"
                             :column="scope.column"
                             :index="scope.$index"

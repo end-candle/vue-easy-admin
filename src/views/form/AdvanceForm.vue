@@ -299,21 +299,20 @@ export default {
             ],
             fields: [
                 {
-                    name: 'name',
-                    title: '成员姓名'
+                    prop: 'name',
+                    label: '成员姓名'
                 },
                 {
-                    name: 'no',
-                    title: '工号'
+                    prop: 'no',
+                    label: '工号'
                 },
                 {
-                    name: 'department',
-                    title: '所属部门'
+                    prop: 'department',
+                    label: '所属部门'
                 },
                 {
-                    name: 'actions',
-                    slot: 'actions',
-                    title: '操作'
+                    scopedSlot: 'actions',
+                    label: '操作'
                 }
             ],
             memberList: [

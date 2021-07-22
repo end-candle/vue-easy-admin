@@ -1,5 +1,11 @@
 <template>
-    <pro-table :fields="fields" :pagination-visible="false" v-bind="$attrs" v-on="$listeners" />
+    <pro-table
+        :header-cell-style="{ background: '#fafafa', color: '#333333', 'font-weight': 500 }"
+        :fields="fields"
+        :pagination-visible="false"
+        v-bind="$attrs"
+        v-on="$listeners"
+    />
 </template>
 
 <script>
@@ -11,27 +17,27 @@ export default {
         return {
             fields: [
                 {
-                    name: 'attr',
-                    title: '参数',
+                    prop: 'attr',
+                    label: '参数',
                     width: 120
                 },
                 {
-                    name: 'desc',
-                    title: '说明'
+                    prop: 'desc',
+                    label: '说明'
                 },
                 {
-                    name: 'type',
-                    title: '类型',
+                    prop: 'type',
+                    label: '类型',
                     width: 120
                 },
                 {
-                    name: 'optional',
-                    title: '可选值',
+                    prop: 'optional',
+                    label: '可选值',
                     minWidth: 200
                 },
                 {
-                    name: 'default',
-                    title: '默认值'
+                    prop: 'default',
+                    label: '默认值'
                 }
             ]
         };
