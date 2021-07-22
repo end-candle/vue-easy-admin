@@ -756,8 +756,8 @@ export default {
                     default: false
                 },
                 {
-                    attr: 'page-size',
-                    desc: '每页显示条目个数，支持 .sync 修饰符',
+                    attr: 'size',
+                    desc: '每页显示条目个数',
                     type: 'number',
                     optional: '-',
                     default: 10
@@ -778,8 +778,8 @@ export default {
                     default: 7
                 },
                 {
-                    attr: 'current-page',
-                    desc: '当前页数，支持 .sync 修饰符',
+                    attr: 'current',
+                    desc: '当前页数',
                     type: 'number',
                     optional: '-',
                     default: 1
