@@ -2,6 +2,7 @@
     <div v-loading="loading" class="custom-table">
         <div class="custom-table__body">
             <el-table
+                ref="table"
                 :data="records"
                 v-bind="$attrs"
                 v-on="$listeners"
@@ -25,10 +26,10 @@
         <slot v-if="paginationVisible" name="tablePagination">
             <div v-if="total !== 0" class="custom-table__footer">
                 <el-pagination
+                    v-bind="pagination"
                     :current-page.sync="current"
                     :page-size.sync="size"
                     :total="dataSource.length === 0 ? total : dataSource.length"
-                    v-bind="paginationProps"
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
                 >
@@ -62,10 +63,6 @@ export default {
             type: Boolean,
             default: true
         },
-        paginationProps: {
-            type: Object,
-            default: () => ({})
-        },
         pagination: {
             type: Object,
             default: () => ({
@@ -93,6 +90,9 @@ export default {
                 return 'local';
             }
             return 'remote';
+        },
+        table() {
+            return this.$refs.table;
         }
     },
     watch: {

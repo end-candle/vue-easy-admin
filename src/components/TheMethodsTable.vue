@@ -17,26 +17,22 @@ export default {
         descWidth: {
             type: Number
         },
-        attrWidth: {
+        nameWidth: {
             type: Number,
             default: 120
         },
-        typeWidth: {
+        paramsWidth: {
             type: Number,
             default: 120
-        },
-        optionalWidth: {
-            type: Number,
-            default: 200
         }
     },
     data() {
         return {
             fields: [
                 {
-                    prop: 'attr',
-                    label: '参数',
-                    width: this.attrWidth
+                    prop: 'name',
+                    label: '方法名',
+                    width: this.nameWidth
                 },
                 {
                     prop: 'desc',
@@ -44,18 +40,9 @@ export default {
                     minWidth: this.descWidth
                 },
                 {
-                    prop: 'type',
-                    label: '类型',
-                    width: this.typeWidth
-                },
-                {
-                    prop: 'optional',
-                    label: '可选值',
-                    minWidth: this.optionalWidth
-                },
-                {
-                    prop: 'default',
-                    label: '默认值'
+                    prop: 'params',
+                    label: '参数',
+                    width: this.paramsWidth
                 }
             ]
         };
