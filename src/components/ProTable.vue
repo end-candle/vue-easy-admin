@@ -3,46 +3,18 @@
         <div class="custom-table__body">
             <el-table
                 :data="records"
-                :header-cell-style="{ background: '#fafafa', color: '#333333', 'font-weight': 500 }"
                 v-bind="$attrs"
                 v-on="$listeners"
                 @sort-change="handleSortChange"
             >
-                <el-table-column
-                    v-for="(field, index) in fields"
-                    :key="index"
-                    :type="field.type"
-                    :index="field.index"
-                    :column-key="field.columnKey"
-                    :label="field.title"
-                    :prop="field.name"
-                    :width="field.width"
-                    :min-width="field.minWidth"
-                    :fixed="field.fixed"
-                    :render-header="field.renderHeader"
-                    :sortable="!!field.sort"
-                    :sort-method="field.sort"
-                    :sort-by="field.sortBy"
-                    :sort-orders="field.sortOrders"
-                    :resizable="field.resizable"
-                    :formatter="field.formatter"
-                    :show-overflow-tooltip="
-                        field.showOverflowTooltip === undefined ? true : field.showOverflowTooltip
-                    "
-                    :align="field.align"
-                    :header-align="field.headerAlign"
-                    :class-name="field.className"
-                    :label-class-name="field.labelClassName"
-                    :selectable="field.selectable"
-                    :reserve-selection="field.reserveSelection"
-                    :filters="field.filters"
-                    :filter-placement="field.filterPlacement"
-                    :filter-multiple="field.filterMultiple"
-                    :filter-method="field.filterMethod"
-                    :filtered-value="field.filteredValue"
-                >
+                <el-table-column v-for="(field, index) in fields" :key="index" v-bind="field">
                     <template v-if="field.slot" #default="scope">
-                        <slot :name="field.slot" :row="scope.row"></slot>
+                        <slot
+                            :name="field.slot"
+                            :row="scope.row"
+                            :column="scope.column"
+                            :index="scope.$index"
+                        ></slot>
                     </template>
                 </el-table-column>
                 <template #empty>
@@ -92,14 +64,22 @@ export default {
         },
         paginationProps: {
             type: Object,
-            default: () => {}
+            default: () => ({})
+        },
+        pagination: {
+            type: Object,
+            default: () => ({
+                current: 1,
+                size: 10,
+                total: 0
+            })
         }
     },
     data() {
         return {
-            current: 1,
-            total: 0,
-            size: 10,
+            current: this.pagination.current,
+            total: this.pagination.total,
+            size: this.pagination.size,
             loading: false,
             error: false,
             records: [],

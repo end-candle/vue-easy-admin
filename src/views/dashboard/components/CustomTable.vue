@@ -4,6 +4,7 @@
         :fields="fields"
         :pagination-visible="false"
         :row-class-name="tableRowClassName"
+        :header-cell-style="{ background: '#fafafa', color: '#333333', 'font-weight': 500 }"
     >
     </pro-table>
 </template>
@@ -54,21 +55,21 @@ export default {
             ],
             fields: [
                 {
-                    name: 'date',
-                    title: '日期',
+                    prop: 'date',
+                    label: '日期',
                     align: 'center',
                     width: 180
                 },
                 {
-                    name: 'name',
-                    title: '姓名',
+                    prop: 'name',
+                    label: '姓名',
                     align: 'center',
                     width: 180
                 },
                 {
-                    name: 'address',
+                    prop: 'address',
                     align: 'center',
-                    title: '地址'
+                    label: '地址'
                 }
             ]
         };
