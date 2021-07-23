@@ -153,12 +153,20 @@ button:focus {
 }
 
 // 间隔
+.mt8 {
+    margin-top: 8px !important;
+}
+
 .mt12 {
     margin-top: 12px !important;
 }
 
 .mt24 {
     margin-top: 24px !important;
+}
+
+.ml8 {
+    margin-left: 8px !important;
 }
 
 .mb0 {
@@ -177,8 +185,17 @@ button:focus {
     margin-bottom: 24px !important;
 }
 
+.mv12 {
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+}
+
 .p0 {
     padding: 0 !important;
+}
+.ph0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .pt12 {

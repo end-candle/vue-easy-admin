@@ -6,7 +6,7 @@ const richEditor = {
     redirect: '/rich-editor',
     component: MAIN_LAYOUT,
     meta: {
-        title: '富文本编辑器',
+        title: '编辑器',
         icon: 'el-icon-tickets'
     },
     children: [

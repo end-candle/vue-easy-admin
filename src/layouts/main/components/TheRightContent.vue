@@ -1,6 +1,6 @@
 <template>
     <div class="right-content">
-        <el-dropdown>
+        <el-dropdown @command="handleCommand">
             <div class="right-content-user flex align-center">
                 <el-avatar
                     src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
@@ -10,9 +10,13 @@
             </div>
             <template #dropdown>
                 <el-dropdown-menu class="right-content-user__dropdown">
-                    <el-dropdown-item icon="el-icon-user">个人中心</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-setting">系统设置</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-switch-button" divided
+                    <el-dropdown-item command="user-profile" icon="el-icon-user"
+                        >个人中心</el-dropdown-item
+                    >
+                    <el-dropdown-item command="system-settings" icon="el-icon-setting"
+                        >系统设置</el-dropdown-item
+                    >
+                    <el-dropdown-item command="logout" icon="el-icon-switch-button" divided
                         >退出登录</el-dropdown-item
                     >
                 </el-dropdown-menu>
@@ -23,7 +27,36 @@
 
 <script>
 export default {
-    name: 'TheRightContent'
+    name: 'TheRightContent',
+    methods: {
+        handleCommand(command) {
+            switch (command) {
+                case 'user-profile':
+                    this.toUserProfile();
+                    break;
+                case 'system-settings':
+                    this.toSystemSettings();
+                    break;
+                case 'logout':
+                    this.logout();
+                    break;
+            }
+        },
+        /**
+         * 跳转个人中心
+         */
+        toUserProfile() {
+            this.$router.push({ name: 'UserBaseSetting' });
+        },
+        /**
+         * 跳转系统设置
+         */
+        toSystemSettings() {},
+        /**
+         * 退出
+         */
+        logout() {}
+    }
 };
 </script>
 
