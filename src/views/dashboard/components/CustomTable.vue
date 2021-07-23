@@ -3,7 +3,6 @@
         :data-source="tableData"
         :fields="fields"
         :pagination-visible="false"
-        :row-class-name="tableRowClassName"
         :header-cell-style="{ background: '#fafafa', color: '#333333', 'font-weight': 500 }"
     >
     </pro-table>
@@ -73,16 +72,6 @@ export default {
                 }
             ]
         };
-    },
-    methods: {
-        tableRowClassName({ row, rowIndex }) {
-            if (rowIndex === 1) {
-                return 'warning-row';
-            } else if (rowIndex === 3) {
-                return 'success-row';
-            }
-            return '';
-        }
     }
 };
 </script>
