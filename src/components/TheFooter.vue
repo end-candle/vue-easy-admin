@@ -3,7 +3,7 @@
         <a href="https://element.eleme.cn/#/zh-CN" target="_blank">
             <typography size="small">element-ui</typography>
         </a>
-        <typography size="small">Copyright &copy; 末烛出品</typography>
+        <typography size="small">Copyright &copy; 2021 末烛出品</typography>
     </div>
 </template>
 

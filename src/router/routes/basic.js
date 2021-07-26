@@ -1,5 +1,6 @@
 import Exception from '@views/Exception';
 import Redirect from '@views/Redirect';
+import Login from '@views/login/Login';
 
 /**
  * 空白布局
@@ -36,5 +37,16 @@ export const REFRESH_ROUTE = {
     component: Redirect,
     meta: {
         title: '刷新'
+    }
+};
+/**
+ * 登录路由
+ */
+export const LOGIN_ROUTE = {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+    meta: {
+        title: '登录'
     }
 };
