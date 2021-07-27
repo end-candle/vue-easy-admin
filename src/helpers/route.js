@@ -42,3 +42,76 @@ export function sortRoutes(routes = []) {
         return sortB - sortA;
     });
 }
+
+/**
+ * 过滤非法路由（未授权路由）
+ * @param routes 路由集合
+ * @param role 角色
+ */
+export function filterIllegalRoutes(routes, role) {
+    const legalRoutes = [];
+    routes.forEach((route) => {
+        let roles = route.meta?.role;
+        if (roles) {
+            roles = Array.isArray(roles) ? roles : [roles];
+            if (!roles.includes(role)) {
+                return false;
+            }
+        }
+        if (route.children?.length) {
+            route.children = filterIllegalRoutes(route.children, role);
+        }
+        legalRoutes.push(route);
+    });
+    return legalRoutes;
+}
+
+/**
+ * 根据角色格式化面包屑
+ * @param breadcrumbs 面包屑集合
+ * @param role 角色
+ */
+export function formatBreadcrumbs(breadcrumbs, role) {
+    if (Array.isArray(breadcrumbs)) {
+        return breadcrumbs.map((breadcrumb) => {
+            if (typeof breadcrumb === 'string') {
+                return {
+                    title: breadcrumb
+                };
+            }
+            const { title, route } = breadcrumb;
+            const roleBreadCrumb = breadcrumb[role] || {};
+            return {
+                title,
+                route,
+                ...roleBreadCrumb
+            };
+        });
+    }
+    if (typeof breadcrumbs === 'string') {
+        return {
+            title: breadcrumbs
+        };
+    }
+    return [];
+}
+
+/**
+ * 根据角色格式化路由面包屑
+ * @param routes 路由集合
+ * @param role 角色
+ */
+export function formatRoutesBreadcrumbs(routes, role) {
+    const formatRoutes = [];
+    routes.forEach((route) => {
+        const { breadcrumbs = [] } = route.meta;
+        if (breadcrumbs?.length) {
+            route.meta.breadcrumbs = formatBreadcrumbs(breadcrumbs, role);
+        }
+        if (route.children?.length) {
+            route.children = formatRoutesBreadcrumbs(route.children, role);
+        }
+        formatRoutes.push(route);
+    });
+    return formatRoutes;
+}
