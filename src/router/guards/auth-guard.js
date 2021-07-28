@@ -1,8 +1,6 @@
-import { filterIllegalRoutes, formatRoutesBreadcrumbs, sortRoutes } from '@helpers/route';
-import { cloneDeep } from 'lodash-es';
-import { asyncRoutes } from '@router/routes';
 import { EXCEPTION_ROUTE } from '@router/routes/basic';
-import { checkLoginAuth, getAuthRole } from '@helpers/auth';
+import { checkLoginAuth } from '@helpers/auth';
+import { getRoutes } from '@helpers/route';
 
 const createAuthGuard = (router) => {
     let added = false;
@@ -10,10 +8,7 @@ const createAuthGuard = (router) => {
         const token = checkLoginAuth();
         if (token && !added) {
             added = true;
-            const role = getAuthRole();
-            sortRoutes(
-                formatRoutesBreadcrumbs(filterIllegalRoutes(cloneDeep(asyncRoutes), role), role)
-            ).forEach((route) => {
+            getRoutes().forEach((route) => {
                 router.addRoute(route);
             });
             router.addRoute(EXCEPTION_ROUTE);

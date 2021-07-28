@@ -17,16 +17,8 @@
 </template>
 
 <script>
-import { asyncRoutes } from '@router/routes';
-import {
-    filterIllegalRoutes,
-    formatRoutesBreadcrumbs,
-    normalizeRoutes,
-    sortRoutes
-} from '@helpers/route';
-import { cloneDeep } from 'lodash-es';
+import { getRoutes, normalizeRoutes } from '@helpers/route';
 import TheSiderMenuItem from '@layouts/main/components/TheSiderMenuItem';
-import { getAuthRole } from '@helpers/auth';
 
 export default {
     name: 'TheSiderMenu',
@@ -47,12 +39,7 @@ export default {
     },
     methods: {
         getMenus() {
-            const role = getAuthRole();
-            this.menus = normalizeRoutes(
-                sortRoutes(
-                    formatRoutesBreadcrumbs(filterIllegalRoutes(cloneDeep(asyncRoutes), role), role)
-                )
-            );
+            this.menus = normalizeRoutes(getRoutes());
         }
     }
 };

@@ -1,3 +1,7 @@
+import { cloneDeep } from 'lodash-es';
+import { asyncRoutes } from '@router/routes';
+import { getAuthRole } from '@helpers/auth';
+
 /**
  * 序列化路由菜单
  * @param routes 路由集合
@@ -114,4 +118,14 @@ export function formatRoutesBreadcrumbs(routes, role) {
         formatRoutes.push(route);
     });
     return formatRoutes;
+}
+
+/**
+ * 获取路由列表
+ */
+export function getRoutes() {
+    const role = getAuthRole();
+    return sortRoutes(
+        formatRoutesBreadcrumbs(filterIllegalRoutes(cloneDeep(asyncRoutes), role), role)
+    );
 }
