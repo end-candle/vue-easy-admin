@@ -3,6 +3,12 @@ import Redirect from '@views/Redirect';
 import Login from '@views/login/Login';
 
 /**
+ * 路由登录白名单
+ * @type {string[]}
+ */
+export const WHITE_LIST = ['Exception', 'Refresh', 'Login'];
+
+/**
  * 空白布局
  * @returns {Promise<*>}
  * @constructor
