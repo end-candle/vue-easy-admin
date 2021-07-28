@@ -126,7 +126,11 @@ export default {
          * 加载本地数据
          */
         loadLocalData() {
-            const { dataSource, current, size } = this;
+            const { dataSource, current, size, paginationVisible } = this;
+            if (!paginationVisible) {
+                this.records = dataSource;
+                return true;
+            }
             const begin = (current - 1) * size;
             this.records = dataSource.slice(begin, begin + size);
         },
