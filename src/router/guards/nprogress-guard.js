@@ -1,13 +1,13 @@
-import NProgress from '@helpers/nprogress';
+import { closeProgress, showProgress } from '@helpers/nprogress';
 
 const createNProgressGuard = (router) => {
     router.beforeEach((to, from, next) => {
-        NProgress.start();
+        showProgress();
         next();
     });
 
     router.afterEach((to, from) => {
-        NProgress.done();
+        closeProgress();
     });
 };
 

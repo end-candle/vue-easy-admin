@@ -20,6 +20,22 @@ export function checkLoginAuth() {
 }
 
 /**
+ * 更新授权token
+ * @param token 登录token
+ */
+export function setAuthToken(token) {
+    store.commit('user/setToken', { token, expired: 60 * 60 * 1000 });
+}
+
+/**
+ * 获取授权token
+ * @returns {null|CancelToken|*}
+ */
+export function getAuthToken() {
+    return store.state.user.token;
+}
+
+/**
  * 设置授权角色
  * @param role 用户角色
  */
