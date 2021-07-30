@@ -1,7 +1,12 @@
 import tooltip from '@helpers/http/tooltip';
+import axios from 'axios';
 
 const errorHandler = (error) => {
-    if (error.isAxiosError) {
+    if (axios.isCancel(error)) {
+        // 被取消的请求不做提示
+        return Promise.reject(error);
+    }
+    if (axios.isAxiosError(error)) {
         const status = error.response.status;
         switch (status) {
             case 400:

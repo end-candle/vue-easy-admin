@@ -3,6 +3,10 @@ import {
     createTokenResponseInterceptor
 } from '@helpers/http/interceptors/token-interceptor';
 import { createErrorResponseInterceptor } from '@helpers/http/interceptors/error-interceptor';
+import {
+    createRepeatRequestInterceptor,
+    createRepeatResponseInterceptor
+} from '@helpers/http/interceptors/repeat-interceptor';
 
 /**
  * 创建请求拦截器
@@ -10,6 +14,7 @@ import { createErrorResponseInterceptor } from '@helpers/http/interceptors/error
  */
 export function createRequestInterceptor(http) {
     createTokenRequestInterceptor(http);
+    createRepeatRequestInterceptor(http);
 }
 
 /**
@@ -18,5 +23,6 @@ export function createRequestInterceptor(http) {
  */
 export function createResponseInterceptor(http) {
     createTokenResponseInterceptor(http);
+    createRepeatResponseInterceptor(http);
     createErrorResponseInterceptor(http);
 }
