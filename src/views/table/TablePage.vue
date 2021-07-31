@@ -254,8 +254,7 @@ export default {
                 },
                 {
                     prop: 'no',
-                    label: '工号',
-                    sortable: 'custom'
+                    label: '工号'
                 },
                 {
                     prop: 'department',
