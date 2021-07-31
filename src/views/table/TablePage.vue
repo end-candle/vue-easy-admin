@@ -231,6 +231,7 @@ import Typography from '@components/Typography';
 import TheAttrsTable from '@components/TheAttrsTable';
 import TheEventsTable from '@components/TheEventsTable';
 import TheMethodsTable from '@components/TheMethodsTable';
+import { queryDepartmentUserList } from '@services/table';
 export default {
     name: 'TablePage',
     components: {
@@ -253,7 +254,8 @@ export default {
                 },
                 {
                     prop: 'no',
-                    label: '工号'
+                    label: '工号',
+                    sortable: 'custom'
                 },
                 {
                     prop: 'department',
@@ -1066,45 +1068,21 @@ export default {
             }
             return '';
         },
-        async requestData(pagination, sorter) {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    resolve({
-                        success: true,
-                        data: {
-                            total: 20,
-                            records: [
-                                {
-                                    name: '张三',
-                                    no: '001',
-                                    department: '行政部'
-                                },
-                                {
-                                    name: '李四',
-                                    no: '002',
-                                    department: 'IT部'
-                                },
-                                {
-                                    name: '王五',
-                                    no: '003',
-                                    department: '财务部'
-                                }
-                            ]
-                        }
-                    });
-                }, 3000);
-            });
+        requestData(pager, sorter) {
+            return queryDepartmentUserList(pager, {}, sorter);
         }
     }
 };
 </script>
 
-<style>
-.el-table .warning-row {
-    background: oldlace;
-}
+<style lang="scss" scoped>
+::v-deep {
+    .el-table .warning-row {
+        background: oldlace;
+    }
 
-.el-table .success-row {
-    background: #f0f9eb;
+    .el-table .success-row {
+        background: #f0f9eb;
+    }
 }
 </style>

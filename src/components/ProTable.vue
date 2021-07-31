@@ -181,11 +181,12 @@ export default {
         /**
          * 排序修改
          */
-        handleSortChange({ prop: name, order }) {
+        handleSortChange({ prop, order }) {
             this.sorter = {
-                name,
+                prop,
                 order
             };
+            this.loadData();
         }
     }
 };
