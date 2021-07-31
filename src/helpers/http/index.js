@@ -12,6 +12,8 @@ function createHttp(config) {
     return http;
 }
 
-export default createHttp({
+const http = createHttp({
     baseURL: process.env.VUE_APP_API_URL
 });
+
+export default http;
