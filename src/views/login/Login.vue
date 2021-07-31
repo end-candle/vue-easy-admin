@@ -22,7 +22,9 @@
                 <el-link type="primary">忘记密码</el-link>
             </div>
             <el-form-item>
-                <el-button class="w100" type="primary">登录</el-button>
+                <el-button class="w100" type="primary" :loading="loading" @click="login"
+                    >登录
+                </el-button>
             </el-form-item>
             <div class="text-center">
                 <i class="loginfont icon-qq"></i>
@@ -36,6 +38,8 @@
 <script>
 import LoginLayout from '@views/login/LoginLayout';
 import Typography from '@components/Typography';
+import { login } from '@services/login';
+import { setAuth } from '@helpers/auth';
 export default {
     name: 'Login',
     components: { Typography, LoginLayout },
@@ -45,8 +49,24 @@ export default {
                 username: '',
                 password: ''
             },
+            loading: false,
             remember: true
         };
+    },
+    methods: {
+        async login() {
+            this.loading = true;
+            try {
+                const { username, password } = this.formData;
+                const { data } = await login(username, password);
+                const { token, role } = data;
+                setAuth(token, role);
+                const { redirectUrl = '/' } = this.$route.query;
+                this.$router.replace(redirectUrl).catch((e) => {});
+            } finally {
+                this.loading = false;
+            }
+        }
     }
 };
 </script>

@@ -35,6 +35,7 @@ module.exports = {
             .set('@views', resolve('src/views'))
             .set('@layouts', resolve('src/layouts'))
             .set('@helpers', resolve('src/helpers'))
+            .set('@mock', resolve('src/mock'))
             .set('@router', resolve('src/router'));
 
         if (isProd) {
@@ -54,6 +55,14 @@ module.exports = {
             config
                 .plugin('webpack-bundle-analyzer')
                 .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin);
+        }
+    },
+    devServer: {
+        proxy: {
+            '/api': {
+                target: 'http://localhost:3000',
+                changeOrigin: true
+            }
         }
     }
 };

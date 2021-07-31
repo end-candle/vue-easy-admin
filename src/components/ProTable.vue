@@ -141,11 +141,10 @@ export default {
             const { size, current, sorter } = this;
             this.loading = true;
             try {
-                const { success, data } = await this.request({ size, current }, sorter);
+                const { success, data, total } = await this.request({ size, current }, sorter);
                 if (success) {
-                    const { records, total } = data;
-                    this.total = Number(total);
-                    this.records = records;
+                    this.total = total;
+                    this.records = data;
                 } else {
                     this.error = true;
                 }

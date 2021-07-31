@@ -1,74 +1,79 @@
 {
-  "version": "0.0.1",
-  "private": true,
-  "description": "一个web项目",
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint",
-    "analyzer": "cross-env use_analyzer=true vue-cli-service build",
-    "commit": "git-cz",
-    "test": "vue-cli-service build --mode test"
-  },
-  "dependencies": {
-    "@antv/data-set": "^0.11.8",
-    "@antv/g2": "^4.1.20",
-    "ajv": "^8.6.1",
-    "ajv-formats": "^2.1.0",
-    "axios": "^0.21.1",
-    "core-js": "^3.15.2",
-    "element-ui": "^2.15.3",
-    "js-md5": "^0.7.3",
-    "lodash-es": "^4.17.21",
-    "nprogress": "^0.2.0",
-    "reseter.css": "^1.2.0",
-    "vue": "^2.6.14",
-    "vue-router": "^3.5.2",
-    "vuex": "^3.6.2",
-    "wangeditor": "^4.7.5"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.13",
-    "@vue/cli-plugin-eslint": "^4.5.13",
-    "@vue/cli-plugin-router": "^4.5.13",
-    "@vue/cli-plugin-unit-jest": "^4.5.13",
-    "@vue/cli-plugin-vuex": "^4.5.13",
-    "@vue/cli-service": "^4.5.13",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "^1.0.3",
-    "babel-eslint": "^10.1.0",
-    "chalk": "^4.1.1",
-    "commitizen": "^4.2.4",
-    "compression-webpack-plugin": "^8.0.1",
-    "cross-env": "^7.0.3",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.30.0",
-    "eslint-config-alloy": "^3.10.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.13.0",
-    "lint-staged": "^11.0.0",
-    "mockjs": "^1.1.0",
-    "node-sass": "^6.0.1",
-    "prettier": "^2.3.2",
-    "sass-loader": "^10.1.1",
-    "vue-eslint-parser": "^7.8.0",
-    "vue-template-compiler": "^2.6.14",
-    "webpack-bundle-analyzer": "^4.4.2"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+    "version": "0.0.1",
+    "private": true,
+    "description": "一个web项目",
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "mock": "nodemon mocks/app.js",
+        "test:unit": "vue-cli-service test:unit",
+        "lint": "vue-cli-service lint",
+        "analyzer": "cross-env use_analyzer=true vue-cli-service build",
+        "commit": "git-cz",
+        "test": "vue-cli-service build --mode test"
+    },
+    "dependencies": {
+        "@antv/data-set": "^0.11.8",
+        "@antv/g2": "^4.1.20",
+        "ajv": "^8.6.1",
+        "ajv-formats": "^2.1.0",
+        "axios": "^0.21.1",
+        "core-js": "^3.15.2",
+        "element-ui": "^2.15.3",
+        "js-md5": "^0.7.3",
+        "lodash-es": "^4.17.21",
+        "nprogress": "^0.2.0",
+        "reseter.css": "^1.2.0",
+        "vue": "^2.6.14",
+        "vue-router": "^3.5.2",
+        "vuex": "^3.6.2",
+        "wangeditor": "^4.7.5"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.5.13",
+        "@vue/cli-plugin-eslint": "^4.5.13",
+        "@vue/cli-plugin-router": "^4.5.13",
+        "@vue/cli-plugin-unit-jest": "^4.5.13",
+        "@vue/cli-plugin-vuex": "^4.5.13",
+        "@vue/cli-service": "^4.5.13",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "@vue/test-utils": "^1.0.3",
+        "babel-eslint": "^10.1.0",
+        "body-parser": "^1.19.0",
+        "chalk": "^4.1.1",
+        "commitizen": "^4.2.4",
+        "compression-webpack-plugin": "^8.0.1",
+        "cross-env": "^7.0.3",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^7.30.0",
+        "eslint-config-alloy": "^3.10.0",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-vue": "^7.13.0",
+        "express": "^4.17.1",
+        "express-mockjs": "^0.4.9",
+        "lint-staged": "^11.0.0",
+        "mockjs": "^1.1.0",
+        "node-sass": "^6.0.1",
+        "nodemon": "^2.0.12",
+        "prettier": "^2.3.2",
+        "sass-loader": "^10.1.1",
+        "vue-eslint-parser": "^7.8.0",
+        "vue-template-compiler": "^2.6.14",
+        "webpack-bundle-analyzer": "^4.4.2"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "gitHooks": {
+        "pre-commit": "lint-staged",
+        "commit-msg": "node scripts/verify-commit-msg.js"
+    },
+    "lint-staged": {
+        "*.{js,jsx,vue}": [
+            "vue-cli-service lint",
+            "git add"
+        ]
     }
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "node scripts/verify-commit-msg.js"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  }
 }

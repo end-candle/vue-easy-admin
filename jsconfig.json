@@ -18,6 +18,7 @@
             "@router/*": ["src/router/*"],
             "@store/*": ["src/store/*"],
             "@views/*": ["src/views/*"],
+            "@mock/*": ["src/mock/*"],
             "@/*": ["src/*"]
         }
     },
