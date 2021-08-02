@@ -15,6 +15,11 @@ Vue.use(Directives);
 
 Vue.config.productionTip = false;
 
+// 配置全局异常处理
+// Vue.config.errorHandler = (err, vm, info) => {
+//     console.log(err, vm, info);
+// };
+
 new Vue({
     router,
     store,
