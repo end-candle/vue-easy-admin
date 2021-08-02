@@ -25,7 +25,7 @@
 
 ## 介绍
 
-项目基于`element-plus`,`typescript`,`vue3.0`实现的 vue3 风格的后台管理系统。
+项目基于`element-ui`,`javascript`,`vue2.0`实现的 vue2 风格的后台管理系统。
 
 ## git 地址
 
@@ -48,7 +48,7 @@
 
 ### UI 框架
 
--   [Element-plus](https://element-plus.gitee.io/)
+-   [Element-ui](https://element.eleme.cn/#/zh-CN)
 
 ### 图标
 
@@ -98,20 +98,23 @@ npm install
 ### 开发环境
 
 ```bash
-npm serve
+// 启用项目
+npm run serve
+// 启动mock服务
+npm run mock
 ```
 
 ### 打包
 
 ```bash
 
-npm build # 打包
+npm run build # 打包
 ```
 
 ### 格式化
 
 ```bash
-npm lint # 代码格式化
+npm run lint # 代码格式化
 ```
 
 ### 其他
