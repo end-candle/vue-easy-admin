@@ -5,7 +5,7 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "mock": "nodemon mocks/app.js",
+        "mock": "nodemon --watch mocks/ -e js mocks/app.js",
         "test:unit": "vue-cli-service test:unit",
         "lint": "vue-cli-service lint",
         "analyzer": "cross-env use_analyzer=true vue-cli-service build",
