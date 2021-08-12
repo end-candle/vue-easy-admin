@@ -1,7 +1,15 @@
 {
     "version": "0.0.1",
-    "private": true,
     "description": "一个web项目",
+    "author": "末烛",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://gitee.com/Flee.Lethe.net/vue-easy-admin/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://gitee.com/Flee.Lethe.net/vue-easy-admin.git"
+    },
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
@@ -39,7 +47,6 @@
         "@vue/eslint-config-prettier": "^6.0.0",
         "@vue/test-utils": "^1.0.3",
         "babel-eslint": "^10.1.0",
-        "body-parser": "^1.19.0",
         "chalk": "^4.1.1",
         "commitizen": "^4.2.4",
         "compression-webpack-plugin": "^6.1.1",
