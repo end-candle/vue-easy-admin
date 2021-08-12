@@ -1,4 +1,5 @@
 @import '~reseter.css/src/scss/reseter';
+@import "variables";
 
 html,
 body {
@@ -27,7 +28,7 @@ body,
 
     &::-webkit-scrollbar-thumb {
         border-radius: 10px;
-        background: #6bacfb;
+        background: $--color-primary;
     }
 
     &::-webkit-scrollbar-track {
@@ -153,67 +154,57 @@ button:focus {
 }
 
 // 间隔
-.mt8 {
-    margin-top: 8px !important;
+$gaps: 0, 4, 8, 12, 16, 20, 22, 24;
+
+@each $gap in $gaps {
+    .m#{$gap} {
+        margin: #{$gap}px !important;
+    }
+    .mt#{$gap} {
+        margin-top: #{$gap}px !important;
+    }
+    .mb#{$gap} {
+        margin-bottom: #{$gap}px !important;
+    }
+    .ml#{$gap} {
+        margin-left: #{$gap}px !important;
+    }
+    .mr#{$gap} {
+        margin-right: #{$gap}px !important;
+    }
+    .mv#{$gap} {
+        margin-top: #{$gap}px !important;
+        margin-bottom: #{$gap}px !important;
+    }
+    .mh#{$gap} {
+        margin-left: #{$gap}px !important;
+        margin-right: #{$gap}px !important;
+    }
+    .p#{$gap} {
+        padding: #{$gap}px !important;
+    }
+    .pt#{$gap} {
+        padding-top: #{$gap}px !important;
+    }
+    .pb#{$gap} {
+        padding-bottom: #{$gap}px !important;
+    }
+    .pl#{$gap} {
+        padding-left: #{$gap}px !important;
+    }
+    .pr#{$gap} {
+        padding-right: #{$gap}px !important;
+    }
+    .pv#{$gap} {
+        padding-top: #{$gap}px !important;
+        padding-bottom: #{$gap}px !important;
+    }
+    .ph#{$gap} {
+        padding-left: #{$gap}px !important;
+        padding-right: #{$gap}px !important;
+    }
 }
 
-.mt12 {
-    margin-top: 12px !important;
-}
-
-.mt24 {
-    margin-top: 24px !important;
-}
-
-.ml8 {
-    margin-left: 8px !important;
-}
-
-.mb0 {
-    margin-bottom: 0 !important;
-}
-
-.mb8 {
-    margin-bottom: 8px !important;
-}
-
-.mb12 {
-    margin-bottom: 12px !important;
-}
-
-.mb20 {
-    margin-bottom: 20px !important;
-}
-
-.mb22 {
-    margin-bottom: 22px !important;
-}
-
-.mb24 {
-    margin-bottom: 24px !important;
-}
-
-.mv12 {
-    margin-top: 12px !important;
-    margin-bottom: 12px !important;
-}
-
-.p0 {
-    padding: 0 !important;
-}
-.ph0 {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
-
-.pt12 {
-    padding-top: 12px;
-}
-
-.pv12 {
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
 
 // 高度
 
