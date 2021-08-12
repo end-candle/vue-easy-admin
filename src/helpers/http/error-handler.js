@@ -1,6 +1,7 @@
 import tooltip from '@helpers/http/tooltip';
 import axios from 'axios';
 import { formatError, formatStatusCodeMessage } from '@helpers/http/utils';
+import { clearAuth } from '@helpers/auth';
 
 const errorHandler = (error) => {
     if (axios.isCancel(error)) {
@@ -15,10 +16,22 @@ const errorHandler = (error) => {
             error.message = `连接服务器失败(${error.code})!`;
         } else {
             error.message = formatStatusCodeMessage(status);
+            if (status === 401) {
+                handle401Error();
+            }
         }
     }
     tooltip.error(error.message);
+
     return Promise.reject(error);
 };
+
+function handle401Error() {
+    tooltip.closeAll();
+    setTimeout(() => {
+        clearAuth();
+        location.reload();
+    }, 3000);
+}
 
 export default errorHandler;
