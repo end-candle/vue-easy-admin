@@ -4,11 +4,11 @@
     "author": "末烛",
     "license": "MIT",
     "bugs": {
-        "url": "https://gitee.com/Flee.Lethe.net/vue-easy-admin/issues"
+        "url": "https://gitee.com/endcandle/vue-easy-admin/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://gitee.com/Flee.Lethe.net/vue-easy-admin.git"
+        "url": "https://gitee.com/endcandle/vue-easy-admin.git"
     },
     "scripts": {
         "serve": "vue-cli-service serve",
