@@ -10,6 +10,7 @@ function resolve(dir) {
 const vueConfig = {
     outputDir: process.env.BASE_URL ? `dist${process.env.BASE_URL}` : 'dist',
     publicPath: process.env.BASE_URL,
+    productionSourceMap: isProd && process.env.VUE_APP_MODE === 'test',
     css: {
         loaderOptions: {
             scss: {
