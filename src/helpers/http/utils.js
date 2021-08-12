@@ -30,9 +30,10 @@ export function formatError({ errMsg, errCode }) {
 /**
  * 格式化状态码消息
  * @param code 状态码
+ * @param errorCode 错误状态码
  * @returns {string} 状态码消息
  */
-export function formatStatusCodeMessage(code) {
+export function formatStatusCodeMessage(code, errorCode) {
     let message = '';
     switch (code) {
         case 400:
@@ -69,8 +70,8 @@ export function formatStatusCodeMessage(code) {
             message = 'HTTP版本不受支持(505)';
             break;
         default:
-            if (code) {
-                message = `连接服务器失败(${code})!`;
+            if (errorCode) {
+                message = `连接服务器失败(${errorCode})!`;
             } else {
                 message = `连接服务器失败!`;
             }

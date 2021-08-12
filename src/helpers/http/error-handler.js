@@ -12,10 +12,8 @@ const errorHandler = (error) => {
         const { data, status } = error.response;
         if (data.errMsg) {
             error.message = formatError(data);
-        } else if (error.code) {
-            error.message = `连接服务器失败(${error.code})!`;
         } else {
-            error.message = formatStatusCodeMessage(status);
+            error.message = formatStatusCodeMessage(status, error.code);
             if (status === 401) {
                 handle401Error();
             }
