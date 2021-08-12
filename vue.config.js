@@ -7,7 +7,7 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 
-module.exports = {
+const vueConfig = {
     outputDir: process.env.BASE_URL ? `dist${process.env.BASE_URL}` : 'dist',
     publicPath: process.env.BASE_URL,
     css: {
@@ -38,7 +38,7 @@ module.exports = {
             .set('@mock', resolve('src/mock'))
             .set('@router', resolve('src/router'));
 
-        if (isProd) {
+        config.when(isProd, (config) => {
             // 开启GZip压缩
             config.plugin('compression-webpack-plugin').use(
                 new CompressionPlugin({
@@ -48,14 +48,38 @@ module.exports = {
                     deleteOriginalAssets: false // 是否删除未压缩的源文件，谨慎设置，如果希望提供非gzip的资源，可不设置或者设置为false（比如删除打包后的gz后还可以加载到原始资源文件）
                 })
             );
-        }
 
-        // 打包分析
-        if (process.env.use_analyzer) {
+            config.optimization.splitChunks({
+                chunks: 'all',
+                cacheGroups: {
+                    libs: {
+                        name: 'chunk-libs',
+                        test: /[\\/]node_modules[\\/]/,
+                        priority: 10,
+                        chunks: 'initial' // only package third parties that are initially dependent
+                    },
+                    elementUI: {
+                        name: 'chunk-elementUI', // split elementUI into a single package
+                        priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+                        test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
+                    },
+                    antv: {
+                        name: 'chunk-@antv', // split @antv into a single package
+                        priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+                        test: /[\\/]node_modules[\\/]_?@antv(.*)/ // in order to adapt to cnpm
+                    }
+                }
+            });
+            // https://webpack.js.org/configuration/optimization/#optimizationruntimechunk
+            config.optimization.runtimeChunk('single');
+        });
+
+        config.when(process.env.use_analyzer, (config) => {
+            // 打包分析
             config
                 .plugin('webpack-bundle-analyzer')
                 .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin);
-        }
+        });
     },
     devServer: {
         proxy: {
@@ -66,3 +90,5 @@ module.exports = {
         }
     }
 };
+
+module.exports = vueConfig;
