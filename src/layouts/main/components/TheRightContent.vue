@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { clearAuth } from '@helpers/auth';
+
 export default {
     name: 'TheRightContent',
     methods: {
@@ -55,7 +57,13 @@ export default {
         /**
          * 退出
          */
-        logout() {}
+        logout() {
+            clearAuth();
+            const { href } = this.$router.resolve({
+                name: 'Login'
+            });
+            location.href = href;
+        }
     }
 };
 </script>

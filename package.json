@@ -50,7 +50,6 @@
         "eslint-plugin-prettier": "^3.4.0",
         "eslint-plugin-vue": "^7.13.0",
         "express": "^4.17.1",
-        "express-mockjs": "^0.4.9",
         "lint-staged": "^11.0.0",
         "mockjs": "^1.1.0",
         "node-sass": "^6.0.1",
