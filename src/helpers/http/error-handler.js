@@ -26,9 +26,24 @@ const errorHandler = (error) => {
     return Promise.reject(error);
 };
 
+let timer = null;
+function clearTimer() {
+    if (timer) {
+        clearTimeout(timer);
+        timer = null;
+    }
+}
+
+/**
+ * 处理401异常
+ */
 function handle401Error() {
     tooltip.closeAll();
-    setTimeout(() => {
+    if (timer) {
+        return false;
+    }
+    timer = setTimeout(() => {
+        clearTimer();
         clearAuth();
         location.reload();
     }, 3000);
