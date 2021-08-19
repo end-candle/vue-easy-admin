@@ -9,17 +9,30 @@
                 @sort-change="handleSortChange"
             >
                 <el-table-column v-for="(field, index) in fields" :key="index" v-bind="field">
-                    <template v-if="field.scopedSlot" #default="scope">
+                    <template
+                        v-if="field.scopedSlot || field.type === 'no'"
+                        #default="{ row, column, $index }"
+                    >
+                        <span v-if="field.type === 'no'">{{
+                            $index + 1 + (current - 1) * size
+                        }}</span>
                         <slot
+                            v-else
                             :name="field.scopedSlot"
-                            :row="scope.row"
-                            :column="scope.column"
-                            :index="scope.$index"
+                            v-bind="{
+                                row,
+                                column,
+                                $index,
+                                index: $index + 1 + (current - 1) * size
+                            }"
                         ></slot>
                     </template>
                 </el-table-column>
                 <template #empty>
                     <the-empty />
+                </template>
+                <template #append>
+                    <slot name="append"></slot>
                 </template>
             </el-table>
         </div>

@@ -560,7 +560,7 @@ export default {
                     attr: 'type',
                     desc: '对应列的类型。如果设置了 selection 则显示多选框；如果设置了 index 则显示该行的索引（从 1 开始计算）；如果设置了 expand 则显示为一个可展开的按钮',
                     type: 'string',
-                    optional: 'selection/index/expand',
+                    optional: 'selection/index/expand/no',
                     default: '-'
                 },
                 {
