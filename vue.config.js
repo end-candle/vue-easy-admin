@@ -82,6 +82,20 @@ const vueConfig = {
                 .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin);
         });
     },
+    // 防止CSS字体图标乱码
+    configureWebpack: (config) => {
+        config.module.rules
+            .filter((rule) => {
+                return rule.test.toString().indexOf('scss') !== -1;
+            })
+            .forEach((rule) => {
+                rule.oneOf.forEach((oneOfRule) => {
+                    oneOfRule.use.splice(oneOfRule.use.indexOf(require.resolve('sass-loader')), 0, {
+                        loader: require.resolve('css-unicode-loader')
+                    });
+                });
+            });
+    },
     devServer: {
         proxy: {
             '/api': {
