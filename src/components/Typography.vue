@@ -4,9 +4,7 @@ export default {
     props: {
         tag: {
             type: String,
-            default: 'div',
-            validator: (val) =>
-                ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span', 'div', 'p'].includes(val)
+            default: 'div'
         },
         type: {
             type: String,
