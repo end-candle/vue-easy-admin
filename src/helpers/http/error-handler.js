@@ -9,7 +9,7 @@ const errorHandler = (error) => {
         return Promise.reject(error);
     }
     if (axios.isAxiosError(error)) {
-        const { data, status } = error.response;
+        const { data = {}, status } = error.response ?? {};
         if (data.errMsg) {
             error.message = formatError(data);
         } else {
