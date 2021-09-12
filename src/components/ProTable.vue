@@ -27,6 +27,16 @@
                             }"
                         ></slot>
                     </template>
+                    <template v-if="field.headerScopedSlot" #header="{ column, $index }">
+                        <slot
+                            :name="field.headerScopedSlot"
+                            v-bind="{
+                                column,
+                                $index,
+                                index: $index + 1 + (current - 1) * size
+                            }"
+                        ></slot>
+                    </template>
                 </el-table-column>
                 <template #empty>
                     <the-empty />
@@ -189,6 +199,12 @@ export default {
          */
         reload() {
             this.current = 1;
+            this.loadData();
+        },
+        /**
+         * 重新加载数据
+         */
+        refresh() {
             this.loadData();
         },
         /**
