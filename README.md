@@ -62,7 +62,7 @@
 -   [lodash-es](https://github.com/lodash/lodash) - JavaScript 实用程序库
 -   [axios](https://github.com/axios/axios) - Http 数据交互
 -   [wangeditor](http://www.wangeditor.com/) - 富文本编辑器
--   [reseter.css](https://krishdevdb.github.io/reseter.css/) - 浏览器通用重置央视
+-   [reseter.css](https://krishdevdb.github.io/reseter.css/) - 浏览器通用重置样式
 -   [element-ui](https://element.eleme.cn/#/zh-CN) - UI组件库
 -   [@antv/g2](https://g2.antv.vision/zh) - 图表组件库
 
