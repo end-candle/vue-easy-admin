@@ -29,7 +29,7 @@
 
 ## git 地址
 
-[vue-easy-admin](https://gitee.com/Flee.Lethe.net/vue-easy-admin.git) - master 分支
+[vue-easy-admin](https://gitee.com/endcandle/vue-easy-admin.git) - master 分支
 
 ## 预览地址
 
@@ -63,7 +63,7 @@
 -   [axios](https://github.com/axios/axios) - Http 数据交互
 -   [wangeditor](http://www.wangeditor.com/) - 富文本编辑器
 -   [reseter.css](https://krishdevdb.github.io/reseter.css/) - 浏览器通用重置样式
--   [element-ui](https://element.eleme.cn/#/zh-CN) - UI组件库
+-   [element-ui](https://element.eleme.cn/#/zh-CN) - UI 组件库
 -   [@antv/g2](https://g2.antv.vision/zh) - 图表组件库
 
 ### 建议开发环境
@@ -78,7 +78,7 @@
 
 ## 安装
 
-```js
+```bash
 //  使git对文件名大小写敏感
 git config core.ignorecase false
 
@@ -125,7 +125,7 @@ npm run lint # 代码格式化
 
 > 改编自[Angular 的提交约定](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular)。
 
-#### TL;DR:
+#### TL;DR
 
 消息必须匹配以下正则表达式:
 
@@ -201,7 +201,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 页脚应该包含任何关于 Breaking Changes 的信息，也是这个提交关闭的 GitHub 问题的地方。
 
-**Breaking CHANGE **应该以单词“Breaking CHANGE:”开头，并加一个空格或两个换行符。然后使用提交消息的其余部分。
+**Breaking CHANGE**应该以单词“Breaking CHANGE:”开头，并加一个空格或两个换行符。然后使用提交消息的其余部分。
 
 ## 已完成功能
 
@@ -255,7 +255,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 支持现代浏览器, IE 暂不支持，后续考虑支持 ie11
 
 |     IE      |      Edge       |     Firefox     |     Chrome      |     Safari      |
-| :---------: | :-------------: | :-------------: | :-------------: | :-------------: |
+|:-----------:|:---------------:|:---------------:|:---------------:|:---------------:|
 | not support | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ES%20Module)
