@@ -44,7 +44,7 @@ export default {
             return classList;
         }
     },
-    render(createElement, context) {
+    render(createElement) {
         const { tag, classList } = this;
         const className = classList.join(' ');
         return createElement(

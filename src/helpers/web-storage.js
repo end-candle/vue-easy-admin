@@ -84,7 +84,7 @@ class WebStorage {
      */
     _initListener() {
         const listeners = new Map();
-        this._linsteners = listeners;
+        this._listeners = listeners;
         window.addEventListener('storage', (e) => {
             const { key, oldValue, newValue } = e;
             if (listeners.has(key)) {
@@ -229,7 +229,7 @@ class WebStorage {
             throwErrorMessage('callback必须是一个函数');
         }
         const realKey = this._getRealKey(key, fullKey);
-        this._linsteners.set(realKey, callback);
+        this._listeners.set(realKey, callback);
     }
 }
 

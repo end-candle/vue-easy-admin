@@ -6,7 +6,7 @@
             "@services/*": ["src/services/*"],
             "@assets/*": ["src/assets/*"],
             "@images/*": ["src/assets/images/*"],
-            "@stylesheets/*": ["src/assets/stylesheets/*"],
+            "@styles/*": ["src/styles/*"],
             "@components/*": ["src/components/*"],
             "@constants/*": ["src/constants/*"],
             "@directives/*": ["src/directives/*"],

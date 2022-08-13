@@ -14,6 +14,9 @@ const tooltip = {
             title: '系统提示',
             message: msg
         });
+    },
+    closeAll() {
+        Notification.closeAll();
     }
 };
 
