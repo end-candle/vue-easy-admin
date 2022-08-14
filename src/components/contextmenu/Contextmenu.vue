@@ -23,8 +23,6 @@ export default {
     },
     mounted() {
         this.dropdown.popperElm = this.$el;
-        // compatible with 2.6 new v-slot syntax
-        // issue link https://github.com/ElemeFE/element/issues/14345
         this.dropdown.initDomOperation();
         document.body.appendChild(this.$el);
     },

@@ -1,5 +1,6 @@
 const path = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
+const { elementUIColorMap } = require('./scripts/config/element-ui');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -90,11 +91,38 @@ const vueConfig = {
             })
             .forEach((rule) => {
                 rule.oneOf.forEach((oneOfRule) => {
-                    oneOfRule.use.splice(oneOfRule.use.indexOf(require.resolve('sass-loader')), 0, {
-                        loader: require.resolve('css-unicode-loader')
-                    });
+                    oneOfRule.use.splice(
+                        oneOfRule.use.indexOf(require.resolve('sass-loader')),
+                        0,
+                        {
+                            loader: resolve('./scripts/loaders/css-color2var-loader.js'),
+                            options: {
+                                cssVarMap: elementUIColorMap
+                            }
+                        },
+                        {
+                            loader: require.resolve('css-unicode-loader')
+                        }
+                    );
                 });
             });
+        // config.module.rules
+        //     .filter((rule) => {
+        //         return (
+        //             rule.test.toString().indexOf('css') !== -1 &&
+        //             rule.test.toString().indexOf('scss') === -1
+        //         );
+        //     })
+        //     .forEach((rule) => {
+        //         rule.oneOf.forEach((oneOfRule) => {
+        //             oneOfRule.use.push({
+        //                 loader: resolve('./scripts/loaders/css-color2var-loader.js'),
+        //                 options: {
+        //                     cssVarMap: elementUIColorMap
+        //                 }
+        //             });
+        //         });
+        //     });
     },
     devServer: {
         proxy: {

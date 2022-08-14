@@ -14,7 +14,7 @@
                 <typography>主题色</typography>
                 <typography type="secondary" class="mt8">页面风格配色：</typography>
             </div>
-            <el-color-picker v-model="color" />
+            <el-color-picker :value="primaryColor" @change="handleChangeTheme" />
         </div>
     </user-layout>
 </template>
@@ -22,13 +22,21 @@
 <script>
 import UserLayout from '@views/user/UserLayout';
 import Typography from '@components/Typography';
+import { mapGetters, mapMutations } from 'vuex';
+import { defaultThemeColor } from '@helpers/theme';
+
 export default {
     name: 'UserCustomSetting',
     components: { Typography, UserLayout },
-    data() {
-        return {
-            color: '#409EFF'
-        };
+    computed: {
+        ...mapGetters('app', ['primaryColor'])
+    },
+    methods: {
+        ...mapMutations('app', ['setTheme']),
+        handleChangeTheme(color) {
+            console.log(color);
+            this.setTheme({ ...defaultThemeColor, brandColor: color });
+        }
     }
 };
 </script>
