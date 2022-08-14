@@ -6,7 +6,7 @@ body {
     font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
         '微软雅黑', Arial, sans-serif;
     line-height: 1.5715;
-    font-size: 14px;
+    font-size: $--size-base;
 }
 
 ::selection {
@@ -14,9 +14,7 @@ body {
     background-color: $--color-primary;
 }
 
-body,
-.better-scroller {
-    overflow-y: auto;
+* {
     scrollbar-color: $--color-primary mix($--color-primary, #ffffff, 0.2);
     scrollbar-width: thin;
     -ms-overflow-style: none;
@@ -40,11 +38,6 @@ body,
 
 button:focus {
     outline-width: 0;
-}
-
-// 受到reseter.css影响，需要手动重置回默认值
-.el-time-panel * {
-    box-sizing: inherit;
 }
 
 /* ==================

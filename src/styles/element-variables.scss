@@ -4,3 +4,21 @@
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 @import '~element-ui/packages/theme-chalk/src/index';
+
+// 受到reseter.css影响，需要手动重置回默认值
+.el-time-panel * {
+    box-sizing: inherit;
+}
+
+// el-drawer默认样式修改
+.el-drawer__header {
+    padding: 8px 16px 8px 24px;
+    font-weight: 500;
+    font-size: $--font-size-large;
+    margin-bottom: 0;
+    color: $--color-text-primary;
+    border-bottom: $--border-base;
+}
+.el-drawer__body {
+    padding: 16px 24px;
+}

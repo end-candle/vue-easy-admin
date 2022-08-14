@@ -6,7 +6,12 @@
                 <typography>风格配色</typography>
                 <typography type="secondary" class="mt8">整体风格配色设置</typography>
             </div>
-            <el-button type="text">修改</el-button>
+            <el-button type="text" @click="handleVisibleDrawer">修改</el-button>
+            <theme-drawer
+                :visible.sync="themeVisible"
+                :theme-color="theme"
+                @confirm="handleChangeTheme"
+            />
         </div>
         <el-divider class="mv12" />
         <div class="flex justify-between align-center w100">
@@ -14,7 +19,7 @@
                 <typography>主题色</typography>
                 <typography type="secondary" class="mt8">页面风格配色：</typography>
             </div>
-            <el-color-picker :value="primaryColor" @change="handleChangeTheme" />
+            <el-color-picker :value="primaryColor" @change="handleChangeBrandColor" />
         </div>
     </user-layout>
 </template>
@@ -22,20 +27,31 @@
 <script>
 import UserLayout from '@views/user/UserLayout';
 import Typography from '@components/Typography';
-import { mapGetters, mapMutations } from 'vuex';
-import { defaultThemeColor } from '@helpers/theme';
+import { mapGetters, mapMutations, mapState } from 'vuex';
+import ThemeDrawer from './components/ThemeDrawer.vue';
 
 export default {
     name: 'UserCustomSetting',
-    components: { Typography, UserLayout },
+    components: { Typography, UserLayout, ThemeDrawer },
+    data() {
+        return {
+            themeVisible: false
+        };
+    },
     computed: {
-        ...mapGetters('app', ['primaryColor'])
+        ...mapGetters('app', ['primaryColor']),
+        ...mapState('app', ['theme'])
     },
     methods: {
         ...mapMutations('app', ['setTheme']),
-        handleChangeTheme(color) {
-            console.log(color);
-            this.setTheme({ ...defaultThemeColor, brandColor: color });
+        handleChangeBrandColor(color) {
+            this.setTheme({ ...this.theme, brandColor: color });
+        },
+        handleVisibleDrawer() {
+            this.themeVisible = true;
+        },
+        handleChangeTheme(themeColor) {
+            this.setTheme(themeColor);
         }
     }
 };
