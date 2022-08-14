@@ -9,6 +9,8 @@ import '@helpers/nprogress';
 import '@/styles/common.scss';
 import '@/assets/fonts/iconfont.css';
 import { setTheme } from '@helpers/theme';
+import storage from '@helpers/storage';
+import { THEME } from '@store/modules/app';
 
 // 配置全局异常处理
 // Vue.config.errorHandler = (err, vm, info) => {
@@ -26,7 +28,7 @@ function createApp() {
 
 function bootstrap() {
     // 设置主题
-    setTheme();
+    setTheme(storage.get(THEME));
     Vue.use(Plugins);
     Vue.use(Filters);
     Vue.use(Directives);

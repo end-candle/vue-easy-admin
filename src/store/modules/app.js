@@ -1,7 +1,7 @@
 import storage from '@helpers/storage';
 import { defaultThemeColor, setTheme } from '@helpers/theme';
 
-const THEME = 'THEME';
+export const THEME = 'THEME';
 
 export default {
     namespaced: true,

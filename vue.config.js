@@ -95,7 +95,7 @@ const vueConfig = {
                         oneOfRule.use.indexOf(require.resolve('sass-loader')),
                         0,
                         {
-                            loader: resolve('./scripts/loaders/css-color2var-loader.js'),
+                            loader: resolve('./scripts/loaders/css2var-loader.js'),
                             options: {
                                 cssVarMap: elementUIColorMap
                             }
