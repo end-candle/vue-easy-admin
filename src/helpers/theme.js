@@ -347,8 +347,8 @@ export function generateTheme(themeColor) {
  * 设置主题
  * @param themeColor 主题颜色
  */
-export function setTheme(themeColor = defaultThemeColor) {
-    const theme = generateTheme(themeColor);
+export function setTheme(themeColor) {
+    const theme = generateTheme(themeColor || defaultThemeColor);
     const styles = document.documentElement.style;
     Object.keys(theme).forEach((key) => {
         styles.setProperty(`--${key}`, theme[key]);
