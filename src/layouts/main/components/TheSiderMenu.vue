@@ -67,7 +67,6 @@ export default {
         .el-menu-item {
             height: 40px;
             line-height: 40px;
-            margin-bottom: 8px;
             &:hover {
                 background-color: transparent !important;
                 color: $--color-white !important;
@@ -82,7 +81,6 @@ export default {
         .el-submenu__title {
             height: 40px;
             line-height: 40px;
-            margin-bottom: 8px;
 
             &:hover,
             &:focus,
