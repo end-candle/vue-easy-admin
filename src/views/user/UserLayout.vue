@@ -71,7 +71,7 @@ export default {
         margin-top: 0;
     }
     &.is-active {
-        background-color: rgba($--color-primary, 0.1);
+        background-color: $--color-primary-light-9;
     }
 }
 
