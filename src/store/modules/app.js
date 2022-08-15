@@ -1,9 +1,7 @@
 import storage from '@helpers/storage';
 import { defaultThemeColor, setTheme } from '@helpers/theme';
 import i18n from '@i18n/index';
-
-export const THEME = 'THEME';
-export const LOCALE = 'LOCALE';
+import { LOCALE, THEME } from '@constants/common';
 
 export default {
     namespaced: true,
