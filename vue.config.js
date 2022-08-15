@@ -27,6 +27,7 @@ const vueConfig = {
             .set('@images', resolve('src/assets/images'))
             .set('@styles', resolve('src/styles'))
             .set('@components', resolve('src/components'))
+            .set('@i18n', resolve('src/i18n'))
             .set('@directives', resolve('src/directives'))
             .set('@filters', resolve('src/filters'))
             .set('@plugins', resolve('src/plugins'))

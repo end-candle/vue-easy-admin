@@ -1,0 +1,27 @@
+{
+  "attrs": {
+    "size": "文本大小",
+    "tag": "文本标签",
+    "type": "文本类型"
+  },
+  "breadcrumb": {
+    "home": "首页",
+    "typography": "排版"
+  },
+  "component": {
+    "property": "Typography组件属性"
+  },
+  "description": "通用文本排版",
+  "size": {
+    "auxiliary": "辅助文字",
+    "bigTitle": "主标题",
+    "normalText": "正文",
+    "smallText": "正文（小）",
+    "subtitle": "小标题",
+    "title": "标题"
+  },
+  "sizeDemo": "size属性示例",
+  "tagDemo": "tag属性示例",
+  "title": "排版",
+  "typeDemo": "type属性示例"
+}

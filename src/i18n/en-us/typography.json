@@ -1,0 +1,27 @@
+{
+  "attrs": {
+    "size": "Text size:",
+    "tag": "Text label",
+    "type": "Text type:"
+  },
+  "breadcrumb": {
+    "home": "home page",
+    "typography": "Typesetting"
+  },
+  "component": {
+    "property": "Typography component properties"
+  },
+  "description": "General text layout",
+  "size": {
+    "auxiliary": "Auxiliary text",
+    "bigTitle": "Main title",
+    "normalText": "text",
+    "smallText": "Body (small)",
+    "subtitle": "Subtitle",
+    "title": "title"
+  },
+  "sizeDemo": "Example of size attribute",
+  "tagDemo": "Tag attribute example",
+  "title": "Typesetting",
+  "typeDemo": "Example of type attribute"
+}

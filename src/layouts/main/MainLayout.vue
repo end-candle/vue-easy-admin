@@ -8,7 +8,7 @@
         <el-container>
             <el-header height="108px" class="main-layout__header" :style="{ left: asideWidth }">
                 <the-header :fold="fold" @change-fold="handleToggleFold"></the-header>
-                <the-tabs></the-tabs>
+                <the-tabs ref="tabs"></the-tabs>
             </el-header>
             <div class="main-layout__header-placeholder"></div>
             <el-main>
@@ -30,6 +30,11 @@ import TheFooter from '@components/TheFooter';
 export default {
     name: 'MainLayout',
     components: { TheFooter, TheTabs, TheHeader, TheSiderMenu, TheLogo },
+    provide() {
+        return {
+            main: this
+        };
+    },
     data() {
         return {
             fold: false

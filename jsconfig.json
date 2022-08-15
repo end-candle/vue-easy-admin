@@ -8,6 +8,7 @@
             "@images/*": ["src/assets/images/*"],
             "@styles/*": ["src/styles/*"],
             "@components/*": ["src/components/*"],
+            "@i18n/*": ["src/i18n/*"],
             "@constants/*": ["src/constants/*"],
             "@directives/*": ["src/directives/*"],
             "@filters/*": ["src/filters/*"],

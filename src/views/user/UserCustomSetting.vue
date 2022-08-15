@@ -21,6 +21,14 @@
             </div>
             <el-color-picker :value="primaryColor" @change="handleChangeBrandColor" />
         </div>
+        <el-divider class="mv12" />
+        <div class="flex justify-between align-center w100">
+            <div>
+                <typography>国际化</typography>
+                <typography type="secondary" class="mt8">本地语言配置：</typography>
+            </div>
+            <language-dropdown />
+        </div>
     </user-layout>
 </template>
 
@@ -29,10 +37,11 @@ import UserLayout from '@views/user/UserLayout';
 import Typography from '@components/Typography';
 import { mapGetters, mapMutations, mapState } from 'vuex';
 import ThemeDrawer from './components/ThemeDrawer.vue';
+import LanguageDropdown from './components/LanguageDropdown.vue';
 
 export default {
     name: 'UserCustomSetting',
-    components: { Typography, UserLayout, ThemeDrawer },
+    components: { Typography, UserLayout, ThemeDrawer, LanguageDropdown },
     data() {
         return {
             themeVisible: false

@@ -11,6 +11,7 @@ import '@/assets/fonts/iconfont.css';
 import { setTheme } from '@helpers/theme';
 import storage from '@helpers/storage';
 import { THEME } from '@store/modules/app';
+import i18n from '@i18n';
 
 // 配置全局异常处理
 // Vue.config.errorHandler = (err, vm, info) => {
@@ -22,6 +23,7 @@ function createApp() {
     return new Vue({
         router,
         store,
+        i18n,
         render: (h) => h(App)
     }).$mount('#app');
 }

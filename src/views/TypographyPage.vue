@@ -2,14 +2,14 @@
     <div class="typography-page">
         <layout-container>
             <nav-breadcrumb :breadcrumbs="breadcrumbs"></nav-breadcrumb>
-            <typography tag="h1" size="big-title">排版</typography>
-            <typography class="mt12"> 通用文本排版。</typography>
+            <typography tag="h1" size="big-title">{{ $t('typography.title') }}</typography>
+            <typography class="mt12"> {{ $t('typography.description') }}</typography>
         </layout-container>
         <el-row :gutter="24" class="align-stretch" type="flex">
             <el-col :span="12">
                 <container-card class="h100">
                     <template #header>
-                        <typography size="title"> type属性示例 </typography>
+                        <typography size="title"> {{ $t('typography.typeDemo') }} </typography>
                     </template>
                     <typography tag="p" type="default">vue-easy-admin (default)</typography>
                     <typography tag="p" type="success">vue-easy-admin (success)</typography>
@@ -25,7 +25,7 @@
             <el-col :span="12">
                 <container-card class="h100">
                     <template #header>
-                        <typography size="title"> tag属性示例 </typography>
+                        <typography size="title"> {{ $t('typography.tagDemo') }} </typography>
                     </template>
                     <typography tag="h1">This Is The Biggest Heading</typography>
                     <typography tag="h2">This Is A Slightly Smaller Heading</typography>
@@ -41,18 +41,30 @@
         </el-row>
         <container-card class="h100 mt24">
             <template #header>
-                <typography size="title"> size属性示例 </typography>
+                <typography size="title"> {{ $t('typography.sizeDemo') }} </typography>
             </template>
-            <typography tag="div" size="big-title">主标题 (big-title)</typography>
-            <typography tag="div" size="title">标题 (title)</typography>
-            <typography tag="div" size="subtitle">小标题 (subtitle)</typography>
-            <typography tag="div" size="normal">正文 (normal)</typography>
-            <typography tag="div" size="small">正文（小） (small)</typography>
-            <typography tag="div" size="auxiliary">辅助文字 (auxiliary)</typography>
+            <typography tag="div" size="big-title"
+                >{{ $t('typography.size.bigTitle') }} (big-title)</typography
+            >
+            <typography tag="div" size="title"
+                >{{ $t('typography.size.title') }} (title)</typography
+            >
+            <typography tag="div" size="subtitle"
+                >{{ $t('typography.size.subtitle') }} (subtitle)</typography
+            >
+            <typography tag="div" size="normal"
+                >{{ $t('typography.size.normalText') }} (normal)</typography
+            >
+            <typography tag="div" size="small"
+                >{{ $t('typography.size.smallText') }}(small)</typography
+            >
+            <typography tag="div" size="auxiliary"
+                >{{ $t('typography.size.auxiliary') }} (auxiliary)</typography
+            >
         </container-card>
         <container-card class="mt24">
             <template #header>
-                <typography size="title"> Typography组件属性 </typography>
+                <typography size="title"> {{ $t('typography.component.property') }} </typography>
             </template>
             <the-attrs-table :data-source="attrsRecords" />
         </container-card>
@@ -65,16 +77,21 @@ import ContainerCard from '@components/ContainerCard';
 import LayoutContainer from '@components/LayoutContainer';
 import NavBreadcrumb from '@components/NavBreadcrumb';
 import TheAttrsTable from '@components/TheAttrsTable';
+import i18n from '@i18n';
+
 export default {
-    name: 'FormPage',
+    name: 'TypographyPage',
     components: { TheAttrsTable, NavBreadcrumb, LayoutContainer, ContainerCard, Typography },
     data() {
         return {
-            breadcrumbs: [{ path: '/', title: '首页' }, { title: '排版' }],
+            breadcrumbs: [
+                { path: '/', title: i18n.t('typography.breadcrumb.home') },
+                { title: i18n.t('typography.breadcrumb.typography') }
+            ],
             attrsRecords: [
                 {
                     attr: 'type',
-                    desc: '文本类型',
+                    desc: i18n.t('typography.attrs.type'),
                     type: 'string',
                     optional:
                         'default,success,warning,danger,disabled,link,regular,placeholder,tip',
@@ -82,20 +99,23 @@ export default {
                 },
                 {
                     attr: 'size',
-                    desc: '文本大小',
+                    desc: i18n.t('typography.attrs.size'),
                     type: 'string',
                     optional: 'auxiliary,small,normal,subtitle,title,big-title',
                     default: 'normal'
                 },
                 {
                     attr: 'tag',
-                    desc: '文本标签',
+                    desc: i18n.t('typography.attrs.tag'),
                     type: 'string',
                     optional: 'h1,h2,h3,h4,h5,h6,span,div,p',
                     default: 'div'
                 }
             ]
         };
+    },
+    created() {
+        console.log(this);
     }
 };
 </script>
