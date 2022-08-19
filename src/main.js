@@ -10,7 +10,7 @@ import '@/styles/common.scss';
 import '@/assets/fonts/iconfont.css';
 import { setTheme } from '@helpers/theme';
 import storage from '@helpers/storage';
-import { THEME } from '@store/modules/app';
+import { THEME } from '@constants/common';
 import i18n from '@i18n';
 
 // 配置全局异常处理
@@ -28,7 +28,7 @@ function createApp() {
     }).$mount('#app');
 }
 
-function bootstrap() {
+async function bootstrap() {
     // 设置主题
     setTheme(storage.get(THEME));
     Vue.use(Plugins);

@@ -1,6 +1,19 @@
 {
+  "address": "Detailed address",
+  "china": "China",
   "language": {
     "china": "Simplified Chinese",
     "english": "American English "
-  }
+  },
+  "modify": "modify",
+  "phone": "Telephone number",
+  "provinceAndCity": "Province (city)",
+  "select": "Please select",
+  "selectArea": "Please select area",
+  "selectCity": "Please select a city",
+  "selectProvince": "Please select a province",
+  "settting": "set up",
+  "updateInfo": "Update information",
+  "upload": "Click upload",
+  "uploadTip": "Only JPG / PNG files can be uploaded, and they should not exceed 500kb"
 }

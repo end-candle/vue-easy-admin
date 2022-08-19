@@ -1,6 +1,19 @@
 {
+  "address": "详细地址",
+  "china": "中国",
   "language": {
     "china": "简体中文",
     "english": "美式英语"
-  }
+  },
+  "modify": "修改",
+  "phone": "电话号码",
+  "provinceAndCity": "省市区",
+  "select": "请选择",
+  "selectArea": "请选择区",
+  "selectCity": "请选择市",
+  "selectProvince": "请选择省",
+  "settting": "设置",
+  "updateInfo": "更新信息",
+  "upload": "点击上传",
+  "uploadTip": "只能上传jpg/png文件，且不超过500kb"
 }

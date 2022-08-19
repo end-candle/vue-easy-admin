@@ -1,12 +1,14 @@
 <template>
     <user-layout>
-        <typography size="big-title">个性化</typography>
+        <typography size="big-title">{{ $t('user.personalized') }}</typography>
         <div class="flex justify-between mt24 w100">
             <div>
-                <typography>风格配色</typography>
-                <typography type="secondary" class="mt8">整体风格配色设置</typography>
+                <typography>{{ $t('user.style') }}</typography>
+                <typography type="secondary" class="mt8">{{ $t('user.styleSetting') }}</typography>
             </div>
-            <el-button type="text" @click="handleVisibleDrawer">修改</el-button>
+            <el-button type="text" @click="handleVisibleDrawer">{{
+                $t('common.modify')
+            }}</el-button>
             <theme-drawer
                 :visible.sync="themeVisible"
                 :theme-color="theme"
@@ -16,16 +18,16 @@
         <el-divider class="mv12" />
         <div class="flex justify-between align-center w100">
             <div>
-                <typography>主题色</typography>
-                <typography type="secondary" class="mt8">页面风格配色：</typography>
+                <typography>{{ $t('user.brandColor') }}</typography>
+                <typography type="secondary" class="mt8">{{ $t('user.pageStyle') }}</typography>
             </div>
             <el-color-picker :value="primaryColor" @change="handleChangeBrandColor" />
         </div>
         <el-divider class="mv12" />
         <div class="flex justify-between align-center w100">
             <div>
-                <typography>国际化</typography>
-                <typography type="secondary" class="mt8">本地语言配置：</typography>
+                <typography>{{ $t('user.i18n') }}</typography>
+                <typography type="secondary" class="mt8">{{ $t('user.locale') }}</typography>
             </div>
             <language-dropdown />
         </div>

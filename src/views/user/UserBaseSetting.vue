@@ -1,24 +1,28 @@
 <template>
     <user-layout>
-        <typography size="big-title">基础设置</typography>
+        <typography size="big-title">{{ $t('user.basicSetting') }}</typography>
         <el-form ref="userForm" :model="userForm" :rules="rules" class="mt24">
             <div class="user-form__body">
-                <el-form-item label="昵称" prop="nickname" class="mb12">
+                <el-form-item :label="$t('user.nick')" prop="nickname" class="mb12">
                     <el-input v-model="userForm.nickname"></el-input>
                 </el-form-item>
-                <el-form-item label="邮箱" prop="email" class="mb12">
+                <el-form-item :label="$t('user.email')" prop="email" class="mb12">
                     <el-input v-model="userForm.email" type="email"></el-input>
                 </el-form-item>
-                <el-form-item label="个性签名" prop="personalSign" class="mb12">
+                <el-form-item :label="$t('user.sign')" prop="personalSign" class="mb12">
                     <el-input
                         v-model="userForm.personalSign"
                         type="textarea"
-                        placeholder="请输入个性签名"
+                        :placeholder="$t('user.inputSign')"
                         rows="6"
                     ></el-input>
                 </el-form-item>
-                <el-form-item label="国家" prop="country" class="mb12">
-                    <el-select v-model="userForm.country" placeholder="请选择" class="w100">
+                <el-form-item :label="$t('user.country')" prop="country" class="mb12">
+                    <el-select
+                        v-model="userForm.country"
+                        :placeholder="$t('common.select')"
+                        class="w100"
+                    >
                         <el-option
                             v-for="item in countryList"
                             :key="item.value"
@@ -28,9 +32,13 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="省市区" prop="address" class="mb12">
+                <el-form-item :label="$t('common.provinceAndCity')" prop="address" class="mb12">
                     <div class="flex w100">
-                        <el-select v-model="userForm.province" filterable placeholder="请选择省">
+                        <el-select
+                            v-model="userForm.province"
+                            filterable
+                            :placeholder="$t('common.selectProvince')"
+                        >
                             <el-option
                                 v-for="item in provinces"
                                 :key="item.id"
@@ -42,7 +50,7 @@
                         <el-select
                             v-model="userForm.city"
                             filterable
-                            placeholder="请选择市"
+                            :placeholder="$t('common.selectCity')"
                             class="ml8"
                         >
                             <el-option
@@ -56,7 +64,7 @@
                         <el-select
                             v-model="userForm.county"
                             filterable
-                            placeholder="请选择区"
+                            :placeholder="$t('common.selectArea')"
                             class="ml8"
                         >
                             <el-option
@@ -69,10 +77,10 @@
                         </el-select>
                     </div>
                 </el-form-item>
-                <el-form-item label="详细地址" prop="streetAddress" class="mb12">
+                <el-form-item :label="$t('common.address')" prop="streetAddress" class="mb12">
                     <el-input v-model="userForm.streetAddress"></el-input>
                 </el-form-item>
-                <el-form-item label="电话号码" prop="phone">
+                <el-form-item :label="$t('common.phone')" prop="phone">
                     <div class="flex w100">
                         <el-input
                             v-model="userForm.phoneRegionCode"
@@ -83,7 +91,9 @@
                     </div>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="submitForm('userForm')">更新信息</el-button>
+                    <el-button type="primary" @click="submitForm('userForm')">{{
+                        $t('common.updateInfo')
+                    }}</el-button>
                 </el-form-item>
             </div>
             <div class="user-form__footer text-center">
@@ -97,9 +107,9 @@
                     :limit="3"
                     :show-file-list="false"
                 >
-                    <el-button size="small">点击上传</el-button>
+                    <el-button size="small">{{ $t('common.upload') }}</el-button>
                     <template #tip>
-                        <div class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                        <div class="el-upload__tip">{{ $t('common.uploadTip') }}</div>
                     </template>
                 </el-upload>
             </div>
@@ -113,6 +123,7 @@ import Typography from '@components/Typography';
 import provinces from '@assets/json/province.json';
 import cities from '@assets/json/city.json';
 import counties from '@assets/json/county.json';
+import i18n from '@i18n/index';
 export default {
     name: 'UserBaseSetting',
     components: { Typography, UserLayout },
@@ -120,7 +131,7 @@ export default {
         return {
             countryList: [
                 {
-                    label: '中国',
+                    label: i18n.t('common.china'),
                     value: 'zh-CN'
                 }
             ],

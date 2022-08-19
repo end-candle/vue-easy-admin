@@ -26,6 +26,8 @@
 
 <script>
 import ContainerCard from '@components/ContainerCard';
+import i18n from '@i18n/index';
+
 export default {
     name: 'UserLayout',
     components: { ContainerCard },
@@ -33,19 +35,19 @@ export default {
         return {
             menus: [
                 {
-                    name: '基础设置',
+                    name: i18n.t('user.basicSetting'),
                     route: {
                         name: 'UserBaseSetting'
                     }
                 },
                 {
-                    name: '安全设置',
+                    name: i18n.t('user.securitySetting'),
                     route: {
                         name: 'UserSecuritySetting'
                     }
                 },
                 {
-                    name: '个性化',
+                    name: i18n.t('user.personalized'),
                     route: {
                         name: 'UserCustomSetting'
                     }
