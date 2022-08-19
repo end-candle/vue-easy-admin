@@ -28,7 +28,7 @@
                     $t('user.sercetQuestionTip')
                 }}</typography>
             </div>
-            <el-button type="text">{{ $t('common.settting') }}</el-button>
+            <el-button type="text">{{ $t('common.setting') }}</el-button>
         </div>
         <el-divider class="mv12" />
         <div class="flex justify-between w100">
