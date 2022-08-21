@@ -1,17 +1,16 @@
 @font-face {
-  font-family: "iconfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1625821226273') format('truetype');
+  font-family: iconfont; /* Project id  */
+  src: url("iconfont.ttf?t=1625821226273") format("truetype");
 }
 
 .iconfont {
-  font-family: "iconfont" !important;
+  font-family: iconfont, Helvetica, Arial, Verdana, Tahoma, sans-serif !important;
   font-size: 16px;
-  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
 }
 
-.icon-math:before {
+.icon-math::before {
   content: "\e655";
 }
-

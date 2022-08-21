@@ -5,6 +5,7 @@ import Color from 'color';
  */
 export const defaultThemeColor = {
     brandColor: '#409EFF',
+    progressColor: '#ff5733',
     functionalColor: {
         colorSuccess: '#67C23A',
         colorWarning: '#E6A23C',
@@ -32,6 +33,13 @@ export const defaultThemeColor = {
 
 const mixColor = (color, mixColor, weight) => {
     return new Color(color).mix(new Color(mixColor), weight).hex();
+};
+
+/**
+ * 进度条相关颜色生成
+ */
+const progressColorMapFunc = {
+    progressColor: (color = '#ff5733') => color
 };
 
 /**
@@ -268,6 +276,8 @@ export function generateTheme(themeColor) {
         }, {});
     };
     return {
+        // 进度条颜色生成
+        ...generateColorMap(progressColorMapFunc, themeColor.progressColor),
         // 主题色生成
         ...generateColorMap(primaryColorMapFunc, themeColor.brandColor),
         ...generateColorMap(
@@ -351,6 +361,6 @@ export function setTheme(themeColor) {
     const theme = generateTheme(themeColor || defaultThemeColor);
     const styles = document.documentElement.style;
     Object.keys(theme).forEach((key) => {
-        styles.setProperty(`--${key}`, theme[key]);
+        styles.setProperty(`--${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`, theme[key]);
     });
 }

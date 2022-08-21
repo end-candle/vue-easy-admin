@@ -1,0 +1,23 @@
+{
+    "extends": ["stylelint-config-standard-scss", "stylelint-config-property-sort-order-smacss"],
+    "plugins": ["stylelint-order"],
+    "files": ["*.scss", "**/*.scss", "**/*.css"],
+    "overrides": [
+        {
+            "extends": ["stylelint-config-recommended-vue/scss"],
+            "files": ["*.vue", "**/*.vue"]
+        }
+    ],
+    "rules": {
+        "selector-pseudo-element-no-unknown": [
+            true,
+            {
+                "ignorePseudoElements": ["v-deep"]
+            }
+        ],
+        "selector-class-pattern": "^([a-z]+-)*[a-z0-9]+(_{2}([a-z]+-)*[a-z0-9]+)?(-{2}([a-z]+-)*[a-z]+)?([0-9]+)?$",
+        "custom-property-pattern": "^([a-z]+-)*[a-z]+([0-9]+)?$",
+        "scss/no-global-function-names": null,
+        "scss/dollar-variable-pattern": "^(-{2})?([a-z]+-)*[a-z]+([0-9]+)?$"
+    }
+}

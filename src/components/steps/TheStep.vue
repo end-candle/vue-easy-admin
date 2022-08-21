@@ -129,6 +129,37 @@ export default {
         font-size: 14px;
         color: rgba($--color-text-secondary, 0.8);
     }
+    &--success {
+        color: $--color-text-secondary;
+        .the-step {
+            &-item-icon {
+                color: $--color-primary;
+            }
+        }
+        .the-step-item-title {
+            &::after {
+                background-color: $--color-primary;
+            }
+        }
+    }
+    &--wait {
+        color: $--color-text-secondary;
+        .the-step {
+            &-item-icon {
+                color: $--color-text-secondary;
+            }
+        }
+    }
+    &--process {
+        color: $--color-text-primary;
+        .the-step {
+            &-item-icon {
+                background-color: $--color-primary;
+                border-color: $--color-primary;
+                color: $--color-white;
+            }
+        }
+    }
     &--horizontal {
         .the-step-item-title {
             &::after {
@@ -191,38 +222,6 @@ export default {
                     content: '';
                     height: 0;
                 }
-            }
-        }
-    }
-
-    &--wait {
-        color: $--color-text-secondary;
-        .the-step {
-            &-item-icon {
-                color: $--color-text-secondary;
-            }
-        }
-    }
-    &--process {
-        color: $--color-text-primary;
-        .the-step {
-            &-item-icon {
-                background-color: $--color-primary;
-                border-color: $--color-primary;
-                color: $--color-white;
-            }
-        }
-    }
-    &--success {
-        color: $--color-text-secondary;
-        .the-step {
-            &-item-icon {
-                color: $--color-primary;
-            }
-        }
-        .the-step-item-title {
-            &::after {
-                background-color: $--color-primary;
             }
         }
     }

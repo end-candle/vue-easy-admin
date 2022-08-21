@@ -11,6 +11,8 @@
         <el-form :form="theme" label-position="top">
             <Typography tag="div" type="tip" size="title">品牌色</Typography>
             <the-color-picker v-model="theme.brandColor" label="主题色"></the-color-picker>
+            <Typography class="mt16" tag="div" type="tip" size="title">进度条颜色</Typography>
+            <the-color-picker v-model="theme.progressColor" label="进度条颜色"></the-color-picker>
             <Typography class="mt16" tag="div" type="tip" size="title">实用颜色</Typography>
             <the-color-picker
                 v-model="theme.functionalColor.colorSuccess"

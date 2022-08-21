@@ -1,6 +1,6 @@
-@import '~nprogress/nprogress.css';
-@import 'variables';
+@import "~nprogress/nprogress.css";
+@import "variables";
 
 #nprogress .bar {
-    background: $--progress-color; //自定义颜色
+  background: var(--progress-color, "#ff5733"); // 自定义颜色
 }

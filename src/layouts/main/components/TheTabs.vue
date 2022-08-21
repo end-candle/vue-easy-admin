@@ -191,6 +191,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.tab-route {
+    height: 100%;
+    margin: 0 -20px;
+    padding: 0 20px;
+}
+
 .tabs {
     position: relative;
     margin-top: 4px;
@@ -223,12 +229,6 @@ export default {
             }
         }
     }
-}
-
-.tab-route {
-    height: 100%;
-    margin: 0 -20px;
-    padding: 0 20px;
 }
 
 .tabs-extra {

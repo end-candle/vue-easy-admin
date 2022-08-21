@@ -15,6 +15,7 @@ const vueConfig = {
     css: {
         loaderOptions: {
             scss: {
+                warnRuleAsWarning: false,
                 additionalData: '@import "@styles/variables";'
             }
         }
@@ -76,6 +77,18 @@ const vueConfig = {
             // https://webpack.js.org/configuration/optimization/#optimizationruntimechunk
             config.optimization.runtimeChunk('single');
         });
+
+        // stylelint 支持
+        config.plugin('stylelint-webpack-plugin').use(require('stylelint-webpack-plugin'), [
+            {
+                files: ['**/src/**/*.{html,vue,css,scss}'],
+                fix: true,
+                cache: true,
+                cacheLocation: resolve('node_modules/.cache/stylelint/stylelint-cache.json'),
+                emitError: true,
+                failOnError: false
+            }
+        ]);
 
         config.when(process.env.use_analyzer, (config) => {
             // 打包分析

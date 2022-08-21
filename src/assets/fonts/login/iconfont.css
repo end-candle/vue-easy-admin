@@ -1,25 +1,24 @@
 @font-face {
-  font-family: "loginfont"; /* Project id  */
-  src: url('iconfont.ttf?t=1627286025280') format('truetype');
+  font-family: loginfont; /* Project id  */
+  src: url("iconfont.ttf?t=1627286025280") format("truetype");
 }
 
 .loginfont {
-  font-family: "loginfont" !important;
+  font-family: loginfont, Helvetica, Arial, Verdana, Tahoma, sans-serif !important;
   font-size: 16px;
-  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
 }
 
-.icon-qq:before {
+.icon-qq::before {
   content: "\e601";
 }
 
-.icon-weibo:before {
+.icon-weibo::before {
   content: "\e605";
 }
 
-.icon-weixin:before {
+.icon-weixin::before {
   content: "\e678";
 }
-

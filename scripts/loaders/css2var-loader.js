@@ -17,7 +17,10 @@ module.exports = function (content) {
     const { cssVarMap = {} } = this.getOptions();
     const rootVar = getRootCssVar(cssVarMap);
     Object.keys(cssVarMap).forEach((key) => {
-        data = data.replace(new RegExp(`(${cssVarMap[key]})`, 'ig'), `var(--${key}, $1)`);
+        data = data.replace(
+            new RegExp(`(${cssVarMap[key]})`, 'ig'),
+            `var(--${key.replace(/([A-Z])/g, '-$1').toLowerCase()}, $1)`
+        );
     });
     return rootVar + data;
 };

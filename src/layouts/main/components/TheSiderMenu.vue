@@ -57,13 +57,6 @@ export default {
         .el-menu {
             @include menu;
         }
-        .el-menu--popup {
-            padding: 0;
-            background-color: #001529 !important;
-            .el-menu-item:last-child {
-                margin-bottom: 0;
-            }
-        }
         .el-menu-item {
             height: 40px;
             line-height: 40px;
@@ -76,6 +69,13 @@ export default {
             }
             &.is-active {
                 background-color: $--color-primary !important;
+            }
+        }
+        .el-menu--popup {
+            padding: 0;
+            background-color: #001529 !important;
+            .el-menu-item:last-child {
+                margin-bottom: 0;
             }
         }
         .el-submenu__title {
