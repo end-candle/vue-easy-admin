@@ -6,9 +6,10 @@
         v-bind="$attrs"
         direction="rtl"
         size="378px"
+        :before-close="handleClose"
         v-on="$listeners"
     >
-        <el-form :form="theme" label-position="top">
+        <el-form ref="form" :model="theme" label-position="top">
             <Typography tag="div" type="tip" size="title">品牌色</Typography>
             <the-color-picker v-model="theme.brandColor" label="主题色"></the-color-picker>
             <Typography class="mt16" tag="div" type="tip" size="title">进度条颜色</Typography>
@@ -119,6 +120,10 @@ export default {
         },
         handleCancel() {
             this.$refs.drawer.closeDrawer();
+        },
+        handleClose(done) {
+            this.theme = cloneDeep(this.themeColor);
+            done();
         }
     }
 };
