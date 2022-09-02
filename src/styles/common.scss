@@ -1,4 +1,4 @@
-@import "~reseter.css/src/scss/reseter";
+@import "~normalize.css";
 @import "variables";
 
 html,
@@ -41,10 +41,6 @@ body {
     background: mix($--color-primary, #fff, 0.3);
     box-shadow: inset 0 0 1px rgb(0 0 0 / 0%);
   }
-}
-
-button:focus {
-  outline-width: 0;
 }
 
 /* ==================
