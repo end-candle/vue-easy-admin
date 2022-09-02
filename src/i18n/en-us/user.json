@@ -1,24 +1,51 @@
 {
   "accountAndPassword": "Account password:",
+  "backgroundColor": {
+    "base": "Basic background color",
+    "black": "Basic black",
+    "title": "background color ",
+    "white": "Basic white"
+  },
   "backupEmail": "Alternate mailbox",
   "bandEmail": "Bound mailbox:",
   "bandPhone": "Bound mobile phone:",
   "basicSetting": "Basic settings",
+  "borderColor": {
+    "base": "Primary border color",
+    "extralight": "Four level border color",
+    "light": "Secondary border color",
+    "lighter": "Third level border color",
+    "title": "Border color"
+  },
   "brandColor": "Theme color",
+  "brandColorTitle": "Brand color",
   "country": "country",
+  "dangerColor": "Dangerous colors",
   "email": "mailbox",
+  "fontColor": {
+    "placeholder": "Placeholder text color",
+    "primary": "Main text color",
+    "regular": "General text color",
+    "secondary": "Secondary text color",
+    "title": "Font color:"
+  },
   "i18n": "internationalization",
+  "infoColor": "Message color",
   "inputSign": "Please enter your personal signature",
   "locale": "Local language configuration:",
   "nick": "nickname",
   "pageStyle": "Page style color:",
   "passswordSecurity": "Current password strength: strong",
   "personalized": "individualization",
+  "progressColor": "Progress bar color",
   "securitySetting": "security setting",
   "sercetPhone": "Security mobile phone",
   "sercetQuestion": "security question ",
   "sercetQuestionTip": "There is no secret protection problem, which can effectively protect the security of the account",
   "sign": "Personal signature",
   "style": "Style color",
-  "styleSetting": "Overall style color setting"
+  "styleSetting": "Overall style color setting",
+  "successColor": "Success color",
+  "utilColor": "Practical colors",
+  "warningColor": "Warning color:"
 }

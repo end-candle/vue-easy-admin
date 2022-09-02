@@ -1,11 +1,13 @@
 {
   "address": "Detailed address",
+  "cancel": "Cancel",
   "china": "China",
   "language": {
     "china": "Simplified Chinese",
     "english": "American English "
   },
   "modify": "modify",
+  "ok": "Ok",
   "phone": "Telephone number",
   "provinceAndCity": "Province (city)",
   "select": "Please select",
