@@ -68,7 +68,7 @@ const vueConfig = {
                         test: /[\\/]node_modules[\\/]_?element-ui(.*)/ // in order to adapt to cnpm
                     },
                     antv: {
-                        name: 'chunk-@antv', // split @antv into a single package
+                        name: 'chunk-antv', // split @antv into a single package
                         priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
                         test: /[\\/]node_modules[\\/]_?@antv(.*)/ // in order to adapt to cnpm
                     }

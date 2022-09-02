@@ -1,6 +1,6 @@
 function getRootCssVar(colorMap) {
     const cssVars = Object.keys(colorMap).reduce((prev, color) => {
-        return `${prev}--${color}: ${colorMap[color]};`;
+        return `${prev}--${color.replace(/([A-Z])/g, '-$1').toLowerCase()}: ${colorMap[color]};`;
     }, '');
     return `:root {
         ${cssVars}

@@ -1,24 +1,51 @@
 {
   "accountAndPassword": "账户密码",
+  "backgroundColor": {
+    "base": "基础背景色",
+    "black": "基础黑色",
+    "title": "背景颜色",
+    "white": "基础白色"
+  },
   "backupEmail": "备用邮箱",
   "bandEmail": "已绑定邮箱:",
   "bandPhone": "已绑定手机:",
   "basicSetting": "基础设置",
+  "borderColor": {
+    "base": "一级边框颜色",
+    "extralight": "四级边框颜色",
+    "light": "二级边框颜色",
+    "lighter": "三级边框颜色",
+    "title": "边框颜色"
+  },
   "brandColor": "主题色",
+  "brandColorTitle": "品牌色",
   "country": "国家",
+  "dangerColor": "危险颜色",
   "email": "邮箱",
+  "fontColor": {
+    "placeholder": "占位文字颜色",
+    "primary": "主要文字颜色",
+    "regular": "常规文字颜色",
+    "secondary": "次要文字颜色",
+    "title": "字体颜色"
+  },
   "i18n": "国际化",
+  "infoColor": "信息颜色",
   "inputSign": "请输入个性签名",
   "locale": "本地语言配置：",
   "nick": "昵称",
   "pageStyle": "页面风格配色：",
   "passswordSecurity": "当前密码强度:强",
   "personalized": "个性化",
+  "progressColor": "进度条颜色",
   "securitySetting": "安全设置",
   "sercetPhone": "密保手机",
   "sercetQuestion": "密保问题",
   "sercetQuestionTip": "未设置密保问题，密保问题可有效保护账户安全",
   "sign": "个性签名",
   "style": "风格配色",
-  "styleSetting": "整体风格配色设置"
+  "styleSetting": "整体风格配色设置",
+  "successColor": "成功颜色",
+  "utilColor": "实用颜色",
+  "warningColor": "警告颜色"
 }

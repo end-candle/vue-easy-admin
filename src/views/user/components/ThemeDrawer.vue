@@ -1,7 +1,7 @@
 <template>
     <el-drawer
         ref="drawer"
-        title="风格配色"
+        :title="$t('user.style')"
         :append-to-body="true"
         v-bind="$attrs"
         direction="rtl"
@@ -10,78 +10,96 @@
         v-on="$listeners"
     >
         <el-form ref="form" :model="theme" label-position="top">
-            <Typography tag="div" type="tip" size="title">品牌色</Typography>
-            <the-color-picker v-model="theme.brandColor" label="主题色"></the-color-picker>
-            <Typography class="mt16" tag="div" type="tip" size="title">进度条颜色</Typography>
-            <the-color-picker v-model="theme.progressColor" label="进度条颜色"></the-color-picker>
-            <Typography class="mt16" tag="div" type="tip" size="title">实用颜色</Typography>
+            <Typography tag="div" type="tip" size="title">{{
+                $t('user.brandColorTitle')
+            }}</Typography>
+            <the-color-picker
+                v-model="theme.brandColor"
+                :label="$t('user.brandColor')"
+            ></the-color-picker>
+            <Typography class="mt16" tag="div" type="tip" size="title">{{
+                $t('user.progressColor')
+            }}</Typography>
+            <the-color-picker
+                v-model="theme.progressColor"
+                :label="$t('user.progressColor')"
+            ></the-color-picker>
+            <Typography class="mt16" tag="div" type="tip" size="title">{{
+                $t('user.utilColor')
+            }}</Typography>
             <the-color-picker
                 v-model="theme.functionalColor.colorSuccess"
-                label="成功颜色"
+                :label="$t('user.successColor')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.functionalColor.colorWarning"
-                label="警告颜色"
+                :label="$t('user.warningColor')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.functionalColor.colorDanger"
-                label="危险颜色"
+                :label="$t('user.dangerColor')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.functionalColor.colorInfo"
-                label="信息颜色"
+                :label="$t('user.infoColor')"
             ></the-color-picker>
-            <Typography class="mt16" tag="div" type="tip" size="title">字体颜色</Typography>
+            <Typography class="mt16" tag="div" type="tip" size="title">{{
+                $t('user.fontColor.title')
+            }}</Typography>
             <the-color-picker
                 v-model="theme.fontColor.colorTextPrimary"
-                label="主要文字颜色"
+                :label="$t('user.fontColor.primary')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.fontColor.colorTextRegular"
-                label="常规文字颜色"
+                :label="$t('user.fontColor.regular')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.fontColor.colorTextSecondary"
-                label="次要文字颜色"
+                :label="$t('user.fontColor.secondary')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.fontColor.colorTextPlaceholder"
-                label="占位文字颜色"
+                :label="$t('user.fontColor.placeholder')"
             ></the-color-picker>
-            <Typography class="mt16" tag="div" type="tip" size="title">边框颜色</Typography>
+            <Typography class="mt16" tag="div" type="tip" size="title">{{
+                $t('user.borderColor.title')
+            }}</Typography>
             <the-color-picker
                 v-model="theme.borderColor.borderColorBase"
-                label="一级边框颜色"
+                :label="$t('user.borderColor.base')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.borderColor.borderColorLight"
-                label="二级边框颜色"
+                :label="$t('user.borderColor.light')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.borderColor.borderColorLighter"
-                label="三级边框颜色"
+                :label="$t('user.borderColor.lighter')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.borderColor.borderColorExtraLight"
-                label="四级边框颜色"
+                :label="$t('user.borderColor.extralight')"
             ></the-color-picker>
-            <Typography class="mt16" tag="div" type="tip" size="title">背景颜色</Typography>
+            <Typography class="mt16" tag="div" type="tip" size="title">{{
+                $t('user.backgroundColor.title')
+            }}</Typography>
             <the-color-picker
                 v-model="theme.backgroundColor.backgroundColorBase"
-                label="基础背景色"
+                :label="$t('user.backgroundColor.base')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.backgroundColor.colorBlack"
-                label="基础黑色"
+                :label="$t('user.backgroundColor.black')"
             ></the-color-picker>
             <the-color-picker
                 v-model="theme.backgroundColor.colorWhite"
-                label="基础白色"
+                :label="$t('user.backgroundColor.white')"
             ></the-color-picker>
         </el-form>
         <div class="the-drawer__footer">
-            <el-button type="primary" @click="handleConfirm">确定</el-button>
-            <el-button @click="handleCancel">取消</el-button>
+            <el-button type="primary" @click="handleConfirm">{{ $t('common.ok') }}</el-button>
+            <el-button @click="handleCancel">{{ $t('common.cancel') }}</el-button>
         </div>
     </el-drawer>
 </template>
