@@ -1,0 +1,30 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
+    "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+    "exclude": ["src/**/__tests__/*"],
+    "compilerOptions": {
+        "composite": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@services/*": ["./src/services/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@images/*": ["./src/assets/images/*"],
+            "@styles/*": ["./src/styles/*"],
+            "@components/*": ["./src/components/*"],
+            "@i18n/*": ["./src/i18n/*"],
+            "@constants/*": ["./src/constants/*"],
+            "@directives/*": ["./src/directives/*"],
+            "@filters/*": ["./src/filters/*"],
+            "@helpers/*": ["./src/helpers/*"],
+            "@layouts/*": ["./src/layouts/*"],
+            "@mixins/*": ["./src/mixins/*"],
+            "@plugins/*": ["./src/plugins/*"],
+            "@router/*": ["./src/router/*"],
+            "@store/*": ["./src/store/*"],
+            "@views/*": ["./src/views/*"],
+            "@mock/*": ["./src/mock/*"],
+        },
+        "types": ["element-plus/global", "vite/client"]
+    }
+}

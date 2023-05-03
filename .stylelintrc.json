@@ -1,0 +1,26 @@
+{
+    "$schema": "https://json.schemastore.org/stylelintrc.json",
+    "extends": [
+        "stylelint-config-standard-scss",
+        "stylelint-config-property-sort-order-smacss"
+    ],
+    "plugins": [
+        "stylelint-order"
+    ],
+    "files": [
+        "*.scss",
+        "**/*.scss",
+        "**/*.css"
+    ],
+    "overrides": [
+        {
+            "extends": [
+                "stylelint-config-recommended-vue/scss"
+            ],
+            "files": [
+                "*.vue",
+                "**/*.vue"
+            ]
+        }
+    ]
+}
