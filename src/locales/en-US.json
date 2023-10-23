@@ -1,4 +1,9 @@
 {
   "username": "username",
-  "password": "password"
+  "password": "password",
+  "autoLogin": "automatic logon",
+  "copyright": "Final Candle Production",
+  "forgetPassword": "Forgot password?",
+  "login": "Login",
+  "otherLoginWay": "Other login methods:"
 }
