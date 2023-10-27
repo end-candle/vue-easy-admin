@@ -62,22 +62,27 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "npm run lint",
-      "npm run format"
+      "npm run format",
+      "git add ."
     ],
     "*.json": [
-      "npm run format"
+      "npm run format",
+      "git add ."
     ],
     "*.{vue,html}": [
       "npm run lint",
       "npm run lint:stylelint",
-      "npm run format"
+      "npm run format",
+      "git add ."
     ],
     "*.{css,scss,less,html}": [
       "npm run lint:stylelint",
-      "npm run format"
+      "npm run format",
+      "git add ."
     ],
     "*.md": [
-      "npm run format"
+      "npm run format",
+      "git add ."
     ]
   }
 }
