@@ -33,7 +33,7 @@ export default defineConfig({
     }),
     Components({
       // 指定组件位置，默认是src/components
-      dirs: ['src/components'],
+      dirs: ['src/components', 'src/views'],
       extensions: ['vue'],
       deep: true,
       resolvers: [
@@ -60,7 +60,7 @@ export default defineConfig({
       '@constants': resolve('./src/constants'),
       '@store': resolve('./src/store'),
       '@views': resolve('./src/views'),
-      '@layouts': resolve('./src/layouts'),
+      '@layouts': resolve('./src/components/layouts'),
       '@helpers': resolve('./src/helpers'),
       '@mock': resolve('./src/mock'),
       '@router': resolve('./src/router'),

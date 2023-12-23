@@ -5,5 +5,9 @@
   "copyright": "Final Candle Production",
   "forgetPassword": "Forgot password?",
   "login": "Login",
-  "otherLoginWay": "Other login methods:"
+  "otherLoginWay": "Other login methods:",
+  "loginWithAlipay": "Alipay",
+  "loginWithWechat": "WeChat",
+  "loginWithQQ": "QQ",
+  "loginWithWeibo": "Sina Weibo"
 }

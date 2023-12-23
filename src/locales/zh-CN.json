@@ -5,5 +5,9 @@
   "forgetPassword": "忘记密码?",
   "login": "登录",
   "otherLoginWay": "其它登录方式:",
-  "copyright": "末烛出品"
+  "copyright": "末烛出品",
+  "loginWithAlipay": "支付宝",
+  "loginWithWechat": "微信",
+  "loginWithQQ": "QQ",
+  "loginWithWeibo": "新浪微博"
 }

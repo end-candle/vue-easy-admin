@@ -1,7 +1,4 @@
-<script setup lang="ts">
-import TheFooter from '@/components/TheFooter.vue';
-import LoginForm from './LoginForm.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="login-view relative">

@@ -1,6 +1,13 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/**/*.json", "auto-imports.d.ts", "components.d.ts"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "src/**/*.json",
+    "auto-imports.d.ts",
+    "components.d.ts"
+  ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "resolveJsonModule": true,
@@ -18,7 +25,7 @@
       "@directives/*": ["./src/directives/*"],
       "@filters/*": ["./src/filters/*"],
       "@helpers/*": ["./src/helpers/*"],
-      "@layouts/*": ["./src/layouts/*"],
+      "@layouts/*": ["./src/components/layouts/*"],
       "@mixins/*": ["./src/mixins/*"],
       "@plugins/*": ["./src/plugins/*"],
       "@router/*": ["./src/router/*"],

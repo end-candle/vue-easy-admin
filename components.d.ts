@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AboutView: typeof import('./src/views/AboutView.vue')['default']
+    App: (typeof import('./src/App.vue'))['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
@@ -19,6 +21,7 @@ declare module 'vue' {
     ElText: typeof import('element-plus/es')['ElText']
     HeaderLayout: typeof import('./src/components/layouts/HeaderLayout.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    HomeView: typeof import('./src/views/HomeView.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']
@@ -30,8 +33,11 @@ declare module 'vue' {
     IUiwQq: typeof import('~icons/uiw/qq')['default']
     IUiwWeibo: typeof import('~icons/uiw/weibo')['default']
     IUiwWeixin: typeof import('~icons/uiw/weixin')['default']
+    LoginForm: typeof import('./src/views/login/LoginForm.vue')['default']
+    LoginView: typeof import('./src/views/login/LoginView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TheFooter: typeof import('./src/components/TheFooter.vue')['default']
+    TheFooter: typeof import('./src/components/layouts/TheFooter.vue')['default']
+    TheLogoText: typeof import('./src/components/TheLogoText.vue')['default']
   }
 }
