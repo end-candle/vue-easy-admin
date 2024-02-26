@@ -11,7 +11,7 @@
       </ElLink>
     </ElSpace>
     <ElSpace class="mb-3 justify-center w-full">
-      <ElText size="small">Copyright &copy; 2023 {{ $t('copyright') }}</ElText>
+      <ElText size="small">{{ $t('copyright') }}</ElText>
     </ElSpace>
   </footer>
 </template>
