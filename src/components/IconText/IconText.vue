@@ -17,7 +17,7 @@ const iconColor = computed(() => {
 
 <template>
   <div class="icon-text">
-    <slot name="icon">
+    <slot name="icon" iconText="iconText" :iconColor="iconColor">
       <span class="icon-text__icon">
         {{ iconText }}
       </span>
