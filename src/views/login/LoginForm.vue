@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { ref } from 'vue';
 import type { LoginFormModel } from './types/login-form';
 
-const loginFormModel = reactive<LoginFormModel>({
+const loginFormModel = ref<LoginFormModel>({
   username: '',
   password: '',
 });

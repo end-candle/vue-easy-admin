@@ -2,6 +2,6 @@
 
 <template>
   <main>
-    <HelloWorld msg="test"></HelloWorld>
+    <IconText text="Aome" />
   </main>
 </template>

@@ -40,6 +40,9 @@ devDependencies:
   '@rushstack/eslint-patch':
     specifier: ^1.7.2
     version: 1.7.2
+  '@tsconfig/node20':
+    specifier: ^20.1.2
+    version: 20.1.2
   '@types/jsdom':
     specifier: ^21.1.6
     version: 21.1.6
@@ -1502,6 +1505,10 @@ packages:
   /@sxzz/popperjs-es@2.11.7:
     resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
     dev: false
+
+  /@tsconfig/node20@20.1.2:
+    resolution: {integrity: sha512-madaWq2k+LYMEhmcp0fs+OGaLFk0OenpHa4gmI4VEmCKX4PJntQ6fnnGADVFrVkBj0wIdAlQnK/MrlYTHsa1gQ==}
+    dev: true
 
   /@types/estree@1.0.3:
     resolution: {integrity: sha512-CS2rOaoQ/eAgAfcTfq6amKG7bsN+EMcgGY4FAFQdvSj2y1ixvOZTUA9mOtCai7E1SYu283XNw7urKK30nP3wkQ==}
