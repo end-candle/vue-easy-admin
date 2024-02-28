@@ -6,5 +6,9 @@ export type IconTextProps = {
   /**
    * The size of the icon.
    */
-  size: string;
+  size?: string;
+  /**
+   * The color of the icon.
+   */
+  iconColor?: string;
 };

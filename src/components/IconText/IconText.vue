@@ -8,6 +8,9 @@ const props = withDefaults(defineProps<IconTextProps>(), {
 
 const iconText = computed(() => props.text[0]);
 const iconColor = computed(() => {
+  if (props.iconColor) {
+    return props.iconColor;
+  }
   const arr = new Uint8Array(3);
   crypto.getRandomValues(arr);
   const color = new Color({ R: arr[0], G: arr[1], B: arr[2] });
@@ -17,7 +20,7 @@ const iconColor = computed(() => {
 
 <template>
   <div class="icon-text">
-    <slot name="icon" iconText="iconText" :iconColor="iconColor">
+    <slot name="icon" :iconText="iconText" :iconColor="iconColor">
       <span class="icon-text__icon">
         {{ iconText }}
       </span>
