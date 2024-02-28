@@ -1,12 +1,12 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": [
-    "env.d.ts",
+    "src/types/env.d.ts",
     "src/**/*",
     "src/**/*.vue",
     "src/**/*.json",
-    "auto-imports.d.ts",
-    "components.d.ts"
+    "src/types/auto-imports.d.ts",
+    "src/types/components.d.ts"
   ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
@@ -33,6 +33,6 @@
       "@views/*": ["src/views/*"],
       "@mock/*": ["src/mock/*"]
     },
-    "types": ["element-plus/global"]
+    "types": ["element-plus/global", "src/types/*.d.ts"]
   }
 }

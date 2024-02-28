@@ -15,6 +15,7 @@
       {
         "message": "Expected class selector to be bem"
       }
-    ]
+    ],
+    "import-notation": null
   }
 }

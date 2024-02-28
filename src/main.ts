@@ -1,18 +1,22 @@
 import { createApp } from 'vue';
-import { createPinia } from 'pinia';
 
-import App from './App.vue';
-import router from './router';
-import i18n from '@/locales/i18n';
+import App from '@/App.vue';
+import setI18n from '@/locales/i18n';
+import setRouter from '@/router';
+import setStore from '@/stores';
 
-import 'virtual:uno.css';
-import '@unocss/reset/sanitize/sanitize.css';
 import '@unocss/reset/sanitize/assets.css';
+import '@unocss/reset/sanitize/sanitize.css';
+import 'virtual:uno.css';
 
-const app = createApp(App);
+async function bootstrap() {
+  // 创建vue实例
+  const app = createApp(App);
+  setI18n(app);
+  await setRouter(app);
+  setStore(app);
+  app.mount('#app');
+  return app;
+}
 
-app.use(createPinia());
-app.use(router);
-app.use(i18n);
-
-app.mount('#app');
+bootstrap();

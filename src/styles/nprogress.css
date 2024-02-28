@@ -1,0 +1,6 @@
+@import 'nprogress/nprogress.css';
+
+#nprogress .bar {
+  /* 自定义颜色 */
+  background: var(--progress-color, '#ff5733');
+}

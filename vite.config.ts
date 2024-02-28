@@ -24,6 +24,7 @@ export default defineConfig({
       autoInstall: true,
     }),
     AutoImport({
+      dts: resolve('./src/types/auto-import.d.ts'),
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({
@@ -34,6 +35,7 @@ export default defineConfig({
     Components({
       // 指定组件位置，默认是src/components
       dirs: ['src/components', 'src/views'],
+      dts: resolve('./src/types/components.d.ts'),
       extensions: ['vue'],
       deep: true,
       resolvers: [
