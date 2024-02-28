@@ -33,6 +33,6 @@
       "@views/*": ["src/views/*"],
       "@mock/*": ["src/mock/*"]
     },
-    "types": ["element-plus/global", "src/types/*.d.ts"]
+    "types": ["element-plus/global"]
   }
 }
