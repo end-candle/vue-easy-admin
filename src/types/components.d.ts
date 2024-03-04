@@ -20,12 +20,7 @@ declare module 'vue' {
     ElText: (typeof import('element-plus/es'))['ElText'];
     HeaderLayout: (typeof import('./../components/layouts/HeaderLayout.vue'))['default'];
     HomeView: (typeof import('./../views/HomeView.vue'))['default'];
-    IconCommunity: (typeof import('./../components/icons/IconCommunity.vue'))['default'];
-    IconDocumentation: (typeof import('./../components/icons/IconDocumentation.vue'))['default'];
-    IconEcosystem: (typeof import('./../components/icons/IconEcosystem.vue'))['default'];
-    IconSupport: (typeof import('./../components/icons/IconSupport.vue'))['default'];
     IconText: (typeof import('./../components/IconText/IconText.vue'))['default'];
-    IconTooling: (typeof import('./../components/icons/IconTooling.vue'))['default'];
     IEpLock: (typeof import('~icons/ep/lock'))['default'];
     IEpUser: (typeof import('~icons/ep/user'))['default'];
     IUiwAlipay: (typeof import('~icons/uiw/alipay'))['default'];

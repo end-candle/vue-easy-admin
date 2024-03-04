@@ -8,14 +8,10 @@ type RouteGuardModule = { default?: RouteGuard };
  * @param router 路由
  */
 const createRouterGuards = async (router: Router) => {
-  const modules = import.meta.glob<RouteGuardModule>('./*.ts');
-  const guards = await Promise.all(
-    Object.keys(modules).map((key) => {
-      return modules[key]();
-    }),
-  );
-  guards.forEach((guard) => {
-    guard.default?.(router);
+  const modules = import.meta.glob<RouteGuardModule>('./*.ts', { eager: true });
+  Object.keys(modules).map((key) => {
+    console.log(modules[key]);
+    return modules[key]?.default?.(router);
   });
 };
 
