@@ -24,7 +24,7 @@ export default defineConfig({
       autoInstall: true,
     }),
     AutoImport({
-      dts: resolve('./src/types/auto-import.d.ts'),
+      dts: resolve('./src/types/auto-imports.d.ts'),
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({
