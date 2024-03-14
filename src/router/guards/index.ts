@@ -10,7 +10,6 @@ type RouteGuardModule = { default?: RouteGuard };
 const createRouterGuards = async (router: Router) => {
   const modules = import.meta.glob<RouteGuardModule>('./*.ts', { eager: true });
   Object.keys(modules).map((key) => {
-    console.log(modules[key]);
     return modules[key]?.default?.(router);
   });
 };
