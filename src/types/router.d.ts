@@ -5,12 +5,34 @@ import type { Router } from 'vue-router';
  */
 declare module 'vue-router' {
   interface RouteMeta {
+    /**
+     * 菜单标题
+     */
     title?: string;
+    /**
+     * 隐藏菜单
+     */
     hideInMenu?: boolean;
+    /**
+     * 隐藏子菜单
+     */
     hideChildrenInMenu?: boolean;
+    /**
+     * 是否固定
+     */
     affix?: boolean;
+    /**
+     * 是否缓存
+     */
     keepAlive?: boolean;
+    /**
+     * 权限点集合
+     */
     permissions?: string[];
+    /**
+     * 任意用户可访问
+     */
+    anyOne?: boolean;
   }
 }
 

@@ -3,7 +3,7 @@ import zhCN from './zh-CN.json';
 import enUS from './en-US.json';
 import type { App } from 'vue';
 
-async function setI18n(app: App<Element>) {
+async function setI18n(app?: App<Element>) {
   const i18n = createI18n({
     locale: 'zh-CN',
     legacy: false,
@@ -12,7 +12,8 @@ async function setI18n(app: App<Element>) {
       'en-US': enUS,
     },
   });
-  app.use(i18n);
+  app?.use(i18n);
+  return i18n;
 }
 
 export default setI18n;

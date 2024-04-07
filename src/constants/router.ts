@@ -14,14 +14,3 @@ export const ROUTE_NAME: Record<string, RouteRecordName> = {
   ERROR: 'error',
   ERROR_404: 'error404',
 };
-
-/**
- * 白名单
- */
-export const WHITE_LIST: RouteRecordName[] = [
-  ROUTE_NAME.LOGIN,
-  ROUTE_NAME.REGISTER,
-  ROUTE_NAME.NOT_FOUND,
-  ROUTE_NAME.ERROR,
-  ROUTE_NAME.ERROR_404,
-];

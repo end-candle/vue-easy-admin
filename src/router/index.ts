@@ -20,6 +20,10 @@ async function setRouter(app: App<Element>) {
         // this generates a separate chunk (About.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import('@/views/login/LoginView.vue'),
+        meta: {
+          title: app.config.globalProperties.$t('login'),
+          anyOne: true,
+        },
       },
     ],
   });

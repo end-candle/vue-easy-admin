@@ -9,5 +9,14 @@
   "loginWithAlipay": "支付宝",
   "loginWithWechat": "微信",
   "loginWithQQ": "QQ",
-  "loginWithWeibo": "新浪微博"
+  "loginWithWeibo": "新浪微博",
+  "common": {
+    "error": "请求失败"
+  },
+  "validate": {
+    "required": {
+      "username": "请输入用户名",
+      "password": "请输入密码"
+    }
+  }
 }

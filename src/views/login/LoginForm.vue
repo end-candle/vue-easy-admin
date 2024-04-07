@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { LoginFormModel } from './types/login-form';
-
-const loginFormModel = ref<LoginFormModel>({
-  username: '',
-  password: '',
-});
-
-const autoLogin = ref(Boolean(localStorage.getItem('autoLogin')));
+import { useLoginForm } from './hooks/useLoginForm';
+const { loginFormModel, isFetching, form, rules, handleLogin } = useLoginForm();
 </script>
 
 <template>
   <div class="mb-4 flex justify-center items-center">
     <span class="text-5">{{ $t('login') }}</span>
   </div>
-  <ElForm :model="loginFormModel" label-width="auto" :hide-required-asterisk="true" class="mb-4.5">
+  <ElForm
+    ref="form"
+    :model="loginFormModel"
+    label-width="auto"
+    :hide-required-asterisk="true"
+    :rules="rules"
+    class="mb-4.5"
+  >
     <ElFormItem prop="username">
       <ElInput
         v-model:model-value="loginFormModel.username"
@@ -40,14 +40,21 @@ const autoLogin = ref(Boolean(localStorage.getItem('autoLogin')));
       </ElInput>
     </ElFormItem>
     <div class="flex justify-between items-center mb-4.5">
-      <ElCheckbox v-model:model-value="autoLogin" name="autoLogin" class="h-4!">
+      <ElCheckbox v-model="loginFormModel.autoLogin" :value="true" name="autoLogin" class="h-4!">
         {{ $t('autoLogin') }}
       </ElCheckbox>
       <ElLink type="primary" href="javascript:void" target="_blank" rel="noopener noreferrer">{{
         $t('forgetPassword')
       }}</ElLink>
     </div>
-    <ElButton type="primary" :auto-insert-space="true" class="w-full">{{ $t('login') }}</ElButton>
+    <ElButton
+      type="primary"
+      :auto-insert-space="true"
+      :loading="isFetching"
+      class="w-full"
+      @click="handleLogin"
+      >{{ $t('login') }}</ElButton
+    >
   </ElForm>
   <ElSpace>
     <ElText>{{ $t('otherLoginWay') }}</ElText>

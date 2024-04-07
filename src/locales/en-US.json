@@ -9,5 +9,14 @@
   "loginWithAlipay": "Alipay",
   "loginWithWechat": "WeChat",
   "loginWithQQ": "QQ",
-  "loginWithWeibo": "Sina Weibo"
+  "loginWithWeibo": "Sina Weibo",
+  "common": {
+    "error": "request was aborted"
+  },
+  "validate": {
+    "required": {
+      "username": "enter one user name",
+      "password": "Please enter password"
+    }
+  }
 }
