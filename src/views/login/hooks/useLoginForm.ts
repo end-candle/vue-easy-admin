@@ -13,6 +13,22 @@ export function useLoginForm(): {
   rules: FormRules;
   handleLogin: () => Promise<void>;
 } {
+  const form = shallowRef<Form>();
+  const i18n = useI18n();
+
+  const rules: FormRules = {
+    username: {
+      required: true,
+      message: i18n.t('validate.required.username'),
+      trigger: 'change',
+    },
+    password: {
+      required: true,
+      message: i18n.t('validate.required.password'),
+      trigger: 'change',
+    },
+  };
+
   const loginFormModel = ref<LoginFormModel>({
     username: '',
     password: '',
@@ -27,26 +43,11 @@ export function useLoginForm(): {
     execute();
   }
 
-  const form = shallowRef<Form>();
-
-  const i18n = useI18n();
-  const rules: FormRules = {
-    username: {
-      required: true,
-      message: i18n.t('validate.required.username'),
-      trigger: 'change',
-    },
-    password: {
-      required: true,
-      message: i18n.t('validate.required.password'),
-      trigger: 'change',
-    },
-  };
   return {
-    isFetching,
-    loginFormModel,
     form,
     rules,
+    loginFormModel,
+    isFetching,
     handleLogin,
   };
 }
