@@ -14,7 +14,7 @@
 <style scoped>
 .login-view {
   height: 100vh;
-  background: url('@images/bg.jpg') no-repeat center center;
+  background: url('@images/bg.webp') no-repeat center center;
   background-size: cover;
 }
 </style>
