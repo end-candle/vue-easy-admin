@@ -11,7 +11,8 @@
   "loginWithQQ": "QQ",
   "loginWithWeibo": "新浪微博",
   "common": {
-    "error": "请求失败"
+    "error": "请求失败",
+    "errorAndCode": "请求失败，状态码：{code}"
   },
   "validate": {
     "required": {

@@ -11,7 +11,8 @@
   "loginWithQQ": "QQ",
   "loginWithWeibo": "Sina Weibo",
   "common": {
-    "error": "request was aborted"
+    "error": "request was aborted",
+    "errorAndCode": "Request failed, status code: {code}"
   },
   "validate": {
     "required": {

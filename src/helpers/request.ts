@@ -2,6 +2,7 @@ import { TOKEN } from '@/constants/common';
 import setI18n from '@/locales/i18n';
 import { useLogoutApi } from '@/services/auth';
 import { useAuthStore } from '@/stores/auth';
+import type { StandardResponse } from '@/types/common';
 import { createFetch, type AfterFetchContext, type BeforeFetchContext } from '@vueuse/core';
 import ElNotification from 'element-plus/es/components/notification/index.mjs';
 import 'element-plus/theme-chalk/el-notification.css';
@@ -34,20 +35,28 @@ export const useRequest = createFetch({
  * 处理请求异常
  * @param ctx 异常上下文
  */
-async function handleError(ctx: { data: any; response: Response | null; error: any }) {
+async function handleError(ctx: { data: string; response: Response | null; error: any }) {
   if (ctx.response?.status === 401) {
     await useLogoutApi();
     useAuthStore().clearAuth();
     return;
   }
   const i18n = await setI18n();
-  if (!ctx.response && ctx.error) {
-    ElNotification.error({
-      title: i18n.global.t('common.error'),
-      message: ctx.error.message,
-    });
-    return;
+  let title = i18n.global.t('common.error');
+  let message = ctx.error.message;
+  if (ctx.data) {
+    try {
+      const data: StandardResponse<null> = JSON.parse(ctx.data);
+      message = data.message;
+      title = i18n.global.t('common.errorAndCode', { code: data.code });
+    } catch {
+      // 无需处理
+    }
   }
+  ElNotification.error({
+    title,
+    message,
+  });
 }
 
 /**
