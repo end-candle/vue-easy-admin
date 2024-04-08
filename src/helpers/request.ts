@@ -6,6 +6,7 @@ import type { StandardResponse } from '@/types/common';
 import { createFetch, type AfterFetchContext, type BeforeFetchContext } from '@vueuse/core';
 import ElNotification from 'element-plus/es/components/notification/index.mjs';
 import 'element-plus/theme-chalk/el-notification.css';
+import { jsonParse } from './common';
 
 export const useRequest = createFetch({
   baseUrl: import.meta.env.VITE_API_BASE_URL,
@@ -45,13 +46,9 @@ async function handleError(ctx: { data: string; response: Response | null; error
   let title = i18n.global.t('common.error');
   let message = ctx.error.message;
   if (ctx.data) {
-    try {
-      const data: StandardResponse<null> = JSON.parse(ctx.data);
-      message = data.message;
-      title = i18n.global.t('common.errorAndCode', { code: data.code });
-    } catch {
-      // 无需处理
-    }
+    const [data] = jsonParse<StandardResponse<null>>(ctx.data);
+    title = data?.code ? i18n.global.t('common.errorAndCode', { code: data?.code }) : title;
+    message = data?.message ?? message;
   }
   ElNotification.error({
     title,
