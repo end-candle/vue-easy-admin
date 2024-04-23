@@ -40,12 +40,21 @@ const { loginFormModel, isFetching, form, rules, handleLogin } = useLoginForm();
       </ElInput>
     </ElFormItem>
     <div class="flex justify-between items-center mb-4.5">
-      <ElCheckbox v-model="loginFormModel.autoLogin" :value="true" name="autoLogin" class="h-4!">
+      <ElCheckbox
+        v-model="loginFormModel.autoLogin"
+        :value="true"
+        name="autoLogin"
+        class="h-4!"
+      >
         {{ $t('autoLogin') }}
       </ElCheckbox>
-      <ElLink type="primary" href="javascript:void" target="_blank" rel="noopener noreferrer">{{
-        $t('forgetPassword')
-      }}</ElLink>
+      <ElLink
+        type="primary"
+        href="javascript:void"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ $t('forgetPassword') }}</ElLink
+      >
     </div>
     <ElButton
       type="primary"
@@ -59,16 +68,32 @@ const { loginFormModel, isFetching, form, rules, handleLogin } = useLoginForm();
   <ElSpace>
     <ElText>{{ $t('otherLoginWay') }}</ElText>
     <ElButtonGroup class="login-ways">
-      <ElButton type="primary" link :aria-label="$t('loginWithAlipay')">
+      <ElButton
+        type="primary"
+        link
+        :aria-label="$t('loginWithAlipay')"
+      >
         <i-uiw-alipay></i-uiw-alipay>
       </ElButton>
-      <ElButton type="success" link :aria-label="$t('loginWithWechat')">
+      <ElButton
+        type="success"
+        link
+        :aria-label="$t('loginWithWechat')"
+      >
         <i-uiw-weixin></i-uiw-weixin>
       </ElButton>
-      <ElButton type="default" link :aria-label="$t('loginWithQQ')">
+      <ElButton
+        type="default"
+        link
+        :aria-label="$t('loginWithQQ')"
+      >
         <i-uiw-qq></i-uiw-qq>
       </ElButton>
-      <ElButton type="danger" link :aria-label="$t('loginWithWeibo')">
+      <ElButton
+        type="danger"
+        link
+        :aria-label="$t('loginWithWeibo')"
+      >
         <i-uiw-weibo></i-uiw-weibo>
       </ElButton>
     </ElButtonGroup>

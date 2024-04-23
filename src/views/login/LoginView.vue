@@ -2,9 +2,7 @@
 
 <template>
   <div class="login-view relative">
-    <div
-      class="w-82 p-4 bg-white shadow rd absolute top-50% left-50% -translate-x-50% -translate-y-50%"
-    >
+    <div class="w-82 p-4 bg-white shadow rd absolute top-50% left-50% -translate-x-50% -translate-y-50%">
       <LoginForm />
     </div>
     <TheFooter class="fixed bottom-0 left-0 right-0"></TheFooter>

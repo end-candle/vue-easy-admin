@@ -1,34 +1,12 @@
 import type { Router } from 'vue-router';
+import type { MaybePromise } from './common';
+import type { Menu } from './system/Menu';
 
 /**
  * 扩展ruoter-meta的类型 此处必须要export {} 不然找不到类型
  */
 declare module 'vue-router' {
-  interface RouteMeta {
-    /**
-     * 菜单标题
-     */
-    title?: string;
-    /**
-     * 隐藏菜单
-     */
-    hideInMenu?: boolean;
-    /**
-     * 隐藏子菜单
-     */
-    hideChildrenInMenu?: boolean;
-    /**
-     * 是否固定
-     */
-    affix?: boolean;
-    /**
-     * 是否缓存
-     */
-    keepAlive?: boolean;
-    /**
-     * 权限点集合
-     */
-    permissions?: string[];
+  interface RouteMeta extends Partial<Menu> {
     /**
      * 任意用户可访问
      */
@@ -36,6 +14,14 @@ declare module 'vue-router' {
   }
 }
 
+/**
+ * 路由守卫
+ */
 export type RouteGuard = (router: Router) => void;
+
+/**
+ * 获取路由
+ */
+export type GetRoutes = (app: App<Element>) => MaybePromise<readonly RouteRecordRaw[]>;
 
 export {};

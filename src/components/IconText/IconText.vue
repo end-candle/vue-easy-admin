@@ -20,7 +20,11 @@ const iconColor = computed(() => {
 
 <template>
   <div class="icon-text">
-    <slot name="icon" :iconText="iconText" :iconColor="iconColor">
+    <slot
+      name="icon"
+      :icon-text="iconText"
+      :icon-color="iconColor"
+    >
       <span class="icon-text__icon">
         {{ iconText }}
       </span>

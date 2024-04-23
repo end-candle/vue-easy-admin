@@ -54,3 +54,8 @@ export type PageBean<T> = {
  * 标准分页响应
  */
 export type StandardPageResponse<T> = StandardResponse<PageBean<T>>;
+
+/**
+ * 可能是Promise
+ */
+export type MaybePromise<T> = T | Promise<T>;

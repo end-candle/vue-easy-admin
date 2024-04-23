@@ -1,7 +1,9 @@
 import type { RouteGuard } from '@/types/router';
 import type { Router } from 'vue-router';
 
-type RouteGuardModule = { default?: RouteGuard };
+interface RouteGuardModule {
+  default?: RouteGuard;
+}
 
 /**
  * 设置路由导航守卫

@@ -1,11 +1,10 @@
-import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import Cookies from 'js-cookie';
 import { TOKEN } from '@/constants/common';
+import { useStorage } from '@vueuse/core';
+import { useLogoutApi } from '@/services/auth';
 
 export const useAuthStore = defineStore('auth', () => {
-  const token = ref(Cookies.get(TOKEN) || '');
-  const roles = ref<string[]>([]);
+  const token = useStorage(TOKEN, '');
 
   /**
    * 设置认证令牌
@@ -17,23 +16,14 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   /**
-   * 设置授权角色
-   * @param authRoles 授权角色数组，类型为string[]
-   */
-  function setAuthRole(authRoles: string[]) {
-    roles.value = authRoles;
-  }
-
-  /**
-   * 清除授权信息
+   * 退出登录，并清除授权信息
    * 该函数没有参数。
    */
-  function clearAuth() {
+  async function logout() {
     // 清除token值
     token.value = '';
-    // 清除角色列表
-    roles.value = [];
+    await useLogoutApi();
   }
 
-  return { token, roles, setAuthToken, setAuthRole, clearAuth };
+  return { token, setAuthToken, logout };
 });

@@ -117,7 +117,9 @@ export class Color {
     const cmin = Math.min(R, G, B);
     const cmax = Math.max(R, G, B);
     const delta = cmax - cmin;
-    let H, S, L;
+    let H;
+    let S;
+    let L;
 
     if (delta === 0) {
       H = 0;
@@ -134,8 +136,8 @@ export class Color {
     }
     L = (cmax + cmin) / 2;
     S = delta == 0 ? 0 : delta / (1 - Math.abs(2 * L - 1));
-    S = +(S * 100).toFixed(1);
-    L = +(L * 100).toFixed(1);
+    S = Number((S * 100).toFixed(1));
+    L = Number((L * 100).toFixed(1));
 
     return { H, S, L };
   }
