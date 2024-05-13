@@ -38,8 +38,7 @@ export const useRequest = createFetch({
  */
 async function handleError(ctx: { data: string; response: Response | null; error: any }) {
   if (ctx.response?.status === 401) {
-    await useLogoutApi();
-    useAuthStore().clearAuth();
+    await useAuthStore().logout();
     return;
   }
   const i18n = await setI18n();
