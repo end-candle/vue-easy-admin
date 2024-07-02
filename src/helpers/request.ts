@@ -1,6 +1,5 @@
 import { TOKEN } from '@/constants/common';
 import setI18n from '@/locales/i18n';
-import { useLogoutApi } from '@/services/auth';
 import { useAuthStore } from '@/stores/auth';
 import type { StandardResponse } from '@/types/common';
 import { createFetch, type AfterFetchContext, type BeforeFetchContext } from '@vueuse/core';
