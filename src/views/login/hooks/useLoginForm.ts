@@ -52,9 +52,6 @@ export function useLoginForm(): {
       }
       // 登录
       await execute(true);
-      if (data.value?.code !== 200) {
-        return;
-      }
       // 获取当前用户的系统信息
       await sysStore.initSystem(true);
       // 跳转重定向页面或者首页

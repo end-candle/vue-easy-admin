@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { TOKEN } from '@/constants/common';
 import { useStorage } from '@vueuse/core';
 import { useLogoutApi } from '@/services/auth';
+import { useRoute, useRouter } from 'vue-router';
 
 export const useAuthStore = defineStore('auth', () => {
   const token = useStorage(TOKEN, '');
@@ -20,9 +21,25 @@ export const useAuthStore = defineStore('auth', () => {
    * 该函数没有参数。
    */
   async function logout() {
+    await useLogoutApi();
     // 清除token值
     token.value = '';
-    await useLogoutApi();
+    // 重定向登录页
+    await toLogin();
+  }
+
+  /**
+   * 跳转登录页
+   */
+  function toLogin() {
+    const router = useRouter();
+    const route = useRoute();
+    return router.push({
+      name: 'login',
+      query: {
+        redirectUrl: route.fullPath,
+      },
+    });
   }
 
   return { token, setAuthToken, logout };

@@ -13,5 +13,5 @@ export function useLoginApi(form: Ref<LoginFormModel>) {
 }
 
 export function useLogoutApi() {
-  return useRequest<void>('/auth/logout').get();
+  return useRequest<StandardResponse<void>>('/auth/logout').get();
 }

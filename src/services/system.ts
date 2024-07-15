@@ -1,4 +1,5 @@
 import { useRequest } from '@/helpers/request';
+import type { StandardResponse } from '@/types/common';
 import type { SystemModel } from '@/types/system';
 
 /**
@@ -6,5 +7,5 @@ import type { SystemModel } from '@/types/system';
  * @returns 当前用户的系统信息
  */
 export function useGetSystemApi() {
-  return useRequest<SystemModel>('/sys/info');
+  return useRequest<StandardResponse<SystemModel>>('/sys/info');
 }

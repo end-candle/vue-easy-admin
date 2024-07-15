@@ -97,20 +97,20 @@ npm install
 
 ```bash
 // 启用项目
-npm run dev
+pnpm run dev
 ```
 
 ### 打包
 
 ```bash
 
-npm run build # 打包
+pnpm run build # 打包
 ```
 
 ### 格式化
 
 ```bash
-npm run format # 代码格式化
+pnpm run format # 代码格式化
 ```
 
 ### 其他

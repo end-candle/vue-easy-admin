@@ -1,4 +1,4 @@
-import { TOKEN } from '@/constants/common';
+import { NETWORK, TOKEN } from '@/constants/common';
 import setI18n from '@/locales/i18n';
 import { useAuthStore } from '@/stores/auth';
 import type { StandardResponse } from '@/types/common';
@@ -35,14 +35,14 @@ export const useRequest = createFetch({
  * 处理请求异常
  * @param ctx 异常上下文
  */
-async function handleError(ctx: { data: string; response: Response | null; error: any }) {
-  if (ctx.response?.status === 401) {
+async function handleError(ctx: { data: any; response: Response | null; error?: any }) {
+  if (ctx.response?.status === NETWORK.UNAUTHORIZED) {
     await useAuthStore().logout();
     return;
   }
   const i18n = await setI18n();
   let title = i18n.global.t('common.error');
-  let message = ctx.error.message;
+  let message = ctx.error?.message;
   if (ctx.data) {
     const [data] = tryJsonParse<StandardResponse<null>>(ctx.data);
     title = data?.code ? i18n.global.t('common.errorAndCode', { code: data?.code }) : title;
