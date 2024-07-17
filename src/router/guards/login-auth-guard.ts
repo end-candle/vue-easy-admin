@@ -3,7 +3,7 @@ import { useAuthStore } from '@/stores/auth';
 import type { RouteGuard } from '@/types/router';
 import type { RouteLocationRaw } from 'vue-router';
 
-const createLoginAuthGuard: RouteGuard = (router) => {
+const createLoginAuthGuard: RouteGuard = (app, router) => {
   router.beforeEach((to) => {
     const authStore = useAuthStore();
     const token = authStore.token;

@@ -3,7 +3,7 @@ import type { MaybePromise } from './common';
 import type { Menu } from './system/Menu';
 
 /**
- * 扩展ruoter-meta的类型 此处必须要export {} 不然找不到类型
+ * 扩展router-meta的类型 此处必须要export {} 不然找不到类型
  */
 declare module 'vue-router' {
   interface RouteMeta extends Partial<Menu> {
@@ -17,7 +17,7 @@ declare module 'vue-router' {
 /**
  * 路由守卫
  */
-export type RouteGuard = (router: Router) => void;
+export type RouteGuard = (app: App<Element>, router: Router) => void;
 
 /**
  * 获取路由

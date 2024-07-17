@@ -3,7 +3,7 @@ import type { App } from 'vue';
 import { ROUTE_NAME } from '@/constants/router';
 import type { GetRoutes } from '@/types/router';
 
-const getBaseRoutes: GetRoutes = (app: App<Element>) => {
+const getStaticRoutes: GetRoutes = (app: App<Element>) => {
   return [
     {
       path: '/',
@@ -25,4 +25,4 @@ const getBaseRoutes: GetRoutes = (app: App<Element>) => {
   ];
 };
 
-export default getBaseRoutes;
+export default getStaticRoutes;

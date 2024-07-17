@@ -1,11 +1,12 @@
 import { NETWORK, TOKEN } from '@/constants/common';
-import setI18n from '@/locales/i18n';
 import { useAuthStore } from '@/stores/auth';
 import type { StandardResponse } from '@/types/common';
 import { createFetch, type AfterFetchContext, type BeforeFetchContext } from '@vueuse/core';
 import ElNotification from 'element-plus/es/components/notification/index.mjs';
 import 'element-plus/theme-chalk/el-notification.css';
 import { tryJsonParse } from './common';
+import { useSystemStore } from '@/stores/system';
+import { globalI18n } from '@/locales/i18n';
 
 export const useRequest = createFetch({
   baseUrl: import.meta.env.VITE_API_BASE_URL,
@@ -19,6 +20,7 @@ export const useRequest = createFetch({
   options: {
     async beforeFetch(ctx) {
       setRequestToken(ctx);
+      setAcceptLanguage(ctx);
     },
     async afterFetch(ctx) {
       storeToken(ctx);
@@ -40,12 +42,11 @@ async function handleError(ctx: { data: any; response: Response | null; error?: 
     await useAuthStore().logout();
     return;
   }
-  const i18n = await setI18n();
-  let title = i18n.global.t('common.error');
+  let title = globalI18n?.global?.t('common.error');
   let message = ctx.error?.message;
   if (ctx.data) {
     const [data] = tryJsonParse<StandardResponse<null>>(ctx.data);
-    title = data?.code ? i18n.global.t('common.errorAndCode', { code: data?.code }) : title;
+    title = data?.code ? globalI18n?.global?.t('common.errorAndCode', { code: data?.code }) : title;
     message = data?.message ?? message;
   }
   ElNotification.error({
@@ -77,4 +78,15 @@ function setRequestToken(ctx: BeforeFetchContext) {
       Authorization: `Bearer ${token}`,
     };
   }
+}
+
+/**
+ * 设置请求语言
+ * @param ctx fetch上下文
+ */
+function setAcceptLanguage(ctx: BeforeFetchContext) {
+  ctx.options.headers = {
+    ...(ctx.options.headers ?? {}),
+    'Accept-Language': useSystemStore().locale,
+  };
 }

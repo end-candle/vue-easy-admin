@@ -6,7 +6,7 @@ NProgress.configure({
   showSpinner: false,
 });
 
-const createNProgressGuard: RouteGuard = (router) => {
+const createNProgressGuard: RouteGuard = (app, router) => {
   router.beforeEach(() => {
     NProgress.start();
     return true;

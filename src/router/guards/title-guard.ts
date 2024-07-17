@@ -1,9 +1,8 @@
 import type { RouteGuard } from '@/types/router';
-import { useI18n } from 'vue-i18n';
 
-const createTitleGuard: RouteGuard = (router) => {
+const createTitleGuard: RouteGuard = (app, router) => {
   router.afterEach((to) => {
-    document.title = useI18n().t(to.meta?.title || '');
+    document.title = app.config.globalProperties.$t(to.meta?.title || '');
   });
 };
 
