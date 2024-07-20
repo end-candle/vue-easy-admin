@@ -75,13 +75,13 @@
       "npm run format",
       "git add ."
     ],
-    "*.{vue,html}": [
+    "*.{vue}": [
       "npm run lint",
       "npm run lint:stylelint",
       "npm run format",
       "git add ."
     ],
-    "*.{css,scss,less,html}": [
+    "*.{css,scss,less}": [
       "npm run lint:stylelint",
       "npm run format",
       "git add ."

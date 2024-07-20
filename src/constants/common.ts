@@ -4,6 +4,11 @@
 export const TOKEN = 'Authorization';
 
 /**
+ * locale字段名
+ */
+export const LOCALE = 'locale';
+
+/**
  * 网络状态
  */
 export const NETWORK = {

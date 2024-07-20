@@ -1,11 +1,10 @@
-import { NETWORK, TOKEN } from '@/constants/common';
+import { LOCALE, NETWORK, TOKEN } from '@/constants/common';
 import { useAuthStore } from '@/stores/auth';
 import type { StandardResponse } from '@/types/common';
-import { createFetch, type AfterFetchContext, type BeforeFetchContext } from '@vueuse/core';
+import { createFetch, useStorage, type AfterFetchContext, type BeforeFetchContext } from '@vueuse/core';
 import ElNotification from 'element-plus/es/components/notification/index.mjs';
 import 'element-plus/theme-chalk/el-notification.css';
 import { tryJsonParse } from './common';
-import { useSystemStore } from '@/stores/system';
 import { globalI18n } from '@/locales/i18n';
 
 export const useRequest = createFetch({
@@ -87,6 +86,6 @@ function setRequestToken(ctx: BeforeFetchContext) {
 function setAcceptLanguage(ctx: BeforeFetchContext) {
   ctx.options.headers = {
     ...(ctx.options.headers ?? {}),
-    'Accept-Language': useSystemStore().locale,
+    'Accept-Language': useStorage(LOCALE, document.documentElement.lang).value,
   };
 }
