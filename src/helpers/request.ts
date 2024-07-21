@@ -1,11 +1,12 @@
-import { LOCALE, NETWORK, TOKEN } from '@/constants/common';
+import { NETWORK, TOKEN } from '@/constants/common';
+import { globalI18n } from '@/locales/i18n';
 import { useAuthStore } from '@/stores/auth';
+import { useSystemStore } from '@/stores/system';
 import type { StandardResponse } from '@/types/common';
-import { createFetch, useStorage, type AfterFetchContext, type BeforeFetchContext } from '@vueuse/core';
+import { createFetch, type AfterFetchContext, type BeforeFetchContext } from '@vueuse/core';
 import ElNotification from 'element-plus/es/components/notification/index.mjs';
 import 'element-plus/theme-chalk/el-notification.css';
 import { tryJsonParse } from './common';
-import { globalI18n } from '@/locales/i18n';
 
 export const useRequest = createFetch({
   baseUrl: import.meta.env.VITE_API_BASE_URL,
@@ -86,6 +87,6 @@ function setRequestToken(ctx: BeforeFetchContext) {
 function setAcceptLanguage(ctx: BeforeFetchContext) {
   ctx.options.headers = {
     ...(ctx.options.headers ?? {}),
-    'Accept-Language': useStorage(LOCALE, document.documentElement.lang).value,
+    'Accept-Language': useSystemStore().locale,
   };
 }

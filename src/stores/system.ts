@@ -10,12 +10,12 @@ import { useStorage } from '@vueuse/core';
 export const useSystemStore = defineStore('system', () => {
   const { execute, data } = useGetSystemApi();
   const locale = useStorage(LOCALE, document.documentElement.lang);
-  const i18n = useI18n();
 
   const menus = computed<Menu[]>(() => data.value?.data?.menus ?? []);
   const roleList = computed<Role[]>(() => data.value?.data?.roleList ?? []);
 
   function changeLanguage(language: string) {
+    const i18n = useI18n();
     i18n.locale.value = language;
     locale.value = language;
     document.documentElement.lang = language;
