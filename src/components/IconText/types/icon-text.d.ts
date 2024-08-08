@@ -1,4 +1,4 @@
-export interface IconTextProps {
+export type IconTextProps = {
   /**
    * The text to display.
    */
@@ -11,4 +11,4 @@ export interface IconTextProps {
    * The color of the icon.
    */
   iconColor?: string;
-}
+};

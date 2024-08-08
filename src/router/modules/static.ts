@@ -2,13 +2,20 @@ import HomeView from '@/views/HomeView.vue';
 import type { App } from 'vue';
 import { ROUTE_NAME } from '@/constants/router';
 import type { GetRoutes } from '@/types/router';
+import MainLayout from '@layouts/MainLayout.vue';
 
-const getStaticRoutes: GetRoutes = (app: App<Element>) => {
+const getStaticRoutes: GetRoutes = (app?: App<Element>) => {
   return [
     {
       path: '/',
-      name: ROUTE_NAME.HOME,
-      component: HomeView,
+      component: MainLayout,
+      children: [
+        {
+          path: '',
+          name: ROUTE_NAME.HOME,
+          component: HomeView,
+        },
+      ],
     },
     {
       path: '/login',
@@ -18,7 +25,7 @@ const getStaticRoutes: GetRoutes = (app: App<Element>) => {
       // which is lazy-loaded when the route is visited.
       component: () => import('@/views/login/LoginView.vue'),
       meta: {
-        title: app.config.globalProperties.$t('login'),
+        title: app?.config.globalProperties.$t('login'),
         anyOne: true,
       },
     },

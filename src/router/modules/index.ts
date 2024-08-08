@@ -15,7 +15,7 @@ interface RoutesModule {
  * @param app 应用程序实例，用于路由配置的上下文。
  * @returns 返回一个Promise，解析为一个只读的路由记录数组。
  */
-export const getAllDynamicRoutes = async (app: App<Element>): Promise<readonly RouteRecordRaw[]> => {
+export const getAllDynamicRoutes = async (app?: App<Element>): Promise<readonly RouteRecordRaw[]> => {
   // 使用import.meta.glob异步加载所有符合规则的路由模块。
   // 规则排除了静态路由文件，只包含动态路由配置。
   const modules = import.meta.glob<RoutesModule>(['./**/*.ts', '!./**/static*.ts', '!./static/**/*.ts'], {
@@ -55,7 +55,10 @@ export const getAllStaticRoutes = (app: App<Element>): Promise<readonly RouteRec
  * @param modules 一个记录，其键是模块名称，值是路由模块对象。每个模块对象可能包含一个默认方法，该方法接受应用程序实例并返回路由配置。
  * @returns 返回一个Promise，解析为一个路由配置数组。这个数组包含了所有模块的路由配置，经过过滤和展平处理。
  */
-async function getRoutesByGlob(app: App<Element>, modules: Record<string, RoutesModule>) {
+async function getRoutesByGlob(app?: App<Element>, modules?: Record<string, RoutesModule>) {
+  if (!modules) {
+    return [];
+  }
   // 并行加载所有模块的路由配置，并将结果作为一个数组返回
   const routes = await Promise.all(
     // 遍历模块记录的键（模块名称），并尝试获取每个模块的默认方法并调用它，传入应用程序实例

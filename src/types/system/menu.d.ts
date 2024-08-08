@@ -9,15 +9,11 @@ export type Menu = {
   /**
    * 子菜单
    */
-  children?: MenuObject;
+  children?: Menu[];
   /**
    * 菜单编码
    */
   code: string;
-  /**
-   * 隐藏子菜单
-   */
-  hideChildrenInMenu?: boolean;
   /**
    * 隐藏菜单
    */
@@ -34,4 +30,12 @@ export type Menu = {
    * 菜单标题
    */
   title: string;
+  /**
+   * 排序
+   */
+  sort?: number;
+  /**
+   * 父级ID
+   */
+  parentCode?: string;
 };

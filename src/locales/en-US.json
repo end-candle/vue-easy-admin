@@ -12,12 +12,20 @@
   "loginWithWeibo": "Sina Weibo",
   "common": {
     "error": "request was aborted",
-    "errorAndCode": "Request failed, status code: {code}"
+    "errorAndCode": "Request failed, status code: {code}",
+    "logout": "Log out"
   },
   "validate": {
     "required": {
       "username": "enter one user name",
       "password": "Please enter password"
     }
+  },
+  "user": {
+    "nick": "nickname",
+    "profile": "Personal Center"
+  },
+  "system": {
+    "settings": "System settings"
   }
 }

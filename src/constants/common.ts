@@ -9,6 +9,11 @@ export const TOKEN = 'Authorization';
 export const LOCALE = 'locale';
 
 /**
+ * TAB_KEY字段名
+ */
+export const TAB_KEY = 'APP_TAB_LIST';
+
+/**
  * 网络状态
  */
 export const NETWORK = {
@@ -29,3 +34,8 @@ export const NETWORK = {
    */
   UNAUTHORIZED: 401,
 };
+
+/**
+ * 最大递归深度
+ */
+export const MAX_DEPTH = 10;
