@@ -2,11 +2,13 @@
   <div class="h-12 leading-12 flex justify-between items-center">
     <ElButton
       type="text"
-      :icon="fold ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
-      :title="fold ? '展开' : '折叠'"
+      :title="fold ? $t('common.expand') : $t('common.fold')"
       class="main-header__btn"
       @click="handleToggleFold"
-    ></ElButton>
+    >
+      <i-ep-expand v-if="fold" />
+      <i-ep-fold v-else />
+    </ElButton>
     <TheRightContent />
   </div>
 </template>

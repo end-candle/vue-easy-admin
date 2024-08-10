@@ -7,7 +7,7 @@
       },
       'contextmenu__item',
       'px-3',
-      'py-1',
+      'lh-8',
       'cursor-pointer',
       'text-sm',
     ]"

@@ -13,7 +13,9 @@
   "common": {
     "error": "request was aborted",
     "errorAndCode": "Request failed, status code: {code}",
-    "logout": "Log out"
+    "logout": "Log out",
+    "fold": "fold",
+    "expand": "open"
   },
   "validate": {
     "required": {

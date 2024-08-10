@@ -6,6 +6,8 @@ import { useRoute, useRouter } from 'vue-router';
 
 export const useAuthStore = defineStore('auth', () => {
   const token = useStorage(TOKEN, '');
+  const router = useRouter();
+  const route = useRoute();
 
   /**
    * 设置认证令牌
@@ -32,8 +34,6 @@ export const useAuthStore = defineStore('auth', () => {
    * 跳转登录页
    */
   function toLogin() {
-    const router = useRouter();
-    const route = useRoute();
     return router.push({
       name: 'login',
       query: {

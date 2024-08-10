@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs">
+  <div class="tabs relative -m-x-5">
     <ElTabs
       v-model="currentTab"
       type="card"
@@ -37,25 +37,26 @@
         </template>
       </ElTabPane>
     </ElTabs>
-    <div class="tabs-extra">
-      <el-dropdown
+    <div class="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer rotate-90">
+      <ElDropdown
         trigger="click"
         @menu-item-click="handleMenuClick"
       >
-        <el-button
+        <ElButton
           type="text"
-          icon="el-icon-more"
           class="tabs-extra-btn"
-        />
+        >
+          <i-ep-more></i-ep-more>
+        </ElButton>
         <template #dropdown>
-          <el-dropdown-menu class="tabs-extra__dropdown">
-            <el-dropdown-item command="closeOther">{{ $t('tools.closeOther') }}</el-dropdown-item>
-            <el-dropdown-item command="closeLeft">{{ $t('tools.closeLeft') }}</el-dropdown-item>
-            <el-dropdown-item command="closeRight">{{ $t('tools.closeRight') }}</el-dropdown-item>
-            <el-dropdown-item command="refreshCurrent">{{ $t('tools.refreshCurrent') }}</el-dropdown-item>
-          </el-dropdown-menu>
+          <ElDropdownMenu class="tabs-extra__dropdown">
+            <ElDropdownItem command="closeOther">{{ $t('tools.closeOther') }}</ElDropdownItem>
+            <ElDropdownItem command="closeLeft">{{ $t('tools.closeLeft') }}</ElDropdownItem>
+            <ElDropdownItem command="closeRight">{{ $t('tools.closeRight') }}</ElDropdownItem>
+            <ElDropdownItem command="refreshCurrent">{{ $t('tools.refreshCurrent') }}</ElDropdownItem>
+          </ElDropdownMenu>
         </template>
-      </el-dropdown>
+      </ElDropdown>
     </div>
   </div>
 </template>
@@ -107,7 +108,7 @@ function handleMenuClick(command: string, tab: RouteLocationNormalized) {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .tab-route {
   height: 100%;
   margin: 0 -20px;
@@ -115,68 +116,22 @@ function handleMenuClick(command: string, tab: RouteLocationNormalized) {
 }
 
 .tabs {
-  position: relative;
-  margin-top: 4px;
-  margin-left: -24px;
-  margin-right: -24px;
   &::v-deep {
     .el-tabs__header {
+      margin-bottom: 0;
       padding: 0 40px 0 24px;
     }
+
     .el-tabs__nav {
       border: 0;
-    }
-    .el-tabs__item {
-      background-color: #fafafa;
-      border: 1px solid $--border-color-light;
-      margin-left: 8px;
-      border-radius: $--border-radius-base $--border-radius-base 0 0;
-      &:first-child {
-        margin-left: 0;
-        border-left: 1px solid $--border-color-light;
-      }
-      &.is-active {
-        background-color: $--color-white;
-        .tab-route {
-          color: $--color-primary;
-        }
-      }
-      &:focus.is-active.is-focus:not(:active) {
-        box-shadow: none;
-      }
     }
   }
 }
 
 .tabs-extra {
   position: absolute;
-  right: 16px;
   top: 8px;
+  right: 16px;
   cursor: pointer;
-}
-
-.tabs-extra-btn {
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  transform: rotate(90deg);
-  color: $--color-text-regular;
-}
-
-.tabs-extra__dropdown {
-  padding: 4px 0;
-  &::v-deep {
-    .el-dropdown-menu__item {
-      padding: 0 12px;
-      line-height: 32px;
-    }
-    .el-dropdown-menu__item--divided {
-      margin-top: 4px;
-      &::before {
-        height: 4px;
-        margin: 0 -20px 0 -12px;
-      }
-    }
-  }
 }
 </style>

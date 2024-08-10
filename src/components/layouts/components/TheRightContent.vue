@@ -1,7 +1,7 @@
 <template>
-  <div class="right-content">
+  <div>
     <el-dropdown @command="handleCommand">
-      <div class="right-content-user flex items-center px-3 hover:bg-white">
+      <div class="flex items-center px-3 hover:bg-white lh-12">
         <el-avatar
           src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
           :size="24"
@@ -10,21 +10,16 @@
       </div>
       <template #dropdown>
         <el-dropdown-menu class="py-1">
-          <el-dropdown-item
-            command="user-profile"
-            icon="el-icon-user"
-            >{{ $t('user.profile') }}</el-dropdown-item
+          <el-dropdown-item command="user-profile"
+            ><i-ep-user class="pr-1"></i-ep-user> {{ $t('user.profile') }}</el-dropdown-item
           >
-          <el-dropdown-item
-            command="system-settings"
-            icon="el-icon-setting"
-            >{{ $t('system.settings') }}</el-dropdown-item
+          <el-dropdown-item command="system-settings"
+            ><i-ep-setting class="pr-1" />{{ $t('system.settings') }}</el-dropdown-item
           >
           <el-dropdown-item
             command="logout"
-            icon="el-icon-switch-button"
             divided
-            >{{ $t('common.logout') }}</el-dropdown-item
+            ><i-ep-switch-button class="pr-1" />{{ $t('common.logout') }}</el-dropdown-item
           >
         </el-dropdown-menu>
       </template>

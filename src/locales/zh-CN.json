@@ -13,7 +13,9 @@
   "common": {
     "error": "请求失败",
     "errorAndCode": "请求失败，状态码：{code}",
-    "logout": "退出登录"
+    "logout": "退出登录",
+    "expand": "展开",
+    "fold": "折叠"
   },
   "validate": {
     "required": {

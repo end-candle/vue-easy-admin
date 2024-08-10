@@ -38,6 +38,8 @@ export function useLoginForm(): {
     autoLogin: Boolean(localStorage.getItem('autoLogin')),
   });
   const { execute } = useLoginApi(loginFormModel);
+  const router = useRouter();
+  const route = useRoute();
 
   const isFetching = ref<boolean>(false);
   async function handleLogin() {
@@ -52,7 +54,7 @@ export function useLoginForm(): {
       // 获取当前用户的系统信息
       await useSystemStore().initSystem(true);
       // 跳转重定向页面或者首页
-      await useRouter().push((useRoute().query.redirectUrl as string) || { name: ROUTE_NAME.HOME });
+      await router.push((route.query.redirectUrl as string) || { name: ROUTE_NAME.HOME });
     } finally {
       isFetching.value = false;
     }
