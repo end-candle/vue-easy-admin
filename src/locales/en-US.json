@@ -27,5 +27,11 @@
   },
   "system": {
     "settings": "System settings"
+  },
+  "tools": {
+    "refreshCurrent": "Refresh the current page",
+    "closeRight": "Close the right side",
+    "closeLeft": "Close the left side",
+    "closeOther": "Close Other"
   }
 }

@@ -27,7 +27,11 @@
                 :disabled="index === tabList.length - 1"
                 >{{ $t('tools.closeRight') }}</ContextmenuItem
               >
-              <ContextmenuItem command="refreshCurrent">{{ $t('tools.refreshCurrent') }}</ContextmenuItem>
+              <ContextmenuItem
+                command="refreshCurrent"
+                :divided="false"
+                >{{ $t('tools.refreshCurrent') }}</ContextmenuItem
+              >
             </template>
           </ContextMenu>
         </template>
