@@ -9,11 +9,15 @@ const getStaticRoutes: GetRoutes = (app?: App<Element>) => {
     {
       path: '/',
       component: MainLayout,
+      redirect: { name: ROUTE_NAME.HOME },
       children: [
         {
-          path: '',
+          path: 'home',
           name: ROUTE_NAME.HOME,
           component: HomeView,
+          meta: {
+            title: app?.config.globalProperties.$t('home'),
+          },
         },
       ],
     },
@@ -28,6 +32,11 @@ const getStaticRoutes: GetRoutes = (app?: App<Element>) => {
         title: app?.config.globalProperties.$t('login'),
         anyOne: true,
       },
+    },
+    {
+      path: '/redirect',
+      name: ROUTE_NAME.REDIRECT,
+      component: () => import('@/views/RedirectView.vue'),
     },
   ];
 };

@@ -56,6 +56,8 @@ declare module 'vue' {
     LoginForm: typeof import('./../views/login/LoginForm.vue')['default']
     LoginView: typeof import('./../views/login/LoginView.vue')['default']
     MainLayout: typeof import('./../components/layouts/MainLayout.vue')['default']
+    Redirect: typeof import('../views/RedirectView.vue')['default']
+    RedirectView: typeof import('./../views/RedirectView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheFooter: typeof import('./../components/layouts/TheFooter.vue')['default']

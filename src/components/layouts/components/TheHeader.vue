@@ -1,14 +1,14 @@
 <template>
   <div class="h-12 leading-12 flex justify-between items-center">
-    <ElButton
-      type="text"
+    <ElLink
+      :underline="false"
       :title="fold ? $t('common.expand') : $t('common.fold')"
       class="main-header__btn"
       @click="handleToggleFold"
     >
       <i-ep-expand v-if="fold" />
       <i-ep-fold v-else />
-    </ElButton>
+    </ElLink>
     <TheRightContent />
   </div>
 </template>

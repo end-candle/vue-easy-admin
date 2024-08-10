@@ -30,7 +30,6 @@ const bus = useEventBus<string, T>('command');
 const emit = defineEmits<ContextmenuEmits<T>>();
 
 function handleMenuItemClick(command?: T) {
-  hide();
   emit('command', command);
 }
 
@@ -69,9 +68,9 @@ function initEvent() {
   useEventListener(contextmenu, 'click', handleClick);
   onClickOutside(contextmenuPanel, hide);
   const unsubscribe = bus.on((event: string, command?: T) => {
+    hide();
     if (event === 'command') {
       handleMenuItemClick(command);
-      hide();
     }
   });
   onUnmounted(unsubscribe);

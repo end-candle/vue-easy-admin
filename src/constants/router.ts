@@ -7,6 +7,7 @@ export const ROUTE_NAME: Record<string, RouteRecordName> = {
   HOME: 'home',
   LOGIN: 'login',
   REGISTER: 'register',
+  REDIRECT: 'redirect',
   PROFILE: 'profile',
   DASHBOARD: 'dashboard',
   SETTINGS: 'settings',

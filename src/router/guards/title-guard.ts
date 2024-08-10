@@ -1,9 +1,17 @@
+import { useTabStore } from '@/stores/tab';
 import type { RouteGuard } from '@/types/router';
 
-const createTitleGuard: RouteGuard = (app, router) => {
+const createTitleAndTabGuard: RouteGuard = (app, router) => {
+  router.beforeEach((to) => {
+    useTabStore().addTab(to);
+  });
   router.afterEach((to) => {
-    document.title = app.config.globalProperties.$t(to.meta?.title || '');
+    const title = app.config.globalProperties.$t(to.meta?.title || '');
+    if (!title) {
+      return;
+    }
+    document.title = title;
   });
 };
 
-export default createTitleGuard;
+export default createTitleAndTabGuard;

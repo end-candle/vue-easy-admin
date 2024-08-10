@@ -35,5 +35,6 @@
     "closeRight": "Close the right side",
     "closeLeft": "Close the left side",
     "closeOther": "Close Other"
-  }
+  },
+  "home": "Dashboard"
 }

@@ -14,16 +14,23 @@
       >
         <template #label>
           <ContextMenu @command="handleMenuClick($event as string, item)">
-            <div class="tab-route">{{ item.meta.title }}</div>
+            <div class="-m-x-5 lh-10 px-3">{{ item.meta.title }}</div>
             <template #menu>
-              <ContextmenuItem command="closeOther">{{ $t('tools.closeOther') }}</ContextmenuItem>
+              <ContextmenuItem
+                :disabled="onlyOneOrEmpty"
+                v-show="!onlyOneOrEmpty"
+                command="closeOther"
+                >{{ $t('tools.closeOther') }}</ContextmenuItem
+              >
               <ContextmenuItem
                 command="closeLeft"
                 :disabled="index === 0"
+                v-show="index !== 0"
                 >{{ $t('tools.closeLeft') }}</ContextmenuItem
               >
               <ContextmenuItem
                 command="closeRight"
+                v-show="index !== tabList.length - 1"
                 :disabled="index === tabList.length - 1"
                 >{{ $t('tools.closeRight') }}</ContextmenuItem
               >
@@ -42,17 +49,29 @@
         trigger="click"
         @menu-item-click="handleMenuClick"
       >
-        <ElButton
-          type="text"
+        <ElLink
+          :underline="false"
           class="tabs-extra-btn"
         >
           <i-ep-more></i-ep-more>
-        </ElButton>
+        </ElLink>
         <template #dropdown>
           <ElDropdownMenu class="tabs-extra__dropdown">
-            <ElDropdownItem command="closeOther">{{ $t('tools.closeOther') }}</ElDropdownItem>
-            <ElDropdownItem command="closeLeft">{{ $t('tools.closeLeft') }}</ElDropdownItem>
-            <ElDropdownItem command="closeRight">{{ $t('tools.closeRight') }}</ElDropdownItem>
+            <ElDropdownItem
+              v-if="!onlyOneOrEmpty"
+              command="closeOther"
+              >{{ $t('tools.closeOther') }}</ElDropdownItem
+            >
+            <ElDropdownItem
+              v-if="!isLastLeft"
+              command="closeLeft"
+              >{{ $t('tools.closeLeft') }}</ElDropdownItem
+            >
+            <ElDropdownItem
+              v-if="!isLastRight"
+              command="closeRight"
+              >{{ $t('tools.closeRight') }}</ElDropdownItem
+            >
             <ElDropdownItem command="refreshCurrent">{{ $t('tools.refreshCurrent') }}</ElDropdownItem>
           </ElDropdownMenu>
         </template>
@@ -69,7 +88,7 @@ import type { RouteLocationNormalized } from 'vue-router';
 import { useRoute, useRouter } from 'vue-router';
 
 const tabStore = useTabStore();
-const { tabList, currentTab } = storeToRefs(tabStore);
+const { tabList, currentTab, isLastLeft, isLastRight, onlyOneOrEmpty } = storeToRefs(tabStore);
 const route = useRoute();
 
 /**
@@ -109,29 +128,12 @@ function handleMenuClick(command: string, tab: RouteLocationNormalized) {
 </script>
 
 <style scoped>
-.tab-route {
-  height: 100%;
-  margin: 0 -20px;
-  padding: 0 20px;
-}
-
 .tabs {
   &::v-deep {
     .el-tabs__header {
       margin-bottom: 0;
-      padding: 0 40px 0 24px;
-    }
-
-    .el-tabs__nav {
-      border: 0;
+      padding: 0 40px 0 20px;
     }
   }
-}
-
-.tabs-extra {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-  cursor: pointer;
 }
 </style>

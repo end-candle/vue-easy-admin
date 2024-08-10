@@ -2,7 +2,7 @@
   <div
     :class="[
       {
-        'is-disabled': disabled,
+        'cursor-not-allowed color-gray': disabled,
         'border-b border-b-solid border-b-#e4e7ed': divided,
       },
       'contextmenu__item',
@@ -10,6 +10,9 @@
       'lh-8',
       'cursor-pointer',
       'text-sm',
+      'hover:bg-#ecf5ff',
+      'hover:color-blue',
+      'rounded-sm',
     ]"
     :aria-disabled="disabled"
     :tabindex="disabled ? undefined : -1"
@@ -29,13 +32,15 @@ import type { ContextmenuProvider } from './types/contextmenu';
 
 const props = withDefaults(defineProps<ContextmenuItemProps<T>>(), {
   disabled: false,
-  divided: true,
+  divided: false,
 });
 
 const { bus } = inject('contextmenu') as ContextmenuProvider<T>;
 
 function handleClick() {
-  if (props.disabled) return;
+  if (props.disabled) {
+    return;
+  }
   bus.emit('command', props.command);
 }
 </script>
