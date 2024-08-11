@@ -1,11 +1,9 @@
-import { ROUTE_NAME } from '@/constants/router';
 import { useSystemStore } from '@/stores/system';
 import type { LoginFormModel } from '@/types/login/login-form';
 import { useLoginApi } from '@services/auth';
 import type { ElForm, FormRules } from 'element-plus';
 import { ref, shallowRef, type Ref, type ShallowRef } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useRoute, useRouter } from 'vue-router';
 
 type Form = typeof ElForm;
 
