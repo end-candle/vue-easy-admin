@@ -1,32 +1,25 @@
 <template>
   <ElSubMenu
-    v-if="menu.children"
-    :index="menu.path + '__parent'"
+    v-if="menu.children?.length"
+    :index="menu.code + '__parent'"
     :popper-append-to-body="false"
   >
     <template #title>
-      <i
-        v-if="menu.meta?.icon"
-        :class="menu.meta?.icon"
-      ></i>
-      <span>{{ menu.meta?.title }}</span>
+      <span>{{ menu?.title }}</span>
     </template>
     <TheSideMenuItem
       v-for="childMenu in menu.children"
-      :key="childMenu.path"
+      :key="childMenu.code"
       :menu="childMenu"
     ></TheSideMenuItem>
   </ElSubMenu>
   <ElMenuItem
     v-else
-    :index="menu.path"
+    :index="menu.code"
+    :route="{ name: menu.code, path: menu.path }"
   >
-    <i
-      v-if="menu.meta?.icon"
-      :class="menu.meta?.icon"
-    ></i>
     <template #title>
-      <span>{{ menu.meta?.title }}</span>
+      <span>{{ menu?.title }}</span>
     </template>
   </ElMenuItem>
 </template>

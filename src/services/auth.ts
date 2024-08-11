@@ -5,13 +5,13 @@ import type { User } from '@/types/auth';
 import type { StandardResponse } from '@/types/common';
 
 export function useLoginApi(form: Ref<LoginFormModel>) {
-  return useRequest<StandardResponse<User>>('/auth/login', {
+  return useRequest('/auth/login', {
     immediate: false,
   })
     .post(form)
-    .json();
+    .json<StandardResponse<User>>();
 }
 
 export function useLogoutApi() {
-  return useRequest<StandardResponse<void>>('/auth/logout').get();
+  return useRequest('/auth/logout').get().json<StandardResponse<void>>();
 }

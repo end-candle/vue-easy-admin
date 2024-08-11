@@ -1,15 +1,15 @@
-import { computed, nextTick, shallowRef } from 'vue';
-import { defineStore } from 'pinia';
-import { useGetSystemApi } from '@/services/system';
-import type { Role } from '@/types/system/role';
-import { useI18n } from 'vue-i18n';
 import { LOCALE, MAX_DEPTH } from '@/constants/common';
-import { useStorage } from '@vueuse/core';
-import { getAllDynamicRoutes } from '@/router/modules';
-import { useRoute, useRouter, type RouteLocationRaw, type RouteRecordRaw } from 'vue-router';
-import { flat, toMap, toTree } from '@/helpers/common';
-import type { Menu } from '@/types/system/Menu';
 import { ROUTE_NAME } from '@/constants/router';
+import { flat, toMap, toTree } from '@/helpers/common';
+import { getAllDynamicRoutes } from '@/router/modules';
+import { useGetSystemApi } from '@/services/system';
+import type { Menu } from '@/types/system/Menu';
+import type { Role } from '@/types/system/role';
+import { useStorage } from '@vueuse/core';
+import { defineStore } from 'pinia';
+import { computed, shallowRef } from 'vue';
+import { useI18n } from 'vue-i18n';
+import { useRoute, useRouter, type RouteLocationRaw, type RouteRecordRaw } from 'vue-router';
 
 export const useSystemStore = defineStore('system', () => {
   const { execute, data, onFetchResponse } = useGetSystemApi();
@@ -52,7 +52,7 @@ export const useSystemStore = defineStore('system', () => {
       flat(data.value?.data?.menus ?? []).filter((item) => !item.hideInMenu),
       'code',
       'parentCode',
-    );
+    ).filter((item) => !item.parentCode);
   });
 
   /**

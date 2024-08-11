@@ -7,5 +7,5 @@ import type { SystemModel } from '@/types/system';
  * @returns 当前用户的系统信息
  */
 export function useGetSystemApi() {
-  return useRequest<StandardResponse<SystemModel>>('/sys/info');
+  return useRequest('/sys/info').json<StandardResponse<SystemModel>>();
 }

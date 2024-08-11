@@ -38,4 +38,8 @@ export type Menu = {
    * 父级ID
    */
   parentCode?: string;
+  /**
+   * 路径
+   */
+  path?: string;
 };
