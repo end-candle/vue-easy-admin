@@ -14,13 +14,12 @@
 </template>
 
 <script lang="ts" setup>
-import type { TheSideMenuProps } from './types/side-menu';
-import { storeToRefs } from 'pinia';
 import { useSystemStore } from '@/stores/system';
-import { useRoute } from 'vue-router';
-import { computed, watch } from 'vue';
 import { useCssVar } from '@vueuse/core';
-import type { ElMenu } from 'element-plus';
+import { storeToRefs } from 'pinia';
+import { computed, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import type { TheSideMenuProps } from './types/side-menu';
 const route = useRoute();
 
 const props = withDefaults(defineProps<TheSideMenuProps>(), {
