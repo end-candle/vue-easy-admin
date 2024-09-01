@@ -23,7 +23,7 @@ import { shallowRef, ref, onMounted, provide, type CSSProperties, onUnmounted } 
 import type { ContextmenuEmits, ContextmenuProvider } from './types/contextmenu';
 const contextmenu = shallowRef<HTMLElement>();
 const contextmenuPanel = shallowRef<HTMLElement>();
-const timeout = ref<number>();
+const timeout = ref<ReturnType<typeof setTimeout>>();
 const visible = ref(false);
 const position = ref<CSSProperties>({});
 const bus = useEventBus<string, T>('command');
