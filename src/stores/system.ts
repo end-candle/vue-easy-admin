@@ -12,7 +12,7 @@ import { useI18n } from 'vue-i18n';
 import { useRoute, useRouter, type RouteLocationRaw, type RouteRecordRaw } from 'vue-router';
 
 export const useSystemStore = defineStore('system', () => {
-  const { execute, data, onFetchResponse } = useGetSystemApi();
+  const { execute, data, onFetchResponse } = useGetSystemApi({ immediate: false });
   const locale = useStorage(LOCALE, document.documentElement.lang);
   const dynamicRoutes = shallowRef<readonly RouteRecordRaw[]>([]);
   const router = useRouter();
@@ -37,6 +37,10 @@ export const useSystemStore = defineStore('system', () => {
           return;
         }
         item.children = children;
+        if (!item.meta) {
+          item.meta = {};
+        }
+        item.meta.needAuthorization = true;
         result.push(item);
       });
       return result;

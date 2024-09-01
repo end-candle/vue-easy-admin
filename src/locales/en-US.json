@@ -28,7 +28,8 @@
     "profile": "Personal Center"
   },
   "system": {
-    "settings": "System settings"
+    "settings": "System settings",
+    "init": "Initializing the system"
   },
   "tools": {
     "refreshCurrent": "Refresh the current page",

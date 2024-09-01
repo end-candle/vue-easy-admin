@@ -30,7 +30,6 @@ const getStaticRoutes: GetRoutes = (app?: App<Element>) => {
       component: () => import('@/views/login/LoginView.vue'),
       meta: {
         title: app?.config.globalProperties.$t('login'),
-        anyOne: true,
       },
     },
     {

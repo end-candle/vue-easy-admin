@@ -8,9 +8,9 @@ import type { Menu } from './system/Menu';
 declare module 'vue-router' {
   interface RouteMeta extends Partial<Menu> {
     /**
-     * 任意用户可访问
+     * 是否授权
      */
-    anyOne?: boolean;
+    needAuthorization?: boolean;
   }
 }
 

@@ -7,7 +7,7 @@ const createLoginAuthGuard: RouteGuard = (app, router) => {
   router.beforeEach((to) => {
     const authStore = useAuthStore();
     const token = authStore.token;
-    if (to.meta.anyOne || token) {
+    if (!to.meta.needAuthorization || token) {
       if (token && to.name === ROUTE_NAME.LOGIN) {
         return {
           path: to.query?.redirectUrl ?? '/',

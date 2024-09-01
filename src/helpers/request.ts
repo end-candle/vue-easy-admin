@@ -74,7 +74,7 @@ function setRequestToken(ctx: BeforeFetchContext) {
   const token = useAuthStore().token;
   if (token) {
     ctx.options.headers = {
-      ...(ctx.options.headers ?? {}),
+      ...ctx.options.headers,
       Authorization: `Bearer ${token}`,
     };
   }

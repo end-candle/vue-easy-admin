@@ -28,7 +28,8 @@
     "profile": "个人中心"
   },
   "system": {
-    "settings": "系统设置"
+    "settings": "系统设置",
+    "init": "正在初始化系统"
   },
   "tools": {
     "closeOther": "关闭其他",
