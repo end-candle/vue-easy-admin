@@ -128,12 +128,8 @@ function handleMenuClick(command: string, tab: RouteLocationNormalized) {
 </script>
 
 <style scoped>
-.tabs {
-  &::v-deep {
-    .el-tabs__header {
-      margin-bottom: 0;
-      padding: 0 40px 0 20px;
-    }
-  }
+:deep(.el-tabs__header) {
+  margin-bottom: 0;
+  padding: 0 40px 0 20px;
 }
 </style>
