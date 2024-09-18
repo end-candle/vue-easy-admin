@@ -15,9 +15,12 @@ async function handleTokenExpired() {
   if (refreshingToken.value) {
     return await until(refreshingToken).toBe(false);
   }
-  refreshingToken.value = true;
-  await useRefreshTokenApi();
-  refreshingToken.value = false;
+  try {
+    refreshingToken.value = true;
+    await useRefreshTokenApi();
+  } finally {
+    refreshingToken.value = false;
+  }
 }
 
 export async function fetchAdapter(...args: Parameters<typeof fetch>): ReturnType<typeof fetch> {
