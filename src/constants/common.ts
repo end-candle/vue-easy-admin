@@ -36,6 +36,20 @@ export const NETWORK = {
 };
 
 /**
+ * 响应状态码
+ */
+export const STATUS_CODE = {
+  /**
+   * 非法访问
+   */
+  ILLEGAL: 4001,
+  /**
+   * token过期
+   */
+  TOKEN_IS_EXPIRED: 4002,
+};
+
+/**
  * 最大递归深度
  */
 export const MAX_DEPTH = 10;

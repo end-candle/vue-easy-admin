@@ -7,6 +7,7 @@ import { createFetch, type AfterFetchContext, type BeforeFetchContext } from '@v
 import ElNotification from 'element-plus/es/components/notification/index.mjs';
 import 'element-plus/theme-chalk/el-notification.css';
 import { tryJsonParse } from './common';
+import { fetchAdapter } from './fetch-adapter';
 
 export const useRequest = createFetch({
   baseUrl: import.meta.env.VITE_API_BASE_URL,
@@ -18,6 +19,7 @@ export const useRequest = createFetch({
     },
   },
   options: {
+    fetch: fetchAdapter,
     async beforeFetch(ctx) {
       setRequestToken(ctx);
       setAcceptLanguage(ctx);
