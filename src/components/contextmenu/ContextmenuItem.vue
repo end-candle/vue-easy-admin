@@ -25,8 +25,9 @@
     <slot></slot>
   </div>
 </template>
+
 <script lang="ts" setup generic="T">
-import { inject, withDefaults } from 'vue';
+import { inject } from 'vue';
 import type { ContextmenuItemProps } from './types/contextmenu-item';
 import type { ContextmenuProvider } from './types/contextmenu';
 
