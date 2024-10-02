@@ -6,7 +6,7 @@ const createTitleAndTabGuard: RouteGuard = (app, router) => {
     useTabStore().addTab(to);
   });
   router.afterEach((to) => {
-    const title = app.config.globalProperties.$t(to.meta?.title || '');
+    const title = to.meta?.title || '';
     if (!title) {
       return;
     }

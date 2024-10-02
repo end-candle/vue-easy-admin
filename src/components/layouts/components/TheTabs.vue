@@ -90,6 +90,7 @@ import { useRoute, useRouter } from 'vue-router';
 const tabStore = useTabStore();
 const { tabList, currentTab, isLastLeft, isLastRight, onlyOneOrEmpty } = storeToRefs(tabStore);
 const route = useRoute();
+const router = useRouter();
 
 /**
  * 标签页点击
@@ -97,7 +98,7 @@ const route = useRoute();
  */
 function handleTabClick(tab: TabsPaneContext) {
   if (tab.paneName !== route.fullPath) {
-    useRouter().push(String(tab.paneName));
+    router.push(String(tab.paneName));
   }
 }
 
