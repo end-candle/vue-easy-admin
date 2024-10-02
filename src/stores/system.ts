@@ -24,7 +24,7 @@ export const useSystemStore = defineStore('system', () => {
    * 授权的路由集合
    */
   const authorizedRoutes = computed<readonly RouteRecordRaw[]>(() => {
-    const map = toMap(data.value?.data?.menus ?? [], 'code');
+    const map = toMap(flat(data.value?.data?.menus ?? []), 'code');
     const filterIllegalRoutes = (routes: RouteRecordRaw[], depth = MAX_DEPTH) => {
       const result: RouteRecordRaw[] = [];
       routes.forEach((item) => {

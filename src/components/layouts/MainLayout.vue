@@ -2,7 +2,7 @@
   <ElContainer class="min-h-screen">
     <ElAside
       :width="asideWidth"
-      class="fixed top-0 left-0 h-full bg-#001529 color-white"
+      class="fixed top-0 left-0 h-full color-white main-layout__aside"
     >
       <TheLogo></TheLogo>
       <TheSideMenu :fold="fold"></TheSideMenu>
@@ -52,3 +52,13 @@ function handleToggleFold() {
   fold.value = !fold.value;
 }
 </script>
+
+<style lang="css">
+:root {
+  --main-layout__aside-bg-color: #001529;
+}
+
+.main-layout__aside {
+  background-color: var(--main-layout__aside-bg-color);
+}
+</style>

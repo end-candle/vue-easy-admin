@@ -3,7 +3,8 @@
     :default-active="current"
     :collapse="fold"
     :collapse-transition="false"
-    class="b-r-none"
+    :router="true"
+    class="b-r-none side-menu"
   >
     <TheSideMenuItem
       v-for="menu in displayMenus"
@@ -15,38 +16,57 @@
 
 <script lang="ts" setup>
 import { useSystemStore } from '@/stores/system';
-import { useCssVar } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import type { TheSideMenuProps } from './types/side-menu';
 const route = useRoute();
 
 const props = withDefaults(defineProps<TheSideMenuProps>(), {
   fold: false,
-  backgroundColor: 'transparent',
-  bgHoverColor: 'transparent',
-  color: '#ffffff',
 });
-const bgColor = useCssVar('--el-menu-bg-color');
-const color = useCssVar('--el-menu-text-color');
-const bgHoverColor = useCssVar('--el-menu-hover-bg-color');
 
 const { displayMenus } = storeToRefs(useSystemStore());
-
-watch(
-  [() => props.backgroundColor, () => props.color, () => props.bgHoverColor],
-  ([backgroundColor, textColor, backgroundHoverColor]) => {
-    bgColor.value = backgroundColor;
-    color.value = textColor;
-    bgHoverColor.value = backgroundHoverColor;
-  },
-  {
-    immediate: true,
-  },
-);
 
 const current = computed<string>(() => {
   return (route.name || '') as string;
 });
 </script>
+
+<style lang="css" scoped>
+.side-menu {
+  --el-menu-item-height: 40px;
+  --el-menu-item-line-height: 40px;
+  --el-menu-hover-bg-color: transparent;
+  --el-menu-bg-color: transparent;
+  --el-menu-text-color: rgb(255 255 255 / 65%);
+  --el-menu-hover-text-color: #fff;
+  --el-menu-active-color: #fff;
+  --el-menu-active-bg-color: var(--el-color-primary);
+
+  :deep(.el-sub-menu .el-menu-item) {
+    --el-menu-sub-item-height: 40px;
+    --el-menu-sub-item-line-height: 40px;
+  }
+
+  :deep(.el-menu-item) {
+    margin: 4px 0;
+
+    &.is-active {
+      background-color: var(--el-menu-active-bg-color);
+    }
+
+    &:hover {
+      color: var(--el-menu-hover-text-color);
+    }
+  }
+
+  :deep(.el-sub-menu) {
+    &.is-active {
+      > .el-sub-menu__title {
+        color: var(--el-menu-active-color);
+      }
+    }
+  }
+}
+</style>
