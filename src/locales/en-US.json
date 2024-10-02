@@ -15,12 +15,43 @@
     "errorAndCode": "Request failed, status code: {code}",
     "logout": "Log out",
     "fold": "fold",
-    "expand": "open"
+    "expand": "open",
+    "form": {
+      "beginDate": "Start date",
+      "endDate": "End Date",
+      "submit": "Create Now",
+      "to": "to",
+      "reset": "Reset"
+    }
   },
   "validate": {
     "required": {
       "username": "enter one user name",
       "password": "Please enter password"
+    },
+    "baseForm": {
+      "activityResource": {
+        "required": "Please select activity resources"
+      },
+      "activityType": {
+        "required": "Please select at least one activity nature"
+      },
+      "activityDesc": {
+        "required": "Please fill in the activity format"
+      },
+      "activityName": "Please enter the activity name",
+      "activityRegion": "Please select the activity area"
+    },
+    "common": {
+      "date": {
+        "required": "Please select a date"
+      },
+      "lenLimit": {
+        "3-5": "Length of 3 to 5 characters"
+      },
+      "time": {
+        "required": "Please select a time"
+      }
     }
   },
   "user": {
@@ -37,5 +68,30 @@
     "closeLeft": "Close the left side",
     "closeOther": "Close Other"
   },
-  "home": "Dashboard"
+  "home": "Dashboard",
+  "form": {
+    "baseForm": {
+      "desc": "Form pages are used to collect or verify information from users, and basic forms are commonly used in form scenarios with fewer data items.",
+      "item": {
+        "delivery": "Instant delivery",
+        "desc": "Activity format",
+        "name": "Event Name",
+        "date": "Activity Time",
+        "region": "zone of action",
+        "resource": "Special Resources",
+        "type": "Nature of Activity"
+      },
+      "title": "Basic Form"
+    }
+  },
+  "mock": {
+    "activity1": "Online Food/Restaurant Activities",
+    "activity2": "Ground promotion activity",
+    "activity3": "Offline themed activities",
+    "activity4": "Simple brand exposure",
+    "region1": "Region One",
+    "region2": "Region 2",
+    "resource1": "Sponsorship from online brand merchants",
+    "resource2": "Free offline venue"
+  }
 }

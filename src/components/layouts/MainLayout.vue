@@ -11,10 +11,10 @@
       class="main-layout__aside-placeholder"
       :width="asideWidth"
     ></ElAside>
-    <ElContainer>
+    <ElContainer class="bg-#f0f2f5">
       <ElHeader
         :height="headerHeight"
-        class="fixed top-0 right-0"
+        class="fixed top-0 right-0 z-100 bg-white"
         :style="{ left: asideWidth }"
       >
         <TheHeader

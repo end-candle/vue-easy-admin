@@ -37,10 +37,12 @@ export const useSystemStore = defineStore('system', () => {
           return;
         }
         item.children = children;
+        item.redirect = children[0];
         if (!item.meta) {
           item.meta = {};
         }
         item.meta.needAuthorization = true;
+        item.meta.title = map.get(key)?.title ?? item.meta.title;
         result.push(item);
       });
       return result;
