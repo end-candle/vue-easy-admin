@@ -8,6 +8,7 @@ export {};
 declare module 'vue' {
   export interface GlobalComponents {
     AboutView: typeof import('./../views/AboutView.vue')['default']
+    AdvanceForm: typeof import('./../views/form/AdvanceForm.vue')['default']
     BasicForm: typeof import('./../views/form/BasicForm.vue')['default']
     BlankLayout: typeof import('./../components/layouts/BlankLayout.vue')['default']
     ContainerCard: typeof import('./../components/containerCard/ContainerCard.vue')['default']
@@ -19,6 +20,7 @@ declare module 'vue' {
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
+    ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
@@ -37,6 +39,7 @@ declare module 'vue' {
     ElOption: typeof import('element-plus/es')['ElOption']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
+    ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSpace: typeof import('element-plus/es')['ElSpace']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
@@ -44,6 +47,7 @@ declare module 'vue' {
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElText: typeof import('element-plus/es')['ElText']
+    ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     HomeView: typeof import('./../views/HomeView.vue')['default']
     IconText: typeof import('./../components/IconText/IconText.vue')['default']
     IEpExpand: typeof import('~icons/ep/expand')['default']

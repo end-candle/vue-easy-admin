@@ -1,21 +1,28 @@
-import BaseFormView from '@/views/form/BasicForm.vue';
+import BaseForm from '@/views/form/BasicForm.vue';
 import type { App } from 'vue';
 import { ROUTE_NAME } from '@/constants/router';
 import type { GetRoutes } from '@/types/router';
 import MainLayout from '@layouts/MainLayout.vue';
+import AdvanceForm from '@/views/form/AdvanceForm.vue';
 
 const getFormRoutes: GetRoutes = (app?: App<Element>) => {
   return [
     {
       path: '/form',
       component: MainLayout,
+      props: { showFooter: false },
       name: ROUTE_NAME.FORM,
       redirect: { name: ROUTE_NAME.BASE_FORM },
       children: [
         {
           path: 'base',
           name: ROUTE_NAME.BASE_FORM,
-          component: BaseFormView,
+          component: BaseForm,
+        },
+        {
+          path: 'advance',
+          name: ROUTE_NAME.ADVANCE_FORM,
+          component: AdvanceForm,
         },
       ],
     },

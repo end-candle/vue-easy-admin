@@ -52,6 +52,18 @@
       "time": {
         "required": "Please select a time"
       }
+    },
+    "advanceForm": {
+      "required": {
+        "workDesc": "Please enter task description",
+        "workName": "Please enter the task name",
+        "workType": "Please select task type",
+        "charger": "Please select the responsible person",
+        "executor": "Please select the executor",
+        "name": "Please enter the warehouse name",
+        "domain": "Please enter the warehouse domain name",
+        "awakeDate": "Please select a reminder time"
+      }
     }
   },
   "user": {
@@ -82,6 +94,34 @@
         "type": "Nature of Activity"
       },
       "title": "Basic Form"
+    },
+    "advanceForm": {
+      "item": {
+        "charger": "person liable:",
+        "workDesc": "Task Description:",
+        "executor": "Executor:",
+        "workType": "Task type:",
+        "domain": "Warehouse domain name:",
+        "admin": "godown keeper:",
+        "leader": "Approver:",
+        "name": "Warehouse Name:",
+        "placeholder": {
+          "type": "Please select warehouse type",
+          "admin": "Please select administrator"
+        },
+        "awakeDate": "Reminder time:",
+        "type": "Warehouse type:",
+        "workName": "Task Name:",
+        "workDate": "Effective Date:"
+      },
+      "operate": {
+        "addMember": "Add members"
+      },
+      "subtitle2": "task management",
+      "subtitle3": "Member Management",
+      "desc": "Advanced forms are commonly used in scenarios where large amounts of data are inputted and submitted at once.",
+      "title": "Advanced Forms",
+      "subtitle1": "Warehouse management"
     }
   },
   "mock": {
@@ -92,6 +132,24 @@
     "region1": "Region One",
     "region2": "Region 2",
     "resource1": "Sponsorship from online brand merchants",
-    "resource2": "Free offline venue"
+    "resource2": "Free offline venue",
+    "option": {
+      "repoType": {
+        "public": "open",
+        "primary": "private"
+      },
+      "workType": {
+        "regular": "Timed execution",
+        "period": "Periodic execution"
+      }
+    },
+    "member": {
+      "department1": "Administrative Department",
+      "department3": "Finance Department",
+      "name1": "Zhang San",
+      "name2": "Li Si",
+      "name3": "Wang Wu",
+      "department2": "IT Department"
+    }
   }
 }

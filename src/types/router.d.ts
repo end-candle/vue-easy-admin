@@ -1,4 +1,4 @@
-import type { Router } from 'vue-router';
+import type { Router, RouteRecordRaw } from 'vue-router';
 import type { MaybePromise } from './common';
 import type { Menu } from './system/Menu';
 

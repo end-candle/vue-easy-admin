@@ -52,6 +52,18 @@
       "activityDesc": {
         "required": "请填写活动形式"
       }
+    },
+    "advanceForm": {
+      "required": {
+        "name": "请输入仓库名称",
+        "domain": "请输入仓库域名",
+        "workName": "请输入任务名称",
+        "workDesc": "请输入任务描述",
+        "executor": "请选择执行人",
+        "charger": "请选择责任人",
+        "awakeDate": "请选择提醒时间",
+        "workType": "请选择任务类型"
+      }
     }
   },
   "user": {
@@ -82,6 +94,34 @@
         "resource": "特殊资源",
         "desc": "活动形式"
       }
+    },
+    "advanceForm": {
+      "title": "高级表单",
+      "desc": "高级表单常见于一次性输入和提交大批量数据的场景。",
+      "subtitle1": "仓库管理",
+      "item": {
+        "name": "仓库名:",
+        "domain": "仓库域名:",
+        "admin": "仓库管理员:",
+        "placeholder": {
+          "admin": "请选择管理员",
+          "type": "请选择仓库类型"
+        },
+        "leader": "审批人:",
+        "workDate": "生效日期:",
+        "type": "仓库类型:",
+        "workName": "任务名:",
+        "workDesc": "任务描述:",
+        "executor": "执行人:",
+        "charger": "责任人:",
+        "awakeDate": "提醒时间:",
+        "workType": "任务类型:"
+      },
+      "subtitle2": "任务管理",
+      "subtitle3": "成员管理",
+      "operate": {
+        "addMember": "添加成员"
+      }
     }
   },
   "mock": {
@@ -92,6 +132,24 @@
     "activity3": "线下主题活动",
     "activity4": "单纯品牌曝光",
     "resource1": "线上品牌商赞助",
-    "resource2": "线下场地免费"
+    "resource2": "线下场地免费",
+    "member": {
+      "name1": "张三",
+      "name2": "李四",
+      "name3": "王五",
+      "department1": "行政部",
+      "department2": "IT部",
+      "department3": "财务部"
+    },
+    "option": {
+      "repoType": {
+        "public": "公开",
+        "primary": "私密"
+      },
+      "workType": {
+        "period": "周期执行",
+        "regular": "定时执行"
+      }
+    }
   }
 }

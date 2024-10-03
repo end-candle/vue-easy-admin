@@ -10,7 +10,7 @@
         <ElText size="small">element-plus</ElText>
       </ElLink>
     </ElSpace>
-    <ElSpace class="mb-3 justify-center w-full">
+    <ElSpace class="justify-center w-full">
       <ElText size="small">{{ $t('copyright') }}</ElText>
     </ElSpace>
   </footer>
