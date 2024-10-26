@@ -5,8 +5,17 @@
   "files": ["src/*.css", "src/**/*.css"],
   "overrides": [
     {
-      "extends": ["stylelint-config-recommended-vue"],
-      "files": ["*.vue", "**/*.vue"]
+      "customSyntax": "postcss-html",
+      "files": ["*.{vue,html}", "**/*.{vue,html}"],
+      "rules": {
+        "function-no-unknown": [
+          true,
+          {
+            "ignoreFunctions": ["v-bind"]
+          }
+        ],
+        "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["deep"] }]
+      }
     }
   ],
   "rules": {
