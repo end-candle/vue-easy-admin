@@ -40,7 +40,6 @@ declare module 'vue' {
     ElOption: typeof import('element-plus/es')['ElOption']
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
-    ElResizer: typeof import('element-plus/es')['ElResizer']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSpace: typeof import('element-plus/es')['ElSpace']
@@ -78,7 +77,5 @@ declare module 'vue' {
     TheSideMenu: typeof import('./../components/layouts/components/TheSideMenu.vue')['default']
     TheSideMenuItem: typeof import('./../components/layouts/components/TheSideMenuItem.vue')['default']
     TheTabs: typeof import('./../components/layouts/components/TheTabs.vue')['default']
-    Typography: typeof import('../components/typography/TypographyText.vue')['default']
-    TypographyText: typeof import('./../components/typography/TypographyText.vue')['default']
   }
 }

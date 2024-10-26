@@ -129,7 +129,7 @@
 <script lang="ts" setup>
 import { ref, useTemplateRef } from 'vue';
 import type { RuleFormInfo } from './types/base-form';
-import type { FormItemRule } from 'element-plus';
+import type { FormItemRule, FormInstance } from 'element-plus';
 import { useI18n } from 'vue-i18n';
 
 const ruleForm = ref<RuleFormInfo>({
@@ -164,7 +164,7 @@ const rules: Record<keyof Omit<RuleFormInfo, 'delivery'>, FormItemRule | FormIte
   desc: [{ required: true, message: t('validate.baseForm.activityDesc.required'), trigger: 'blur' }],
 };
 
-const form = useTemplateRef('form');
+const form = useTemplateRef<FormInstance>('form');
 
 async function submitForm() {
   const valid = await form.value?.validate();

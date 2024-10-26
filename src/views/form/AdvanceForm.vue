@@ -320,7 +320,7 @@
 
 <script lang="ts" setup>
 import { computed, inject, ref, useTemplateRef } from 'vue';
-import { type Column, type FormItemRule } from 'element-plus';
+import type { Column, FormItemRule, FormInstance } from 'element-plus';
 import { useI18n } from 'vue-i18n';
 import type { AdvanceFormInfo } from './types/advance-form';
 import type { MainLayoutProvider } from '@/components/layouts/types/main-layout';
@@ -457,7 +457,7 @@ const adminList = computed(() => {
   return memberList.value.filter((item) => !!item.no).map(({ name, no }) => ({ label: name, value: no }));
 });
 
-const form = useTemplateRef('form');
+const form = useTemplateRef<FormInstance>('form');
 
 async function submitForm() {
   const valid = await form.value?.validate();

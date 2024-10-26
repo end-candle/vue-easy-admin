@@ -67,5 +67,5 @@ async function getRoutesByGlob(app?: App<Element>, modules?: Record<string, Rout
     }),
   );
   // 过滤掉所有非路由配置项（即值为null或undefined的项），然后展平数组，以合并所有路由配置
-  return routes.filter((route) => route).flat();
+  return routes.filter((route) => !!route).flat();
 }
