@@ -39,7 +39,7 @@ export const useRequest = createFetch({
  * 处理请求异常
  * @param ctx 异常上下文
  */
-async function handleError(ctx: { data: any; response: Response | null; error?: any }) {
+async function handleError(ctx: { data: unknown; response: Response | null; error?: { message: string } }) {
   if (ctx.response?.status === NETWORK.UNAUTHORIZED) {
     await useAuthStore().logout();
     return;
@@ -61,7 +61,7 @@ async function handleError(ctx: { data: any; response: Response | null; error?: 
  * 存储token
  * @param ctx fetch上下文
  */
-function storeToken(ctx: AfterFetchContext) {
+function storeToken(ctx: AfterFetchContext<unknown>) {
   const token = ctx.response.headers.get(TOKEN);
   if (token) {
     useAuthStore().setAuthToken(token);

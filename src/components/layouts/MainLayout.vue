@@ -48,7 +48,7 @@
 import { computed, provide, ref } from 'vue';
 import type { MainLayoutProps, MainLayoutProvider } from './types/main-layout';
 
-const props = withDefaults(defineProps<MainLayoutProps>(), {
+withDefaults(defineProps<MainLayoutProps>(), {
   showSidebar: true,
   showHeader: true,
   showFooter: true,

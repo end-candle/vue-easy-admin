@@ -25,10 +25,10 @@ async function handleTokenExpired() {
 
 export async function fetchAdapter(...args: Parameters<typeof fetch>): ReturnType<typeof fetch> {
   const res = await fetch(...args);
-  let json: Record<string, any> = {};
+  let json: Record<string, unknown> = {};
   try {
     json = await res.clone().json();
-  } catch (e) {
+  } catch {
     json = {};
   }
   if (res.status === NETWORK.UNAUTHORIZED && json.code === STATUS_CODE.TOKEN_IS_EXPIRED) {

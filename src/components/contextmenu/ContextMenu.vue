@@ -9,7 +9,7 @@
     <div
       v-if="visible"
       ref="contextmenuPanel"
-      class="contextmenu-panel fixed shadow-md bg-white"
+      class="contextmenu-panel fixed shadow-md bg-white z-101"
       :style="position"
     >
       <slot name="menu"></slot>

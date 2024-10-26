@@ -6,13 +6,13 @@ import { MAX_DEPTH } from '@/constants/common';
  * @param defaultValue 可选的默认值。
  * @returns 一个元组，其中第一个元素是解析后的 T 类型实例，如果解析失败则为 defaultValue；第二个元素是解析过程中遇到的错误，如果没有错误则为 undefined。
  */
-export function tryJsonParse<T>(str?: any, defaultValue?: T): [T | undefined, Error | undefined] {
+export function tryJsonParse<T>(str?: unknown, defaultValue?: T): [T | undefined, Error | undefined] {
   // 当输入字符串不存在时，直接返回 undefined
   if (!str) {
     return [defaultValue, undefined];
   }
   if (typeof str !== 'string') {
-    return [str, new Error('Input is not a string')];
+    return [str as T, new Error('Input is not a string')];
   }
   try {
     // 尝试解析 JSON 字符串，成功时返回解析结果和 undefined

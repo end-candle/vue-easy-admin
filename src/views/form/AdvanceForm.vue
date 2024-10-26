@@ -286,6 +286,16 @@
       <template #header>
         <ElText size="large"> {{ $t('form.advanceForm.subtitle3') }} </ElText>
       </template>
+      <ElAutoResizer :style="{ width: '100%', height: '200px' }">
+        <template #default="{ width, height }">
+          <ElTableV2
+            :columns="columns"
+            :height="height"
+            :width="width"
+            :data="memberList"
+          ></ElTableV2>
+        </template>
+      </ElAutoResizer>
       <el-button
         icon="el-icon-plus"
         :plain="true"
@@ -310,7 +320,7 @@
 
 <script lang="ts" setup>
 import { computed, inject, ref, useTemplateRef } from 'vue';
-import type { FormItemRule } from 'element-plus';
+import { type Column, type FormItemRule } from 'element-plus';
 import { useI18n } from 'vue-i18n';
 import type { AdvanceFormInfo } from './types/advance-form';
 import type { MainLayoutProvider } from '@/components/layouts/types/main-layout';
@@ -384,6 +394,24 @@ const rules: Record<
     trigger: 'change',
   },
 };
+
+const columns = ref<Column[]>([
+  {
+    dataKey: 'name',
+    title: '成员姓名',
+    width: 120,
+  },
+  {
+    dataKey: 'no',
+    title: '工号',
+    width: 120,
+  },
+  {
+    dataKey: 'department',
+    title: '所属部门',
+    width: 120,
+  },
+]);
 
 const repoTypeList = [
   {

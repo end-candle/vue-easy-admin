@@ -22,7 +22,7 @@ import { useRoute } from 'vue-router';
 import type { TheSideMenuProps } from './types/side-menu';
 const route = useRoute();
 
-const props = withDefaults(defineProps<TheSideMenuProps>(), {
+withDefaults(defineProps<TheSideMenuProps>(), {
   fold: false,
 });
 

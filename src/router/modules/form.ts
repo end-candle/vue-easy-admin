@@ -1,11 +1,10 @@
 import BaseForm from '@/views/form/BasicForm.vue';
-import type { App } from 'vue';
 import { ROUTE_NAME } from '@/constants/router';
 import type { GetRoutes } from '@/types/router';
 import MainLayout from '@layouts/MainLayout.vue';
 import AdvanceForm from '@/views/form/AdvanceForm.vue';
 
-const getFormRoutes: GetRoutes = (app?: App<Element>) => {
+const getFormRoutes: GetRoutes = () => {
   return [
     {
       path: '/form',
