@@ -1,16 +1,18 @@
-import type { UseEventBusReturn } from '@vueuse/core';
+export type BusEvent = 'command' | 'hideOther';
 
 export type ContextmenuEmits<T> = {
   /**
    * 指令
    */
-  command: [command?: T];
+  command: [command: T];
 };
 
 export type ContextmenuProvider<T> = {
+  hideContextmenu: () => void;
   /**
-   * 事件总线
+   * 处理菜单点击
+   * @param command 指令
+   * @returns void
    */
-  bus: UseEventBusReturn<string, T>;
-  hide: () => void;
+  handleMenuItemClick: (command: T) => void;
 };

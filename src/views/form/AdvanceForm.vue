@@ -305,7 +305,7 @@
     </ContainerCard>
   </ElForm>
   <div
-    class="text-right mb0 fixed right-0 bottom-0 py px-5 z-36 bg-white advance-form__footer"
+    class="mb0 fixed right-0 bottom-0 py pl-10 pr-5 z-36 bg-white advance-form__footer"
     :style="footerStyle"
   >
     <ElButton

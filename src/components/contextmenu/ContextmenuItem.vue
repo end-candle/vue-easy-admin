@@ -30,18 +30,20 @@
 import { inject } from 'vue';
 import type { ContextmenuItemProps } from './types/contextmenu-item';
 import type { ContextmenuProvider } from './types/contextmenu';
+import { CONTEXTMENU } from '@/components/contextmenu/constants';
 
 const props = withDefaults(defineProps<ContextmenuItemProps<T>>(), {
   disabled: false,
   divided: false,
 });
 
-const { bus } = inject('contextmenu') as ContextmenuProvider<T>;
+const { handleMenuItemClick, hideContextmenu } = inject(CONTEXTMENU.provider) as ContextmenuProvider<T>;
 
 function handleClick() {
   if (props.disabled) {
     return;
   }
-  bus.emit('command', props.command);
+  hideContextmenu();
+  handleMenuItemClick(props.command);
 }
 </script>

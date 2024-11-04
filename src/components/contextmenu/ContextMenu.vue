@@ -2,6 +2,8 @@
   <div
     ref="contextmenu"
     class="contextmenu"
+    @contextmenu="handleContextmenu"
+    @click="handleClick"
   >
     <slot name="default"></slot>
   </div>
@@ -18,29 +20,32 @@
 </template>
 
 <script lang="ts" setup generic="T">
-import { onClickOutside, useEventBus, useEventListener } from '@vueuse/core';
-import { shallowRef, ref, onMounted, provide, type CSSProperties, onUnmounted } from 'vue';
-import type { ContextmenuEmits, ContextmenuProvider } from './types/contextmenu';
+import { onClickOutside, useEventBus } from '@vueuse/core';
+import { shallowRef, ref, onMounted, provide, type CSSProperties, onUnmounted, useId } from 'vue';
+import type { ContextmenuEmits, ContextmenuProvider, BusEvent } from './types/contextmenu';
+import { CONTEXTMENU } from '@/components/contextmenu/constants';
 const contextmenu = shallowRef<HTMLElement>();
 const contextmenuPanel = shallowRef<HTMLElement>();
 const timeout = ref<ReturnType<typeof setTimeout>>();
 const visible = ref(false);
 const position = ref<CSSProperties>({});
-const bus = useEventBus<string, T>('command');
+const bus = useEventBus<BusEvent, T | string>(CONTEXTMENU.bus);
 const emit = defineEmits<ContextmenuEmits<T>>();
+const key = useId();
 
-function handleMenuItemClick(command?: T) {
+function handleMenuItemClick(command: T) {
   emit('command', command);
 }
 
 function show() {
+  bus.emit('hideOther', key);
   clearTimeout(timeout.value);
   timeout.value = setTimeout(() => {
     visible.value = true;
   }, 0);
 }
 
-function hide() {
+function hideContextmenu() {
   clearTimeout(timeout.value);
   timeout.value = setTimeout(() => {
     visible.value = false;
@@ -49,7 +54,7 @@ function hide() {
 
 function handleClick() {
   if (visible.value) {
-    hide();
+    hideContextmenu();
   }
 }
 
@@ -64,24 +69,19 @@ function handleContextmenu(e: MouseEvent) {
 }
 
 function initEvent() {
-  useEventListener(contextmenu, 'contextmenu', handleContextmenu);
-  useEventListener(contextmenu, 'click', handleClick);
-  onClickOutside(contextmenuPanel, hide);
-  const unsubscribe = bus.on((event: string, command?: T) => {
-    hide();
-    if (event === 'command') {
-      handleMenuItemClick(command);
+  onClickOutside(contextmenuPanel, hideContextmenu);
+  const unsubscribe = bus.on((event: string, args?: T | string) => {
+    if (event === 'hideOther' && args !== key) {
+      hideContextmenu();
     }
   });
   onUnmounted(unsubscribe);
 }
 
-provide<ContextmenuProvider<T>>('contextmenu', {
-  bus,
-  hide,
+provide<ContextmenuProvider<T>>(CONTEXTMENU.provider, {
+  hideContextmenu,
+  handleMenuItemClick,
 });
 
-onMounted(() => {
-  initEvent();
-});
+onMounted(initEvent);
 </script>
