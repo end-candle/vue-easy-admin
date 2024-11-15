@@ -1,8 +1,9 @@
-import BaseForm from '@/views/form/BasicForm.vue';
 import { ROUTE_NAME } from '@/constants/router';
 import type { GetRoutes } from '@/types/router';
-import MainLayout from '@layouts/MainLayout.vue';
 import AdvanceForm from '@/views/form/AdvanceForm.vue';
+import BaseForm from '@/views/form/BasicForm.vue';
+import StepForm from '@/views/form/StepForm.vue';
+import MainLayout from '@layouts/MainLayout.vue';
 
 const getFormRoutes: GetRoutes = () => {
   return [
@@ -17,6 +18,11 @@ const getFormRoutes: GetRoutes = () => {
           path: 'base',
           name: ROUTE_NAME.BASE_FORM,
           component: BaseForm,
+        },
+        {
+          path: 'step',
+          name: ROUTE_NAME.STEP_FORM,
+          component: StepForm,
         },
         {
           path: 'advance',

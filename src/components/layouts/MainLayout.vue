@@ -47,6 +47,7 @@
 <script lang="ts" setup>
 import { computed, provide, ref } from 'vue';
 import type { MainLayoutProps, MainLayoutProvider } from './types/main-layout';
+import { MAIN_LAYOUT_KEY } from './shared/constants';
 
 withDefaults(defineProps<MainLayoutProps>(), {
   showSidebar: true,
@@ -63,7 +64,7 @@ const asideWidth = computed(() => {
   return fold.value ? '64px' : '256px';
 });
 
-provide<MainLayoutProvider>('main-layout', {
+provide<MainLayoutProvider>(MAIN_LAYOUT_KEY, {
   asideWidth,
 });
 

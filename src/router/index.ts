@@ -1,7 +1,6 @@
 import type { App } from 'vue';
 import { createRouter, createWebHistory, type Router } from 'vue-router';
-import createRouterGuards from '@router/guards';
-import { getAllStaticRoutes } from '@router/modules';
+import { createRouterGuards, getAllStaticRoutes } from './tools';
 
 async function setRouter(app: App<Element>) {
   const router: Router = createRouter({

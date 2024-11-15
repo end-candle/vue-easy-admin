@@ -24,4 +24,18 @@ export type RouteGuard = (app: App<Element>, router: Router) => void;
  */
 export type GetRoutes = (app?: App<Element>) => MaybePromise<readonly RouteRecordRaw[]>;
 
+/**
+ * 路由守卫模块
+ */
+export type RouteGuardModule = {
+  default?: RouteGuard;
+};
+
+/**
+ * 路由模块
+ */
+export type RoutesModule = {
+  default?: GetRoutes;
+};
+
 export {};

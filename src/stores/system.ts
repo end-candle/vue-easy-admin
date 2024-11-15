@@ -1,7 +1,7 @@
 import { LOCALE, MAX_DEPTH } from '@/constants/common';
 import { ROUTE_NAME } from '@/constants/router';
 import { flat, toMap, toTree } from '@/helpers/common';
-import { getAllDynamicRoutes } from '@/router/modules';
+import { getAllDynamicRoutes } from '@/router/tools';
 import { useGetSystemApi } from '@/services/system';
 import type { Menu } from '@/types/system/Menu';
 import type { Role } from '@/types/system/role';

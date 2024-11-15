@@ -16,5 +16,6 @@ export const ROUTE_NAME: Record<string, RouteRecordName> = {
   ERROR_404: 'error404',
   FORM: 'form',
   BASE_FORM: 'baseForm',
+  STEP_FORM: 'stepForm',
   ADVANCE_FORM: 'advanceForm',
 };

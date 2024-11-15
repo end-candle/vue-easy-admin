@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
 import { onBeforeMount, ref } from 'vue';
-import { RouterView } from 'vue-router';
 import { useSystemStore } from './stores/system';
 import { ElLoading } from 'element-plus';
 import 'element-plus/theme-chalk/el-loading.css';

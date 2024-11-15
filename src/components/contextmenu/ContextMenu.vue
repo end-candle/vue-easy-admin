@@ -23,7 +23,7 @@
 import { onClickOutside, useEventBus } from '@vueuse/core';
 import { shallowRef, ref, onMounted, provide, type CSSProperties, onUnmounted, useId } from 'vue';
 import type { ContextmenuEmits, ContextmenuProvider, BusEvent } from './types/contextmenu';
-import { CONTEXTMENU } from '@/components/contextmenu/constants';
+import { CONTEXTMENU } from '@/components/contextmenu/shared/constants';
 const contextmenu = shallowRef<HTMLElement>();
 const contextmenuPanel = shallowRef<HTMLElement>();
 const timeout = ref<ReturnType<typeof setTimeout>>();

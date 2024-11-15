@@ -4,7 +4,7 @@
     :collapse="fold"
     :collapse-transition="false"
     :router="true"
-    class="b-r-none side-menu"
+    class="!b-r-none side-menu"
   >
     <TheSideMenuItem
       v-for="menu in displayMenus"

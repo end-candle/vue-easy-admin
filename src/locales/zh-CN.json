@@ -21,8 +21,11 @@
       "beginDate": "开始日期",
       "endDate": "结束日期",
       "submit": "立即创建",
-      "reset": "重置"
-    }
+      "reset": "重置",
+      "next": "下一步",
+      "choose": "请选择"
+    },
+    "explain": "说明"
   },
   "validate": {
     "required": {
@@ -122,6 +125,40 @@
       "operate": {
         "addMember": "添加成员"
       }
+    },
+    "stepForm": {
+      "title": "分步表单",
+      "desc": "将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。",
+      "stepOne": "填写转账信息",
+      "stepTwo": "确认转账信息",
+      "stepThree": "完成",
+      "item": {
+        "placeholder": {
+          "account": "请选择付款账户",
+          "user": "请输入收款账户",
+          "name": "请输入收款人姓名",
+          "money": "请输入转账金额",
+          "type": "请选择收款账户类型",
+          "passowrd": "请输入支付密码"
+        },
+        "account": "付款账户",
+        "user": "收款账户",
+        "name": "收款人姓名",
+        "money": "转账金额",
+        "account2": "转账账号",
+        "password": "支付密码"
+      },
+      "footer": {
+        "tip1": "转账到支付宝账户",
+        "summary1": "如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。如果需要，这里可以放一些关于产品的常见问题说明。",
+        "tip2": "转账到银行卡"
+      },
+      "validate": {
+        "money": "请输入正确的转账金额"
+      },
+      "alert": {
+        "tip1": "确认转账后，资金将直接打入对方账户，无法退回。"
+      }
     }
   },
   "mock": {
@@ -149,6 +186,9 @@
       "workType": {
         "period": "周期执行",
         "regular": "定时执行"
+      },
+      "user": {
+        "icCard": "银行卡"
       }
     }
   }

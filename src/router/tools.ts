@@ -1,10 +1,6 @@
-import type { GetRoutes } from '@/types/router';
+import type { RouteGuardModule, RoutesModule } from '@/types/router';
 import type { App } from 'vue';
-import type { RouteRecordRaw } from 'vue-router';
-
-interface RoutesModule {
-  default?: GetRoutes;
-}
+import type { Router, RouteRecordRaw } from 'vue-router';
 
 /**
  * 获取所有动态路由记录。
@@ -18,9 +14,12 @@ interface RoutesModule {
 export const getAllDynamicRoutes = async (app?: App<Element>): Promise<readonly RouteRecordRaw[]> => {
   // 使用import.meta.glob异步加载所有符合规则的路由模块。
   // 规则排除了静态路由文件，只包含动态路由配置。
-  const modules = import.meta.glob<RoutesModule>(['./**/*.ts', '!./**/static*.ts', '!./static/**/*.ts'], {
-    eager: true,
-  });
+  const modules = import.meta.glob<RoutesModule>(
+    ['./modules/**/*.ts', '!./modules/**/static*.ts', '!./modules/static/**/*.ts'],
+    {
+      eager: true,
+    },
+  );
 
   // 调用getRoutesByGlob函数，处理加载的模块并返回路由记录。
   return getRoutesByGlob(app, modules);
@@ -36,9 +35,11 @@ export const getAllDynamicRoutes = async (app?: App<Element>): Promise<readonly 
  * @returns 返回一个Promise，解析为一个只读的路由记录数组，这些记录代表了应用中的所有静态路由。
  */
 export const getAllStaticRoutes = (app: App<Element>): Promise<readonly RouteRecordRaw[]> => {
-  // 使用动态导入和glob模式来获取所有匹配'./**/static*.ts'和'./static/**/*.ts'模式的文件。
+  // 使用动态导入和glob模式来获取所有匹配'./modules/**/static*.ts'和'./modules/static/**/*.ts'模式的文件。
   // 这里使用了eager选项，确保这些模块在导入时被立即执行，以便路由可以被及时注册。
-  const modules = import.meta.glob<RoutesModule>(['./**/static*.ts', './static/**/*.ts'], { eager: true });
+  const modules = import.meta.glob<RoutesModule>(['./modules/**/static*.ts', './modules/static/**/*.ts'], {
+    eager: true,
+  });
 
   // 调用getRoutesByGlob函数，传入应用对象和动态导入的模块对象，来提取并返回所有的路由记录。
   // 这一步是将路由模块的配置转换为可注册的路由记录的过程。
@@ -69,3 +70,14 @@ async function getRoutesByGlob(app?: App<Element>, modules?: Record<string, Rout
   // 过滤掉所有非路由配置项（即值为null或undefined的项），然后展平数组，以合并所有路由配置
   return routes.filter((route) => !!route).flat();
 }
+
+/**
+ * 设置路由导航守卫
+ * @param router 路由
+ */
+export const createRouterGuards = async (app: App<Element>, router: Router) => {
+  const modules = import.meta.glob<RouteGuardModule>('./guards/*.ts', { eager: true });
+  Object.keys(modules).forEach((key) => {
+    modules[key]?.default?.(app, router);
+  });
+};

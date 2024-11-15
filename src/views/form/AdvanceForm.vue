@@ -324,6 +324,7 @@ import type { Column, FormItemRule, FormInstance } from 'element-plus';
 import { useI18n } from 'vue-i18n';
 import type { AdvanceFormInfo } from './types/advance-form';
 import type { MainLayoutProvider } from '@/components/layouts/types/main-layout';
+import { MAIN_LAYOUT_KEY } from '@/components/layouts/shared/constants';
 
 const formData = ref<AdvanceFormInfo>({
   name: '',
@@ -340,7 +341,7 @@ const formData = ref<AdvanceFormInfo>({
   workType: '',
 });
 
-const mainLayoutProvider = inject<MainLayoutProvider>('main-layout');
+const mainLayoutProvider = inject<MainLayoutProvider>(MAIN_LAYOUT_KEY);
 
 const footerStyle = computed(() => {
   return {

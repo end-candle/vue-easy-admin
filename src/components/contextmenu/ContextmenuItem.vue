@@ -30,7 +30,7 @@
 import { inject } from 'vue';
 import type { ContextmenuItemProps } from './types/contextmenu-item';
 import type { ContextmenuProvider } from './types/contextmenu';
-import { CONTEXTMENU } from '@/components/contextmenu/constants';
+import { CONTEXTMENU } from '@/components/contextmenu/shared/constants';
 
 const props = withDefaults(defineProps<ContextmenuItemProps<T>>(), {
   disabled: false,

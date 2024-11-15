@@ -21,8 +21,11 @@
       "endDate": "End Date",
       "submit": "Create Now",
       "to": "to",
-      "reset": "Reset"
-    }
+      "reset": "Reset",
+      "choose": "Please choose",
+      "next": "next step"
+    },
+    "explain": "explain"
   },
   "validate": {
     "required": {
@@ -122,6 +125,40 @@
       "desc": "Advanced forms are commonly used in scenarios where large amounts of data are inputted and submitted at once.",
       "title": "Advanced Forms",
       "subtitle1": "Warehouse management"
+    },
+    "stepForm": {
+      "alert": {
+        "tip1": "After confirming the transfer, the funds will be directly transferred to the other party's account and cannot be refunded."
+      },
+      "item": {
+        "name": "Name of payee",
+        "placeholder": {
+          "money": "Please enter the transfer amount",
+          "name": "Please enter the name of the payee",
+          "passowrd": "Please enter the payment password",
+          "type": "Please select the type of receiving account",
+          "user": "Please enter the receiving account",
+          "account": "Please select a payment account"
+        },
+        "account": "Payment account",
+        "account2": "Transfer account",
+        "money": "Transfer amount",
+        "user": "Receiving account",
+        "password": "Payment password"
+      },
+      "stepThree": "complete",
+      "title": "Step by Step Form",
+      "validate": {
+        "money": "Please enter the correct transfer amount"
+      },
+      "footer": {
+        "summary1": "If necessary, here can be some common problem explanations about the product. If necessary, here can be some common problem explanations about the product. If necessary, here can be some common problem explanations about the product.",
+        "tip1": "Transfer to Alipay account",
+        "tip2": "Transfer to bank card"
+      },
+      "desc": "Divide a lengthy or unfamiliar form task into multiple steps and guide the user to complete it.",
+      "stepOne": "Fill in transfer information",
+      "stepTwo": "Confirm transfer information"
     }
   },
   "mock": {
@@ -141,6 +178,9 @@
       "workType": {
         "regular": "Timed execution",
         "period": "Periodic execution"
+      },
+      "user": {
+        "icCard": "bank card"
       }
     },
     "member": {
