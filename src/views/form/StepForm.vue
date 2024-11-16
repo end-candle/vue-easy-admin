@@ -34,7 +34,7 @@
     </ElSteps>
     <TheStepOne v-if="active === 0" />
     <TheStepTwo v-if="active === 1" />
-    <!-- <TheStepThree v-if="active === 2" /> -->
+    <TheStepThree v-if="active === 2" />
   </ContainerCard>
 </template>
 

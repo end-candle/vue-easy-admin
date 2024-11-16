@@ -52,28 +52,15 @@
 </template>
 
 <script setup lang="ts">
-import type { FormInstance, FormItemRule } from 'element-plus';
-import { inject, onMounted, useTemplateRef } from 'vue';
-import { STEP_FORM_KEY } from '../shared/useStepForm';
-import type { StepFormHooks, StepFormInfo } from '../types/step-form';
+import type { FormItemRule } from 'element-plus';
 import { useI18n } from 'vue-i18n';
+import { useStepFormItem } from '../shared/useStepFormItem';
+import type { StepFormInfo } from '../types/step-form';
 
 const { t } = useI18n();
 const rules: Record<keyof Pick<StepFormInfo, 'password'>, FormItemRule | FormItemRule[]> = {
   password: [{ required: true, message: t('form.stepForm.item.placeholder.passowrd'), trigger: 'change' }],
 };
 
-const injectForm = inject<StepFormHooks<StepFormInfo>>(STEP_FORM_KEY);
-
-if (!injectForm) {
-  throw new Error('useStepForm must be used after useStepFormProvider');
-}
-
-const { formModel, setForm, next } = injectForm;
-
-const form = useTemplateRef<FormInstance>('form');
-
-onMounted(() => {
-  setForm(1, form);
-});
+const { formModel, next } = useStepFormItem<StepFormInfo>({ sequence: 1, formInstance: 'form' });
 </script>

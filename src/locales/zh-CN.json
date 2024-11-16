@@ -158,7 +158,11 @@
       },
       "alert": {
         "tip1": "确认转账后，资金将直接打入对方账户，无法退回。"
-      }
+      },
+      "operateSuccess": "操作成功",
+      "need2Hour": "预计两小时到账",
+      "transformAgain": "再转一笔",
+      "seeDetail": "查看账单"
     }
   },
   "mock": {

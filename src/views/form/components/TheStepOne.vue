@@ -97,11 +97,10 @@
 </template>
 
 <script setup lang="ts">
-import type { FormInstance, FormItemRule } from 'element-plus';
-import { inject, onMounted, useTemplateRef } from 'vue';
-import { STEP_FORM_KEY } from '../shared/useStepForm';
-import type { StepFormHooks, StepFormInfo } from '../types/step-form';
+import type { FormItemRule } from 'element-plus';
 import { useI18n } from 'vue-i18n';
+import { useStepFormItem } from '../shared/useStepFormItem';
+import type { StepFormInfo } from '../types/step-form';
 
 const { t } = useI18n();
 const rules: Record<keyof Omit<StepFormInfo, 'password'>, FormItemRule | FormItemRule[]> = {
@@ -124,19 +123,7 @@ const rules: Record<keyof Omit<StepFormInfo, 'password'>, FormItemRule | FormIte
   ],
 };
 
-const injectForm = inject<StepFormHooks<StepFormInfo>>(STEP_FORM_KEY);
-
-if (!injectForm) {
-  throw new Error('useStepForm must be used after useStepFormProvider');
-}
-
-const { formModel, setForm, next } = injectForm;
-
-const form = useTemplateRef<FormInstance>('form');
-
-onMounted(() => {
-  setForm(0, form);
-});
+const { formModel, next } = useStepFormItem<StepFormInfo>({ sequence: 0, formInstance: 'form' });
 </script>
 
 <style scoped>

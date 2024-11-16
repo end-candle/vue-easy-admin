@@ -61,6 +61,8 @@ declare module 'vue' {
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpMore: typeof import('~icons/ep/more')['default']
     IEpSetting: typeof import('~icons/ep/setting')['default']
+    IEpSuccess: typeof import('~icons/ep/success')['default']
+    IEpSuccessFilled: typeof import('~icons/ep/success-filled')['default']
     IEpSwitchButton: typeof import('~icons/ep/switch-button')['default']
     IEpUser: typeof import('~icons/ep/user')['default']
     IUiwAlipay: typeof import('~icons/uiw/alipay')['default']

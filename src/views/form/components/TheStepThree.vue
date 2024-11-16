@@ -1,90 +1,40 @@
 <template>
-  <div class="step-three">
-    <div class="step-three__header text-center">
-      <div class="step-three-icon"><i class="el-icon-success"></i></div>
-      <div class="step-three-message">操作成功</div>
-      <div class="step-three-desc">预计两小时到账</div>
+  <div class="max-w-140 my-16 mx-a">
+    <div class="text-center">
+      <div class="text-size-7xl text-green"><i-ep-success-filled></i-ep-success-filled></div>
+      <div class="text-size-2xl">{{ $t('form.stepForm.operateSuccess') }}</div>
+      <div class="text-size-sm">{{ $t('form.stepForm.need2Hour') }}</div>
     </div>
-    <ul class="step-three-ul">
-      <li class="step-three-li">转账账号：{{ payInfo.account }}</li>
-      <li class="step-three-li">收款账户：{{ payInfo.user }}</li>
-      <li class="step-three-li">收款人姓名：{{ payInfo.name }}</li>
-      <li class="step-three-li">
-        转账金额：<span class="step-three-money">{{ payInfo.money }}</span
-        ><span class="step-three-unit">元</span>
+    <ul class="bg-#fafafa mt-6 px-10 py-6">
+      <li class="list-none mb-4">{{ $t('form.stepForm.item.account2') }}：{{ formModel.account }}</li>
+      <li class="list-none mb-4">{{ $t('form.stepForm.item.user') }}：{{ formModel.user }}</li>
+      <li class="list-none mb-4">{{ $t('form.stepForm.item.name') }}：{{ formModel.name }}</li>
+      <li class="list-none mb-4">
+        {{ $t('form.stepForm.item.money') }}：￥<span class="text-size-2xl">{{ formModel.money }}</span>
       </li>
     </ul>
-    <div class="step-three__footer text-center">
+    <div class="mt-8 text-center">
       <el-button
         type="primary"
         @click="handleAgain"
-        >再转一笔</el-button
+        >{{ $t('form.stepForm.transformAgain') }}</el-button
       >
-      <el-button @click="handleSeeDetail">查看账单</el-button>
+      <el-button @click="handleSeeDetail">{{ $t('form.stepForm.seeDetail') }}</el-button>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TheStepThree',
-  props: {
-    payInfo: {
-      type: Object,
-      required: true,
-    },
-  },
-  emits: ['again', 'see-detail'],
-  methods: {
-    handleAgain() {
-      this.$emit('again');
-    },
-    handleSeeDetail() {
-      this.$emit('see-detail');
-    },
-  },
-};
+<script setup lang="ts">
+import { ElNotification } from 'element-plus';
+import { useStepFormItem } from '../shared/useStepFormItem';
+import type { StepFormInfo } from '../types/step-form';
+
+const { formModel, setActive } = useStepFormItem<StepFormInfo>({ sequence: 1, formInstance: 'form' });
+function handleAgain() {
+  setActive(0);
+}
+
+function handleSeeDetail() {
+  ElNotification.info('see detail');
+}
 </script>
-
-<style lang="scss" scoped>
-.step-three {
-  max-width: 560px;
-  margin: 16px auto;
-}
-
-.step-three-icon {
-  font-size: 72px;
-  color: $--color-success;
-}
-
-.step-three-message {
-  font-size: 24px;
-}
-.step-three-desc {
-  font-size: 14px;
-  color: $--color-text-secondary;
-}
-
-.step-three-ul {
-  padding: 24px 40px;
-  margin-top: 24px;
-  background-color: #fafafa;
-}
-
-.step-three-li {
-  list-style: none;
-  padding-bottom: 16px;
-}
-
-.step-three-money {
-  font-size: 24px;
-}
-.step-three-unit {
-  font-size: 16px;
-  padding-left: 4px;
-}
-
-.step-three__footer {
-  margin-top: 32px;
-}
-</style>

@@ -158,7 +158,11 @@
       },
       "desc": "Divide a lengthy or unfamiliar form task into multiple steps and guide the user to complete it.",
       "stepOne": "Fill in transfer information",
-      "stepTwo": "Confirm transfer information"
+      "stepTwo": "Confirm transfer information",
+      "operateSuccess": "Operation successful",
+      "seeDetail": "View bill",
+      "need2Hour": "Expected to arrive in two hours",
+      "transformAgain": "Turn another stroke"
     }
   },
   "mock": {
