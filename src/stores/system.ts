@@ -92,6 +92,11 @@ export const useSystemStore = defineStore('system', () => {
    * @returns {RouteLocationRaw} 默认的路由路径
    */
   function getDefaultPath(): RouteLocationRaw {
+    // 如果不是登录页，直接按照当前页面路径处理
+    if (route.name !== ROUTE_NAME.LOGIN) {
+      return route;
+    }
+
     // 检查是否有重定向URL，如果有则直接返回
     if (route.query.redirectUrl) {
       return route.query.redirectUrl as string;
