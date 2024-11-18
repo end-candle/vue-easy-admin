@@ -90,3 +90,11 @@ export function toTree<T extends { children?: T[] }>(
   // 返回构建好的树形结构数组
   return tree;
 }
+
+/**
+ * 生成一个随机的数字ID
+ * @returns 随机的数字ID
+ */
+export function getRandomId(): number {
+  return window.crypto.getRandomValues(new Uint32Array(1))[0];
+}

@@ -286,9 +286,17 @@
       <template #header>
         <ElText size="large"> {{ $t('form.advanceForm.subtitle3') }} </ElText>
       </template>
+      <el-button
+        icon="el-icon-plus"
+        :plain="true"
+        class="w-full mb-3"
+        @click="handleAddMember"
+        >{{ $t('form.advanceForm.operate.addMember') }}</el-button
+      >
       <ElAutoResizer :style="{ width: '100%', height: '200px' }">
         <template #default="{ width, height }">
           <ElTableV2
+            ref="tableRef"
             :columns="columns"
             :height="height"
             :width="width"
@@ -296,12 +304,6 @@
           ></ElTableV2>
         </template>
       </ElAutoResizer>
-      <el-button
-        icon="el-icon-plus"
-        :plain="true"
-        class="w-full mt24"
-        >{{ $t('form.advanceForm.operate.addMember') }}</el-button
-      >
     </ContainerCard>
   </ElForm>
   <div
@@ -320,11 +322,12 @@
 
 <script lang="ts" setup>
 import { computed, inject, ref, useTemplateRef } from 'vue';
-import type { Column, FormItemRule, FormInstance } from 'element-plus';
+import type { Column, FormItemRule, FormInstance, TableV2Instance } from 'element-plus';
 import { useI18n } from 'vue-i18n';
 import type { AdvanceFormInfo } from './types/advance-form';
 import type { MainLayoutProvider } from '@/components/layouts/types/main-layout';
 import { MAIN_LAYOUT_KEY } from '@/components/layouts/shared/constants';
+import { getRandomId } from '@/helpers/common';
 
 const formData = ref<AdvanceFormInfo>({
   name: '',
@@ -459,6 +462,7 @@ const adminList = computed(() => {
 });
 
 const form = useTemplateRef<FormInstance>('form');
+const tableRef = useTemplateRef<TableV2Instance>('tableRef');
 
 async function submitForm() {
   const valid = await form.value?.validate();
@@ -471,6 +475,15 @@ async function submitForm() {
 
 function resetForm() {
   form.value?.resetFields();
+}
+
+function handleAddMember() {
+  tableRef.value?.scrollTo({ scrollLeft: 0, scrollTop: 0 });
+  memberList.value.unshift({
+    name: '',
+    no: getRandomId().toString(),
+    department: '',
+  });
 }
 </script>
 

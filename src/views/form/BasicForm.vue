@@ -35,7 +35,7 @@
         <ElSelect
           v-model="ruleForm.region"
           :placeholder="$t('validate.baseForm.activityRegion')"
-          class="w100"
+          class="w-full"
         >
           <ElOption
             :label="$t('mock.region1')"
